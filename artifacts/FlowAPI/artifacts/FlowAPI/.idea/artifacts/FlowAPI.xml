@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="FlowAPI">
+    <output-path>$PROJECT_DIR$/artifacts</output-path>
+    <root id="archive" name="FlowAPI.war">
+      <element id="library" level="project" name="lib" />
+      <element id="module-output" name="FlowAPI" />
+      <element id="javaee-facet-resources" facet="FlowAPI/web/Web" />
+    </root>
+  </artifact>
+</component>
