@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vnf.myshare.valueops.dao.BO_ATTRIBUTEMapper">
+  <resultMap id="BaseResultMap" type="com.vnf.myshare.valueops.model.BO_ATTRIBUTE">
+    <result column="FIELDID" jdbcType="INTEGER" property="fieldid" />
+    <result column="FIELDLABEL" jdbcType="VARCHAR" property="fieldlabel" />
+    <result column="FIELDTYPE" jdbcType="VARCHAR" property="fieldtype" />
+    <result column="FIELDLENGTH" jdbcType="VARCHAR" property="fieldlength" />
+    <result column="FIELDSTATUS" jdbcType="VARCHAR" property="fieldstatus" />
+    <result column="VALUE1LABEL" jdbcType="VARCHAR" property="value1label" />
+    <result column="VALUE2LABEL" jdbcType="VARCHAR" property="value2label" />
+    <result column="VALUE3LABEL" jdbcType="VARCHAR" property="value3label" />
+    <result column="VALUE4LABEL" jdbcType="VARCHAR" property="value4label" />
+    <result column="VALUE5LABEL" jdbcType="VARCHAR" property="value5label" />
+    <result column="VALUE6LABEL" jdbcType="VARCHAR" property="value6label" />
+    <result column="VALUE7LABEL" jdbcType="VARCHAR" property="value7label" />
+    <result column="VALUE8LABEL" jdbcType="VARCHAR" property="value8label" />
+    <result column="VALUE9LABEL" jdbcType="VARCHAR" property="value9label" />
+    <result column="VALUE10LABEL" jdbcType="VARCHAR" property="value10label" />
+    <result column="VALUE11LABEL" jdbcType="VARCHAR" property="value11label" />
+    <result column="VALUE12LABEL" jdbcType="VARCHAR" property="value12label" />
+    <result column="VALUE13LABEL" jdbcType="VARCHAR" property="value13label" />
+    <result column="VALUE14LABEL" jdbcType="VARCHAR" property="value14label" />
+    <result column="VALUE15LABEL" jdbcType="VARCHAR" property="value15label" />
+    <result column="VALUE16LABEL" jdbcType="VARCHAR" property="value16label" />
+    <result column="VALUE17LABEL" jdbcType="VARCHAR" property="value17label" />
+    <result column="VALUE18LABEL" jdbcType="VARCHAR" property="value18label" />
+    <result column="VALUE19LABEL" jdbcType="VARCHAR" property="value19label" />
+    <result column="VALUE20LABEL" jdbcType="VARCHAR" property="value20label" />
+    <result column="VALUE21LABEL" jdbcType="VARCHAR" property="value21label" />
+    <result column="VALUE22LABEL" jdbcType="VARCHAR" property="value22label" />
+    <result column="VALUE23LABEL" jdbcType="VARCHAR" property="value23label" />
+    <result column="VALUE24LABEL" jdbcType="VARCHAR" property="value24label" />
+    <result column="VALUE25LABEL" jdbcType="VARCHAR" property="value25label" />
+    <result column="VALUE26LABEL" jdbcType="VARCHAR" property="value26label" />
+    <result column="VALUE27LABEL" jdbcType="VARCHAR" property="value27label" />
+    <result column="VALUE28LABEL" jdbcType="VARCHAR" property="value28label" />
+    <result column="VALUE29LABEL" jdbcType="VARCHAR" property="value29label" />
+    <result column="VALUE30LABEL" jdbcType="VARCHAR" property="value30label" />
+    <result column="VALUE31LABEL" jdbcType="VARCHAR" property="value31label" />
+    <result column="VALUE32LABEL" jdbcType="VARCHAR" property="value32label" />
+    <result column="VALUE33LABEL" jdbcType="VARCHAR" property="value33label" />
+    <result column="VALUE34LABEL" jdbcType="VARCHAR" property="value34label" />
+    <result column="VALUE35LABEL" jdbcType="VARCHAR" property="value35label" />
+    <result column="VALUE36LABEL" jdbcType="VARCHAR" property="value36label" />
+    <result column="VALUE37LABEL" jdbcType="VARCHAR" property="value37label" />
+    <result column="VALUE38LABEL" jdbcType="VARCHAR" property="value38label" />
+    <result column="VALUE39LABEL" jdbcType="VARCHAR" property="value39label" />
+    <result column="VALUE40LABEL" jdbcType="VARCHAR" property="value40label" />
+    <result column="VALUE41LABEL" jdbcType="VARCHAR" property="value41label" />
+    <result column="VALUE42LABEL" jdbcType="VARCHAR" property="value42label" />
+    <result column="VALUE43LABEL" jdbcType="VARCHAR" property="value43label" />
+    <result column="VALUE44LABEL" jdbcType="VARCHAR" property="value44label" />
+    <result column="VALUE45LABEL" jdbcType="VARCHAR" property="value45label" />
+    <result column="VALUE46LABEL" jdbcType="VARCHAR" property="value46label" />
+    <result column="VALUE47LABEL" jdbcType="VARCHAR" property="value47label" />
+    <result column="VALUE48LABEL" jdbcType="VARCHAR" property="value48label" />
+    <result column="VALUE49LABEL" jdbcType="VARCHAR" property="value49label" />
+    <result column="VALUE50LABEL" jdbcType="VARCHAR" property="value50label" />
+    <result column="VALUE51LABEL" jdbcType="VARCHAR" property="value51label" />
+    <result column="VALUE52LABEL" jdbcType="VARCHAR" property="value52label" />
+    <result column="VALUE53LABEL" jdbcType="VARCHAR" property="value53label" />
+    <result column="VALUE54LABEL" jdbcType="VARCHAR" property="value54label" />
+    <result column="VALUE55LABEL" jdbcType="VARCHAR" property="value55label" />
+    <result column="VALUE56LABEL" jdbcType="VARCHAR" property="value56label" />
+    <result column="VALUE57LABEL" jdbcType="VARCHAR" property="value57label" />
+    <result column="VALUE58LABEL" jdbcType="VARCHAR" property="value58label" />
+    <result column="VALUE59LABEL" jdbcType="VARCHAR" property="value59label" />
+    <result column="VALUE60LABEL" jdbcType="VARCHAR" property="value60label" />
+    <result column="VALUE61LABEL" jdbcType="VARCHAR" property="value61label" />
+    <result column="VALUE62LABEL" jdbcType="VARCHAR" property="value62label" />
+    <result column="VALUE63LABEL" jdbcType="VARCHAR" property="value63label" />
+    <result column="VALUE64LABEL" jdbcType="VARCHAR" property="value64label" />
+    <result column="VALUE65LABEL" jdbcType="VARCHAR" property="value65label" />
+    <result column="VALUE66LABEL" jdbcType="VARCHAR" property="value66label" />
+    <result column="VALUE67LABEL" jdbcType="VARCHAR" property="value67label" />
+    <result column="VALUE68LABEL" jdbcType="VARCHAR" property="value68label" />
+    <result column="VALUE69LABEL" jdbcType="VARCHAR" property="value69label" />
+    <result column="VALUE70LABEL" jdbcType="VARCHAR" property="value70label" />
+    <result column="VALUE71LABEL" jdbcType="VARCHAR" property="value71label" />
+    <result column="VALUE72LABEL" jdbcType="VARCHAR" property="value72label" />
+    <result column="VALUE73LABEL" jdbcType="VARCHAR" property="value73label" />
+    <result column="VALUE74LABEL" jdbcType="VARCHAR" property="value74label" />
+    <result column="VALUE75LABEL" jdbcType="VARCHAR" property="value75label" />
+    <result column="VALUE76LABEL" jdbcType="VARCHAR" property="value76label" />
+    <result column="VALUE77LABEL" jdbcType="VARCHAR" property="value77label" />
+    <result column="VALUE78LABEL" jdbcType="VARCHAR" property="value78label" />
+    <result column="VALUE79LABEL" jdbcType="VARCHAR" property="value79label" />
+    <result column="VALUE80LABEL" jdbcType="VARCHAR" property="value80label" />
+    <result column="VALUE81LABEL" jdbcType="VARCHAR" property="value81label" />
+    <result column="VALUE82LABEL" jdbcType="VARCHAR" property="value82label" />
+    <result column="VALUE83LABEL" jdbcType="VARCHAR" property="value83label" />
+    <result column="VALUE84LABEL" jdbcType="VARCHAR" property="value84label" />
+    <result column="VALUE85LABEL" jdbcType="VARCHAR" property="value85label" />
+    <result column="VALUE86LABEL" jdbcType="VARCHAR" property="value86label" />
+    <result column="VALUE87LABEL" jdbcType="VARCHAR" property="value87label" />
+    <result column="VALUE88LABEL" jdbcType="VARCHAR" property="value88label" />
+    <result column="VALUE89LABEL" jdbcType="VARCHAR" property="value89label" />
+    <result column="VALUE90LABEL" jdbcType="VARCHAR" property="value90label" />
+    <result column="VALUE91LABEL" jdbcType="VARCHAR" property="value91label" />
+    <result column="VALUE92LABEL" jdbcType="VARCHAR" property="value92label" />
+    <result column="VALUE93LABEL" jdbcType="VARCHAR" property="value93label" />
+    <result column="VALUE94LABEL" jdbcType="VARCHAR" property="value94label" />
+    <result column="VALUE95LABEL" jdbcType="VARCHAR" property="value95label" />
+    <result column="VALUE96LABEL" jdbcType="VARCHAR" property="value96label" />
+    <result column="VALUE97LABEL" jdbcType="VARCHAR" property="value97label" />
+    <result column="VALUE98LABEL" jdbcType="VARCHAR" property="value98label" />
+    <result column="VALUE99LABEL" jdbcType="VARCHAR" property="value99label" />
+    <result column="VALUE100LABEL" jdbcType="VARCHAR" property="value100label" />
+    <result column="VALUE101LABEL" jdbcType="VARCHAR" property="value101label" />
+    <result column="VALUE102LABEL" jdbcType="VARCHAR" property="value102label" />
+    <result column="VALUE103LABEL" jdbcType="VARCHAR" property="value103label" />
+    <result column="VALUE104LABEL" jdbcType="VARCHAR" property="value104label" />
+    <result column="VALUE105LABEL" jdbcType="VARCHAR" property="value105label" />
+    <result column="VALUE106LABEL" jdbcType="VARCHAR" property="value106label" />
+    <result column="VALUE107LABEL" jdbcType="VARCHAR" property="value107label" />
+    <result column="VALUE108LABEL" jdbcType="VARCHAR" property="value108label" />
+    <result column="VALUE109LABEL" jdbcType="VARCHAR" property="value109label" />
+    <result column="VALUE110LABEL" jdbcType="VARCHAR" property="value110label" />
+    <result column="VALUE111LABEL" jdbcType="VARCHAR" property="value111label" />
+    <result column="VALUE112LABEL" jdbcType="VARCHAR" property="value112label" />
+    <result column="VALUE113LABEL" jdbcType="VARCHAR" property="value113label" />
+    <result column="VALUE114LABEL" jdbcType="VARCHAR" property="value114label" />
+    <result column="VALUE115LABEL" jdbcType="VARCHAR" property="value115label" />
+    <result column="VALUE116LABEL" jdbcType="VARCHAR" property="value116label" />
+    <result column="VALUE117LABEL" jdbcType="VARCHAR" property="value117label" />
+    <result column="VALUE118LABEL" jdbcType="VARCHAR" property="value118label" />
+    <result column="VALUE119LABEL" jdbcType="VARCHAR" property="value119label" />
+    <result column="VALUE120LABEL" jdbcType="VARCHAR" property="value120label" />
+    <result column="VALUE121LABEL" jdbcType="VARCHAR" property="value121label" />
+    <result column="VALUE122LABEL" jdbcType="VARCHAR" property="value122label" />
+    <result column="VALUE123LABEL" jdbcType="VARCHAR" property="value123label" />
+    <result column="VALUE124LABEL" jdbcType="VARCHAR" property="value124label" />
+    <result column="VALUE125LABEL" jdbcType="VARCHAR" property="value125label" />
+    <result column="VALUE126LABEL" jdbcType="VARCHAR" property="value126label" />
+    <result column="VALUE127LABEL" jdbcType="VARCHAR" property="value127label" />
+    <result column="VALUE128LABEL" jdbcType="VARCHAR" property="value128label" />
+    <result column="VALUE129LABEL" jdbcType="VARCHAR" property="value129label" />
+    <result column="VALUE130LABEL" jdbcType="VARCHAR" property="value130label" />
+    <result column="VALUE131LABEL" jdbcType="VARCHAR" property="value131label" />
+    <result column="VALUE132LABEL" jdbcType="VARCHAR" property="value132label" />
+    <result column="VALUE133LABEL" jdbcType="VARCHAR" property="value133label" />
+    <result column="VALUE134LABEL" jdbcType="VARCHAR" property="value134label" />
+    <result column="VALUE135LABEL" jdbcType="VARCHAR" property="value135label" />
+    <result column="VALUE136LABEL" jdbcType="VARCHAR" property="value136label" />
+    <result column="VALUE137LABEL" jdbcType="VARCHAR" property="value137label" />
+    <result column="VALUE138LABEL" jdbcType="VARCHAR" property="value138label" />
+    <result column="VALUE139LABEL" jdbcType="VARCHAR" property="value139label" />
+    <result column="VALUE140LABEL" jdbcType="VARCHAR" property="value140label" />
+    <result column="VALUE141LABEL" jdbcType="VARCHAR" property="value141label" />
+    <result column="VALUE142LABEL" jdbcType="VARCHAR" property="value142label" />
+    <result column="VALUE143LABEL" jdbcType="VARCHAR" property="value143label" />
+    <result column="VALUE144LABEL" jdbcType="VARCHAR" property="value144label" />
+    <result column="VALUE145LABEL" jdbcType="VARCHAR" property="value145label" />
+    <result column="VALUE146LABEL" jdbcType="VARCHAR" property="value146label" />
+    <result column="VALUE147LABEL" jdbcType="VARCHAR" property="value147label" />
+    <result column="VALUE148LABEL" jdbcType="VARCHAR" property="value148label" />
+    <result column="VALUE149LABEL" jdbcType="VARCHAR" property="value149label" />
+    <result column="VALUE150LABEL" jdbcType="VARCHAR" property="value150label" />
+    <result column="VALUE151LABEL" jdbcType="VARCHAR" property="value151label" />
+    <result column="VALUE152LABEL" jdbcType="VARCHAR" property="value152label" />
+    <result column="VALUE153LABEL" jdbcType="VARCHAR" property="value153label" />
+    <result column="VALUE154LABEL" jdbcType="VARCHAR" property="value154label" />
+    <result column="VALUE155LABEL" jdbcType="VARCHAR" property="value155label" />
+    <result column="VALUE156LABEL" jdbcType="VARCHAR" property="value156label" />
+    <result column="VALUE157LABEL" jdbcType="VARCHAR" property="value157label" />
+    <result column="VALUE158LABEL" jdbcType="VARCHAR" property="value158label" />
+    <result column="VALUE159LABEL" jdbcType="VARCHAR" property="value159label" />
+    <result column="VALUE160LABEL" jdbcType="VARCHAR" property="value160label" />
+    <result column="VALUE161LABEL" jdbcType="VARCHAR" property="value161label" />
+    <result column="VALUE162LABEL" jdbcType="VARCHAR" property="value162label" />
+    <result column="VALUE163LABEL" jdbcType="VARCHAR" property="value163label" />
+    <result column="VALUE164LABEL" jdbcType="VARCHAR" property="value164label" />
+    <result column="VALUE165LABEL" jdbcType="VARCHAR" property="value165label" />
+    <result column="VALUE166LABEL" jdbcType="VARCHAR" property="value166label" />
+    <result column="VALUE167LABEL" jdbcType="VARCHAR" property="value167label" />
+    <result column="VALUE168LABEL" jdbcType="VARCHAR" property="value168label" />
+    <result column="VALUE169LABEL" jdbcType="VARCHAR" property="value169label" />
+    <result column="VALUE170LABEL" jdbcType="VARCHAR" property="value170label" />
+    <result column="VALUE171LABEL" jdbcType="VARCHAR" property="value171label" />
+    <result column="VALUE172LABEL" jdbcType="VARCHAR" property="value172label" />
+    <result column="VALUE173LABEL" jdbcType="VARCHAR" property="value173label" />
+    <result column="VALUE174LABEL" jdbcType="VARCHAR" property="value174label" />
+    <result column="VALUE175LABEL" jdbcType="VARCHAR" property="value175label" />
+    <result column="VALUE176LABEL" jdbcType="VARCHAR" property="value176label" />
+    <result column="VALUE177LABEL" jdbcType="VARCHAR" property="value177label" />
+    <result column="VALUE178LABEL" jdbcType="VARCHAR" property="value178label" />
+    <result column="VALUE179LABEL" jdbcType="VARCHAR" property="value179label" />
+    <result column="VALUE180LABEL" jdbcType="VARCHAR" property="value180label" />
+    <result column="VALUE181LABEL" jdbcType="VARCHAR" property="value181label" />
+    <result column="VALUE182LABEL" jdbcType="VARCHAR" property="value182label" />
+    <result column="VALUE183LABEL" jdbcType="VARCHAR" property="value183label" />
+    <result column="VALUE184LABEL" jdbcType="VARCHAR" property="value184label" />
+    <result column="VALUE185LABEL" jdbcType="VARCHAR" property="value185label" />
+    <result column="VALUE186LABEL" jdbcType="VARCHAR" property="value186label" />
+    <result column="VALUE187LABEL" jdbcType="VARCHAR" property="value187label" />
+    <result column="VALUE188LABEL" jdbcType="VARCHAR" property="value188label" />
+    <result column="VALUE189LABEL" jdbcType="VARCHAR" property="value189label" />
+    <result column="VALUE190LABEL" jdbcType="VARCHAR" property="value190label" />
+    <result column="VALUE191LABEL" jdbcType="VARCHAR" property="value191label" />
+    <result column="VALUE192LABEL" jdbcType="VARCHAR" property="value192label" />
+    <result column="VALUE193LABEL" jdbcType="VARCHAR" property="value193label" />
+    <result column="VALUE194LABEL" jdbcType="VARCHAR" property="value194label" />
+    <result column="VALUE195LABEL" jdbcType="VARCHAR" property="value195label" />
+    <result column="VALUE196LABEL" jdbcType="VARCHAR" property="value196label" />
+    <result column="VALUE197LABEL" jdbcType="VARCHAR" property="value197label" />
+    <result column="VALUE198LABEL" jdbcType="VARCHAR" property="value198label" />
+    <result column="VALUE199LABEL" jdbcType="VARCHAR" property="value199label" />
+    <result column="VALUE200LABEL" jdbcType="VARCHAR" property="value200label" />
+    <result column="AUTHDEPT" jdbcType="VARCHAR" property="authdept" />
+    <result column="SEARCHIND" jdbcType="VARCHAR" property="searchind" />
+    <result column="DISPLAYIND" jdbcType="VARCHAR" property="displayind" />
+    <result column="BRANCHIND" jdbcType="VARCHAR" property="branchind" />
+    <result column="MANDATORYIND" jdbcType="VARCHAR" property="mandatoryind" />
+    <result column="DUPLIACTEIND" jdbcType="VARCHAR" property="dupliacteind" />
+    <result column="FIELDSEQ" jdbcType="INTEGER" property="fieldseq" />
+    <result column="BARCODEIND" jdbcType="VARCHAR" property="barcodeind" />
+    <result column="BARCODESTART" jdbcType="VARCHAR" property="barcodestart" />
+    <result column="BARCODELENGTH" jdbcType="VARCHAR" property="barcodelength" />
+    <result column="VALUE1VALUE" jdbcType="LONGVARCHAR" property="value1value" />
+    <result column="VALUE2VALUE" jdbcType="LONGVARCHAR" property="value2value" />
+    <result column="VALUE3VALUE" jdbcType="LONGVARCHAR" property="value3value" />
+    <result column="VALUE4VALUE" jdbcType="LONGVARCHAR" property="value4value" />
+    <result column="VALUE5VALUE" jdbcType="LONGVARCHAR" property="value5value" />
+    <result column="VALUE6VALUE" jdbcType="LONGVARCHAR" property="value6value" />
+    <result column="VALUE7VALUE" jdbcType="LONGVARCHAR" property="value7value" />
+    <result column="VALUE8VALUE" jdbcType="LONGVARCHAR" property="value8value" />
+    <result column="VALUE9VALUE" jdbcType="LONGVARCHAR" property="value9value" />
+    <result column="VALUE10VALUE" jdbcType="LONGVARCHAR" property="value10value" />
+    <result column="VALUE11VALUE" jdbcType="LONGVARCHAR" property="value11value" />
+    <result column="VALUE12VALUE" jdbcType="LONGVARCHAR" property="value12value" />
+    <result column="VALUE13VALUE" jdbcType="LONGVARCHAR" property="value13value" />
+    <result column="VALUE14VALUE" jdbcType="LONGVARCHAR" property="value14value" />
+    <result column="VALUE15VALUE" jdbcType="LONGVARCHAR" property="value15value" />
+    <result column="VALUE16VALUE" jdbcType="LONGVARCHAR" property="value16value" />
+    <result column="VALUE17VALUE" jdbcType="LONGVARCHAR" property="value17value" />
+    <result column="VALUE18VALUE" jdbcType="LONGVARCHAR" property="value18value" />
+    <result column="VALUE19VALUE" jdbcType="LONGVARCHAR" property="value19value" />
+    <result column="VALUE20VALUE" jdbcType="LONGVARCHAR" property="value20value" />
+    <result column="VALUE21VALUE" jdbcType="LONGVARCHAR" property="value21value" />
+    <result column="VALUE22VALUE" jdbcType="LONGVARCHAR" property="value22value" />
+    <result column="VALUE23VALUE" jdbcType="LONGVARCHAR" property="value23value" />
+    <result column="VALUE24VALUE" jdbcType="LONGVARCHAR" property="value24value" />
+    <result column="VALUE25VALUE" jdbcType="LONGVARCHAR" property="value25value" />
+    <result column="VALUE26VALUE" jdbcType="LONGVARCHAR" property="value26value" />
+    <result column="VALUE27VALUE" jdbcType="LONGVARCHAR" property="value27value" />
+    <result column="VALUE28VALUE" jdbcType="LONGVARCHAR" property="value28value" />
+    <result column="VALUE29VALUE" jdbcType="LONGVARCHAR" property="value29value" />
+    <result column="VALUE30VALUE" jdbcType="LONGVARCHAR" property="value30value" />
+    <result column="VALUE31VALUE" jdbcType="LONGVARCHAR" property="value31value" />
+    <result column="VALUE32VALUE" jdbcType="LONGVARCHAR" property="value32value" />
+    <result column="VALUE33VALUE" jdbcType="LONGVARCHAR" property="value33value" />
+    <result column="VALUE34VALUE" jdbcType="LONGVARCHAR" property="value34value" />
+    <result column="VALUE35VALUE" jdbcType="LONGVARCHAR" property="value35value" />
+    <result column="VALUE36VALUE" jdbcType="LONGVARCHAR" property="value36value" />
+    <result column="VALUE37VALUE" jdbcType="LONGVARCHAR" property="value37value" />
+    <result column="VALUE38VALUE" jdbcType="LONGVARCHAR" property="value38value" />
+    <result column="VALUE39VALUE" jdbcType="LONGVARCHAR" property="value39value" />
+    <result column="VALUE40VALUE" jdbcType="LONGVARCHAR" property="value40value" />
+    <result column="VALUE41VALUE" jdbcType="LONGVARCHAR" property="value41value" />
+    <result column="VALUE42VALUE" jdbcType="LONGVARCHAR" property="value42value" />
+    <result column="VALUE43VALUE" jdbcType="LONGVARCHAR" property="value43value" />
+    <result column="VALUE44VALUE" jdbcType="LONGVARCHAR" property="value44value" />
+    <result column="VALUE45VALUE" jdbcType="LONGVARCHAR" property="value45value" />
+    <result column="VALUE46VALUE" jdbcType="LONGVARCHAR" property="value46value" />
+    <result column="VALUE47VALUE" jdbcType="LONGVARCHAR" property="value47value" />
+    <result column="VALUE48VALUE" jdbcType="LONGVARCHAR" property="value48value" />
+    <result column="VALUE49VALUE" jdbcType="LONGVARCHAR" property="value49value" />
+    <result column="VALUE50VALUE" jdbcType="LONGVARCHAR" property="value50value" />
+    <result column="VALUE51VALUE" jdbcType="LONGVARCHAR" property="value51value" />
+    <result column="VALUE52VALUE" jdbcType="LONGVARCHAR" property="value52value" />
+    <result column="VALUE53VALUE" jdbcType="LONGVARCHAR" property="value53value" />
+    <result column="VALUE54VALUE" jdbcType="LONGVARCHAR" property="value54value" />
+    <result column="VALUE55VALUE" jdbcType="LONGVARCHAR" property="value55value" />
+    <result column="VALUE56VALUE" jdbcType="LONGVARCHAR" property="value56value" />
+    <result column="VALUE57VALUE" jdbcType="LONGVARCHAR" property="value57value" />
+    <result column="VALUE58VALUE" jdbcType="LONGVARCHAR" property="value58value" />
+    <result column="VALUE59VALUE" jdbcType="LONGVARCHAR" property="value59value" />
+    <result column="VALUE60VALUE" jdbcType="LONGVARCHAR" property="value60value" />
+    <result column="VALUE61VALUE" jdbcType="LONGVARCHAR" property="value61value" />
+    <result column="VALUE62VALUE" jdbcType="LONGVARCHAR" property="value62value" />
+    <result column="VALUE63VALUE" jdbcType="LONGVARCHAR" property="value63value" />
+    <result column="VALUE64VALUE" jdbcType="LONGVARCHAR" property="value64value" />
+    <result column="VALUE65VALUE" jdbcType="LONGVARCHAR" property="value65value" />
+    <result column="VALUE66VALUE" jdbcType="LONGVARCHAR" property="value66value" />
+    <result column="VALUE67VALUE" jdbcType="LONGVARCHAR" property="value67value" />
+    <result column="VALUE68VALUE" jdbcType="LONGVARCHAR" property="value68value" />
+    <result column="VALUE69VALUE" jdbcType="LONGVARCHAR" property="value69value" />
+    <result column="VALUE70VALUE" jdbcType="LONGVARCHAR" property="value70value" />
+    <result column="VALUE71VALUE" jdbcType="LONGVARCHAR" property="value71value" />
+    <result column="VALUE72VALUE" jdbcType="LONGVARCHAR" property="value72value" />
+    <result column="VALUE73VALUE" jdbcType="LONGVARCHAR" property="value73value" />
+    <result column="VALUE74VALUE" jdbcType="LONGVARCHAR" property="value74value" />
+    <result column="VALUE75VALUE" jdbcType="LONGVARCHAR" property="value75value" />
+    <result column="VALUE76VALUE" jdbcType="LONGVARCHAR" property="value76value" />
+    <result column="VALUE77VALUE" jdbcType="LONGVARCHAR" property="value77value" />
+    <result column="VALUE78VALUE" jdbcType="LONGVARCHAR" property="value78value" />
+    <result column="VALUE79VALUE" jdbcType="LONGVARCHAR" property="value79value" />
+    <result column="VALUE80VALUE" jdbcType="LONGVARCHAR" property="value80value" />
+    <result column="VALUE81VALUE" jdbcType="LONGVARCHAR" property="value81value" />
+    <result column="VALUE82VALUE" jdbcType="LONGVARCHAR" property="value82value" />
+    <result column="VALUE83VALUE" jdbcType="LONGVARCHAR" property="value83value" />
+    <result column="VALUE84VALUE" jdbcType="LONGVARCHAR" property="value84value" />
+    <result column="VALUE85VALUE" jdbcType="LONGVARCHAR" property="value85value" />
+    <result column="VALUE86VALUE" jdbcType="LONGVARCHAR" property="value86value" />
+    <result column="VALUE87VALUE" jdbcType="LONGVARCHAR" property="value87value" />
+    <result column="VALUE88VALUE" jdbcType="LONGVARCHAR" property="value88value" />
+    <result column="VALUE89VALUE" jdbcType="LONGVARCHAR" property="value89value" />
+    <result column="VALUE90VALUE" jdbcType="LONGVARCHAR" property="value90value" />
+    <result column="VALUE91VALUE" jdbcType="LONGVARCHAR" property="value91value" />
+    <result column="VALUE92VALUE" jdbcType="LONGVARCHAR" property="value92value" />
+    <result column="VALUE93VALUE" jdbcType="LONGVARCHAR" property="value93value" />
+    <result column="VALUE94VALUE" jdbcType="LONGVARCHAR" property="value94value" />
+    <result column="VALUE95VALUE" jdbcType="LONGVARCHAR" property="value95value" />
+    <result column="VALUE96VALUE" jdbcType="LONGVARCHAR" property="value96value" />
+    <result column="VALUE97VALUE" jdbcType="LONGVARCHAR" property="value97value" />
+    <result column="VALUE98VALUE" jdbcType="LONGVARCHAR" property="value98value" />
+    <result column="VALUE99VALUE" jdbcType="LONGVARCHAR" property="value99value" />
+    <result column="VALUE100VALUE" jdbcType="LONGVARCHAR" property="value100value" />
+    <result column="VALUE101VALUE" jdbcType="LONGVARCHAR" property="value101value" />
+    <result column="VALUE102VALUE" jdbcType="LONGVARCHAR" property="value102value" />
+    <result column="VALUE103VALUE" jdbcType="LONGVARCHAR" property="value103value" />
+    <result column="VALUE104VALUE" jdbcType="LONGVARCHAR" property="value104value" />
+    <result column="VALUE105VALUE" jdbcType="LONGVARCHAR" property="value105value" />
+    <result column="VALUE106VALUE" jdbcType="LONGVARCHAR" property="value106value" />
+    <result column="VALUE107VALUE" jdbcType="LONGVARCHAR" property="value107value" />
+    <result column="VALUE108VALUE" jdbcType="LONGVARCHAR" property="value108value" />
+    <result column="VALUE109VALUE" jdbcType="LONGVARCHAR" property="value109value" />
+    <result column="VALUE110VALUE" jdbcType="LONGVARCHAR" property="value110value" />
+    <result column="VALUE111VALUE" jdbcType="LONGVARCHAR" property="value111value" />
+    <result column="VALUE112VALUE" jdbcType="LONGVARCHAR" property="value112value" />
+    <result column="VALUE113VALUE" jdbcType="LONGVARCHAR" property="value113value" />
+    <result column="VALUE114VALUE" jdbcType="LONGVARCHAR" property="value114value" />
+    <result column="VALUE115VALUE" jdbcType="LONGVARCHAR" property="value115value" />
+    <result column="VALUE116VALUE" jdbcType="LONGVARCHAR" property="value116value" />
+    <result column="VALUE117VALUE" jdbcType="LONGVARCHAR" property="value117value" />
+    <result column="VALUE118VALUE" jdbcType="LONGVARCHAR" property="value118value" />
+    <result column="VALUE119VALUE" jdbcType="LONGVARCHAR" property="value119value" />
+    <result column="VALUE120VALUE" jdbcType="LONGVARCHAR" property="value120value" />
+    <result column="VALUE121VALUE" jdbcType="LONGVARCHAR" property="value121value" />
+    <result column="VALUE122VALUE" jdbcType="LONGVARCHAR" property="value122value" />
+    <result column="VALUE123VALUE" jdbcType="LONGVARCHAR" property="value123value" />
+    <result column="VALUE124VALUE" jdbcType="LONGVARCHAR" property="value124value" />
+    <result column="VALUE125VALUE" jdbcType="LONGVARCHAR" property="value125value" />
+    <result column="VALUE126VALUE" jdbcType="LONGVARCHAR" property="value126value" />
+    <result column="VALUE127VALUE" jdbcType="LONGVARCHAR" property="value127value" />
+    <result column="VALUE128VALUE" jdbcType="LONGVARCHAR" property="value128value" />
+    <result column="VALUE129VALUE" jdbcType="LONGVARCHAR" property="value129value" />
+    <result column="VALUE130VALUE" jdbcType="LONGVARCHAR" property="value130value" />
+    <result column="VALUE131VALUE" jdbcType="LONGVARCHAR" property="value131value" />
+    <result column="VALUE132VALUE" jdbcType="LONGVARCHAR" property="value132value" />
+    <result column="VALUE133VALUE" jdbcType="LONGVARCHAR" property="value133value" />
+    <result column="VALUE134VALUE" jdbcType="LONGVARCHAR" property="value134value" />
+    <result column="VALUE135VALUE" jdbcType="LONGVARCHAR" property="value135value" />
+    <result column="VALUE136VALUE" jdbcType="LONGVARCHAR" property="value136value" />
+    <result column="VALUE137VALUE" jdbcType="LONGVARCHAR" property="value137value" />
+    <result column="VALUE138VALUE" jdbcType="LONGVARCHAR" property="value138value" />
+    <result column="VALUE139VALUE" jdbcType="LONGVARCHAR" property="value139value" />
+    <result column="VALUE140VALUE" jdbcType="LONGVARCHAR" property="value140value" />
+    <result column="VALUE141VALUE" jdbcType="LONGVARCHAR" property="value141value" />
+    <result column="VALUE142VALUE" jdbcType="LONGVARCHAR" property="value142value" />
+    <result column="VALUE143VALUE" jdbcType="LONGVARCHAR" property="value143value" />
+    <result column="VALUE144VALUE" jdbcType="LONGVARCHAR" property="value144value" />
+    <result column="VALUE145VALUE" jdbcType="LONGVARCHAR" property="value145value" />
+    <result column="VALUE146VALUE" jdbcType="LONGVARCHAR" property="value146value" />
+    <result column="VALUE147VALUE" jdbcType="LONGVARCHAR" property="value147value" />
+    <result column="VALUE148VALUE" jdbcType="LONGVARCHAR" property="value148value" />
+    <result column="VALUE149VALUE" jdbcType="LONGVARCHAR" property="value149value" />
+    <result column="VALUE150VALUE" jdbcType="LONGVARCHAR" property="value150value" />
+    <result column="VALUE151VALUE" jdbcType="LONGVARCHAR" property="value151value" />
+    <result column="VALUE152VALUE" jdbcType="LONGVARCHAR" property="value152value" />
+    <result column="VALUE153VALUE" jdbcType="LONGVARCHAR" property="value153value" />
+    <result column="VALUE154VALUE" jdbcType="LONGVARCHAR" property="value154value" />
+    <result column="VALUE155VALUE" jdbcType="LONGVARCHAR" property="value155value" />
+    <result column="VALUE156VALUE" jdbcType="LONGVARCHAR" property="value156value" />
+    <result column="VALUE157VALUE" jdbcType="LONGVARCHAR" property="value157value" />
+    <result column="VALUE158VALUE" jdbcType="LONGVARCHAR" property="value158value" />
+    <result column="VALUE159VALUE" jdbcType="LONGVARCHAR" property="value159value" />
+    <result column="VALUE160VALUE" jdbcType="LONGVARCHAR" property="value160value" />
+    <result column="VALUE161VALUE" jdbcType="LONGVARCHAR" property="value161value" />
+    <result column="VALUE162VALUE" jdbcType="LONGVARCHAR" property="value162value" />
+    <result column="VALUE163VALUE" jdbcType="LONGVARCHAR" property="value163value" />
+    <result column="VALUE164VALUE" jdbcType="LONGVARCHAR" property="value164value" />
+    <result column="VALUE165VALUE" jdbcType="LONGVARCHAR" property="value165value" />
+    <result column="VALUE166VALUE" jdbcType="LONGVARCHAR" property="value166value" />
+    <result column="VALUE167VALUE" jdbcType="LONGVARCHAR" property="value167value" />
+    <result column="VALUE168VALUE" jdbcType="LONGVARCHAR" property="value168value" />
+    <result column="VALUE169VALUE" jdbcType="LONGVARCHAR" property="value169value" />
+    <result column="VALUE170VALUE" jdbcType="LONGVARCHAR" property="value170value" />
+    <result column="VALUE171VALUE" jdbcType="LONGVARCHAR" property="value171value" />
+    <result column="VALUE172VALUE" jdbcType="LONGVARCHAR" property="value172value" />
+    <result column="VALUE173VALUE" jdbcType="LONGVARCHAR" property="value173value" />
+    <result column="VALUE174VALUE" jdbcType="LONGVARCHAR" property="value174value" />
+    <result column="VALUE175VALUE" jdbcType="LONGVARCHAR" property="value175value" />
+    <result column="VALUE176VALUE" jdbcType="LONGVARCHAR" property="value176value" />
+    <result column="VALUE177VALUE" jdbcType="LONGVARCHAR" property="value177value" />
+    <result column="VALUE178VALUE" jdbcType="LONGVARCHAR" property="value178value" />
+    <result column="VALUE179VALUE" jdbcType="LONGVARCHAR" property="value179value" />
+    <result column="VALUE180VALUE" jdbcType="LONGVARCHAR" property="value180value" />
+    <result column="VALUE181VALUE" jdbcType="LONGVARCHAR" property="value181value" />
+    <result column="VALUE182VALUE" jdbcType="LONGVARCHAR" property="value182value" />
+    <result column="VALUE183VALUE" jdbcType="LONGVARCHAR" property="value183value" />
+    <result column="VALUE184VALUE" jdbcType="LONGVARCHAR" property="value184value" />
+    <result column="VALUE185VALUE" jdbcType="LONGVARCHAR" property="value185value" />
+    <result column="VALUE186VALUE" jdbcType="LONGVARCHAR" property="value186value" />
+    <result column="VALUE187VALUE" jdbcType="LONGVARCHAR" property="value187value" />
+    <result column="VALUE188VALUE" jdbcType="LONGVARCHAR" property="value188value" />
+    <result column="VALUE189VALUE" jdbcType="LONGVARCHAR" property="value189value" />
+    <result column="VALUE190VALUE" jdbcType="LONGVARCHAR" property="value190value" />
+    <result column="VALUE191VALUE" jdbcType="LONGVARCHAR" property="value191value" />
+    <result column="VALUE192VALUE" jdbcType="LONGVARCHAR" property="value192value" />
+    <result column="VALUE193VALUE" jdbcType="LONGVARCHAR" property="value193value" />
+    <result column="VALUE194VALUE" jdbcType="LONGVARCHAR" property="value194value" />
+    <result column="VALUE195VALUE" jdbcType="LONGVARCHAR" property="value195value" />
+    <result column="VALUE196VALUE" jdbcType="LONGVARCHAR" property="value196value" />
+    <result column="VALUE197VALUE" jdbcType="LONGVARCHAR" property="value197value" />
+    <result column="VALUE198VALUE" jdbcType="LONGVARCHAR" property="value198value" />
+    <result column="VALUE199VALUE" jdbcType="LONGVARCHAR" property="value199value" />
+    <result column="VALUE200VALUE" jdbcType="LONGVARCHAR" property="value200value" />
+    <result column="CONTROLSCRIPT" jdbcType="LONGVARCHAR" property="controlscript" />
+    <result column="DEFAULTVALUE" jdbcType="LONGVARCHAR" property="defaultvalue" />
+    <result column="STEPCONTROL" jdbcType="LONGVARCHAR" property="stepcontrol" />
+    <result column="STEPSHOW" jdbcType="LONGVARCHAR" property="stepshow" />
+  </resultMap>
+  <insert id="insert" parameterType="com.vnf.flow.model.BO_ATTRIBUTE">
+    insert into bo_attribute (FIELDID, FIELDLABEL, FIELDTYPE, 
+      FIELDLENGTH, FIELDSTATUS, VALUE1LABEL, 
+      VALUE2LABEL, VALUE3LABEL, VALUE4LABEL, 
+      VALUE5LABEL, VALUE6LABEL, VALUE7LABEL, 
+      VALUE8LABEL, VALUE9LABEL, VALUE10LABEL, 
+      VALUE11LABEL, VALUE12LABEL, VALUE13LABEL, 
+      VALUE14LABEL, VALUE15LABEL, VALUE16LABEL, 
+      VALUE17LABEL, VALUE18LABEL, VALUE19LABEL, 
+      VALUE20LABEL, VALUE21LABEL, VALUE22LABEL, 
+      VALUE23LABEL, VALUE24LABEL, VALUE25LABEL, 
+      VALUE26LABEL, VALUE27LABEL, VALUE28LABEL, 
+      VALUE29LABEL, VALUE30LABEL, VALUE31LABEL, 
+      VALUE32LABEL, VALUE33LABEL, VALUE34LABEL, 
+      VALUE35LABEL, VALUE36LABEL, VALUE37LABEL, 
+      VALUE38LABEL, VALUE39LABEL, VALUE40LABEL, 
+      VALUE41LABEL, VALUE42LABEL, VALUE43LABEL, 
+      VALUE44LABEL, VALUE45LABEL, VALUE46LABEL, 
+      VALUE47LABEL, VALUE48LABEL, VALUE49LABEL, 
+      VALUE50LABEL, VALUE51LABEL, VALUE52LABEL, 
+      VALUE53LABEL, VALUE54LABEL, VALUE55LABEL, 
+      VALUE56LABEL, VALUE57LABEL, VALUE58LABEL, 
+      VALUE59LABEL, VALUE60LABEL, VALUE61LABEL, 
+      VALUE62LABEL, VALUE63LABEL, VALUE64LABEL, 
+      VALUE65LABEL, VALUE66LABEL, VALUE67LABEL, 
+      VALUE68LABEL, VALUE69LABEL, VALUE70LABEL, 
+      VALUE71LABEL, VALUE72LABEL, VALUE73LABEL, 
+      VALUE74LABEL, VALUE75LABEL, VALUE76LABEL, 
+      VALUE77LABEL, VALUE78LABEL, VALUE79LABEL, 
+      VALUE80LABEL, VALUE81LABEL, VALUE82LABEL, 
+      VALUE83LABEL, VALUE84LABEL, VALUE85LABEL, 
+      VALUE86LABEL, VALUE87LABEL, VALUE88LABEL, 
+      VALUE89LABEL, VALUE90LABEL, VALUE91LABEL, 
+      VALUE92LABEL, VALUE93LABEL, VALUE94LABEL, 
+      VALUE95LABEL, VALUE96LABEL, VALUE97LABEL, 
+      VALUE98LABEL, VALUE99LABEL, VALUE100LABEL, 
+      VALUE101LABEL, VALUE102LABEL, VALUE103LABEL, 
+      VALUE104LABEL, VALUE105LABEL, VALUE106LABEL, 
+      VALUE107LABEL, VALUE108LABEL, VALUE109LABEL, 
+      VALUE110LABEL, VALUE111LABEL, VALUE112LABEL, 
+      VALUE113LABEL, VALUE114LABEL, VALUE115LABEL, 
+      VALUE116LABEL, VALUE117LABEL, VALUE118LABEL, 
+      VALUE119LABEL, VALUE120LABEL, VALUE121LABEL, 
+      VALUE122LABEL, VALUE123LABEL, VALUE124LABEL, 
+      VALUE125LABEL, VALUE126LABEL, VALUE127LABEL, 
+      VALUE128LABEL, VALUE129LABEL, VALUE130LABEL, 
+      VALUE131LABEL, VALUE132LABEL, VALUE133LABEL, 
+      VALUE134LABEL, VALUE135LABEL, VALUE136LABEL, 
+      VALUE137LABEL, VALUE138LABEL, VALUE139LABEL, 
+      VALUE140LABEL, VALUE141LABEL, VALUE142LABEL, 
+      VALUE143LABEL, VALUE144LABEL, VALUE145LABEL, 
+      VALUE146LABEL, VALUE147LABEL, VALUE148LABEL, 
+      VALUE149LABEL, VALUE150LABEL, VALUE151LABEL, 
+      VALUE152LABEL, VALUE153LABEL, VALUE154LABEL, 
+      VALUE155LABEL, VALUE156LABEL, VALUE157LABEL, 
+      VALUE158LABEL, VALUE159LABEL, VALUE160LABEL, 
+      VALUE161LABEL, VALUE162LABEL, VALUE163LABEL, 
+      VALUE164LABEL, VALUE165LABEL, VALUE166LABEL, 
+      VALUE167LABEL, VALUE168LABEL, VALUE169LABEL, 
+      VALUE170LABEL, VALUE171LABEL, VALUE172LABEL, 
+      VALUE173LABEL, VALUE174LABEL, VALUE175LABEL, 
+      VALUE176LABEL, VALUE177LABEL, VALUE178LABEL, 
+      VALUE179LABEL, VALUE180LABEL, VALUE181LABEL, 
+      VALUE182LABEL, VALUE183LABEL, VALUE184LABEL, 
+      VALUE185LABEL, VALUE186LABEL, VALUE187LABEL, 
+      VALUE188LABEL, VALUE189LABEL, VALUE190LABEL, 
+      VALUE191LABEL, VALUE192LABEL, VALUE193LABEL, 
+      VALUE194LABEL, VALUE195LABEL, VALUE196LABEL, 
+      VALUE197LABEL, VALUE198LABEL, VALUE199LABEL, 
+      VALUE200LABEL, AUTHDEPT, SEARCHIND, 
+      DISPLAYIND, BRANCHIND, MANDATORYIND, 
+      DUPLIACTEIND, FIELDSEQ, BARCODEIND, 
+      BARCODESTART, BARCODELENGTH, VALUE1VALUE, 
+      VALUE2VALUE, VALUE3VALUE, VALUE4VALUE, 
+      VALUE5VALUE, VALUE6VALUE, VALUE7VALUE, 
+      VALUE8VALUE, VALUE9VALUE, VALUE10VALUE, 
+      VALUE11VALUE, VALUE12VALUE, VALUE13VALUE, 
+      VALUE14VALUE, VALUE15VALUE, VALUE16VALUE, 
+      VALUE17VALUE, VALUE18VALUE, VALUE19VALUE, 
+      VALUE20VALUE, VALUE21VALUE, VALUE22VALUE, 
+      VALUE23VALUE, VALUE24VALUE, VALUE25VALUE, 
+      VALUE26VALUE, VALUE27VALUE, VALUE28VALUE, 
+      VALUE29VALUE, VALUE30VALUE, VALUE31VALUE, 
+      VALUE32VALUE, VALUE33VALUE, VALUE34VALUE, 
+      VALUE35VALUE, VALUE36VALUE, VALUE37VALUE, 
+      VALUE38VALUE, VALUE39VALUE, VALUE40VALUE, 
+      VALUE41VALUE, VALUE42VALUE, VALUE43VALUE, 
+      VALUE44VALUE, VALUE45VALUE, VALUE46VALUE, 
+      VALUE47VALUE, VALUE48VALUE, VALUE49VALUE, 
+      VALUE50VALUE, VALUE51VALUE, VALUE52VALUE, 
+      VALUE53VALUE, VALUE54VALUE, VALUE55VALUE, 
+      VALUE56VALUE, VALUE57VALUE, VALUE58VALUE, 
+      VALUE59VALUE, VALUE60VALUE, VALUE61VALUE, 
+      VALUE62VALUE, VALUE63VALUE, VALUE64VALUE, 
+      VALUE65VALUE, VALUE66VALUE, VALUE67VALUE, 
+      VALUE68VALUE, VALUE69VALUE, VALUE70VALUE, 
+      VALUE71VALUE, VALUE72VALUE, VALUE73VALUE, 
+      VALUE74VALUE, VALUE75VALUE, VALUE76VALUE, 
+      VALUE77VALUE, VALUE78VALUE, VALUE79VALUE, 
+      VALUE80VALUE, VALUE81VALUE, VALUE82VALUE, 
+      VALUE83VALUE, VALUE84VALUE, VALUE85VALUE, 
+      VALUE86VALUE, VALUE87VALUE, VALUE88VALUE, 
+      VALUE89VALUE, VALUE90VALUE, VALUE91VALUE, 
+      VALUE92VALUE, VALUE93VALUE, VALUE94VALUE, 
+      VALUE95VALUE, VALUE96VALUE, VALUE97VALUE, 
+      VALUE98VALUE, VALUE99VALUE, VALUE100VALUE, 
+      VALUE101VALUE, VALUE102VALUE, VALUE103VALUE, 
+      VALUE104VALUE, VALUE105VALUE, VALUE106VALUE, 
+      VALUE107VALUE, VALUE108VALUE, VALUE109VALUE, 
+      VALUE110VALUE, VALUE111VALUE, VALUE112VALUE, 
+      VALUE113VALUE, VALUE114VALUE, VALUE115VALUE, 
+      VALUE116VALUE, VALUE117VALUE, VALUE118VALUE, 
+      VALUE119VALUE, VALUE120VALUE, VALUE121VALUE, 
+      VALUE122VALUE, VALUE123VALUE, VALUE124VALUE, 
+      VALUE125VALUE, VALUE126VALUE, VALUE127VALUE, 
+      VALUE128VALUE, VALUE129VALUE, VALUE130VALUE, 
+      VALUE131VALUE, VALUE132VALUE, VALUE133VALUE, 
+      VALUE134VALUE, VALUE135VALUE, VALUE136VALUE, 
+      VALUE137VALUE, VALUE138VALUE, VALUE139VALUE, 
+      VALUE140VALUE, VALUE141VALUE, VALUE142VALUE, 
+      VALUE143VALUE, VALUE144VALUE, VALUE145VALUE, 
+      VALUE146VALUE, VALUE147VALUE, VALUE148VALUE, 
+      VALUE149VALUE, VALUE150VALUE, VALUE151VALUE, 
+      VALUE152VALUE, VALUE153VALUE, VALUE154VALUE, 
+      VALUE155VALUE, VALUE156VALUE, VALUE157VALUE, 
+      VALUE158VALUE, VALUE159VALUE, VALUE160VALUE, 
+      VALUE161VALUE, VALUE162VALUE, VALUE163VALUE, 
+      VALUE164VALUE, VALUE165VALUE, VALUE166VALUE, 
+      VALUE167VALUE, VALUE168VALUE, VALUE169VALUE, 
+      VALUE170VALUE, VALUE171VALUE, VALUE172VALUE, 
+      VALUE173VALUE, VALUE174VALUE, VALUE175VALUE, 
+      VALUE176VALUE, VALUE177VALUE, VALUE178VALUE, 
+      VALUE179VALUE, VALUE180VALUE, VALUE181VALUE, 
+      VALUE182VALUE, VALUE183VALUE, VALUE184VALUE, 
+      VALUE185VALUE, VALUE186VALUE, VALUE187VALUE, 
+      VALUE188VALUE, VALUE189VALUE, VALUE190VALUE, 
+      VALUE191VALUE, VALUE192VALUE, VALUE193VALUE, 
+      VALUE194VALUE, VALUE195VALUE, VALUE196VALUE, 
+      VALUE197VALUE, VALUE198VALUE, VALUE199VALUE, 
+      VALUE200VALUE, CONTROLSCRIPT, DEFAULTVALUE, 
+      STEPCONTROL, STEPSHOW)
+    values (#{fieldid,jdbcType=INTEGER}, #{fieldlabel,jdbcType=VARCHAR}, #{fieldtype,jdbcType=VARCHAR}, 
+      #{fieldlength,jdbcType=VARCHAR}, #{fieldstatus,jdbcType=VARCHAR}, #{value1label,jdbcType=VARCHAR}, 
+      #{value2label,jdbcType=VARCHAR}, #{value3label,jdbcType=VARCHAR}, #{value4label,jdbcType=VARCHAR}, 
+      #{value5label,jdbcType=VARCHAR}, #{value6label,jdbcType=VARCHAR}, #{value7label,jdbcType=VARCHAR}, 
+      #{value8label,jdbcType=VARCHAR}, #{value9label,jdbcType=VARCHAR}, #{value10label,jdbcType=VARCHAR}, 
+      #{value11label,jdbcType=VARCHAR}, #{value12label,jdbcType=VARCHAR}, #{value13label,jdbcType=VARCHAR}, 
+      #{value14label,jdbcType=VARCHAR}, #{value15label,jdbcType=VARCHAR}, #{value16label,jdbcType=VARCHAR}, 
+      #{value17label,jdbcType=VARCHAR}, #{value18label,jdbcType=VARCHAR}, #{value19label,jdbcType=VARCHAR}, 
+      #{value20label,jdbcType=VARCHAR}, #{value21label,jdbcType=VARCHAR}, #{value22label,jdbcType=VARCHAR}, 
+      #{value23label,jdbcType=VARCHAR}, #{value24label,jdbcType=VARCHAR}, #{value25label,jdbcType=VARCHAR}, 
+      #{value26label,jdbcType=VARCHAR}, #{value27label,jdbcType=VARCHAR}, #{value28label,jdbcType=VARCHAR}, 
+      #{value29label,jdbcType=VARCHAR}, #{value30label,jdbcType=VARCHAR}, #{value31label,jdbcType=VARCHAR}, 
+      #{value32label,jdbcType=VARCHAR}, #{value33label,jdbcType=VARCHAR}, #{value34label,jdbcType=VARCHAR}, 
+      #{value35label,jdbcType=VARCHAR}, #{value36label,jdbcType=VARCHAR}, #{value37label,jdbcType=VARCHAR}, 
+      #{value38label,jdbcType=VARCHAR}, #{value39label,jdbcType=VARCHAR}, #{value40label,jdbcType=VARCHAR}, 
+      #{value41label,jdbcType=VARCHAR}, #{value42label,jdbcType=VARCHAR}, #{value43label,jdbcType=VARCHAR}, 
+      #{value44label,jdbcType=VARCHAR}, #{value45label,jdbcType=VARCHAR}, #{value46label,jdbcType=VARCHAR}, 
+      #{value47label,jdbcType=VARCHAR}, #{value48label,jdbcType=VARCHAR}, #{value49label,jdbcType=VARCHAR}, 
+      #{value50label,jdbcType=VARCHAR}, #{value51label,jdbcType=VARCHAR}, #{value52label,jdbcType=VARCHAR}, 
+      #{value53label,jdbcType=VARCHAR}, #{value54label,jdbcType=VARCHAR}, #{value55label,jdbcType=VARCHAR}, 
+      #{value56label,jdbcType=VARCHAR}, #{value57label,jdbcType=VARCHAR}, #{value58label,jdbcType=VARCHAR}, 
+      #{value59label,jdbcType=VARCHAR}, #{value60label,jdbcType=VARCHAR}, #{value61label,jdbcType=VARCHAR}, 
+      #{value62label,jdbcType=VARCHAR}, #{value63label,jdbcType=VARCHAR}, #{value64label,jdbcType=VARCHAR}, 
+      #{value65label,jdbcType=VARCHAR}, #{value66label,jdbcType=VARCHAR}, #{value67label,jdbcType=VARCHAR}, 
+      #{value68label,jdbcType=VARCHAR}, #{value69label,jdbcType=VARCHAR}, #{value70label,jdbcType=VARCHAR}, 
+      #{value71label,jdbcType=VARCHAR}, #{value72label,jdbcType=VARCHAR}, #{value73label,jdbcType=VARCHAR}, 
+      #{value74label,jdbcType=VARCHAR}, #{value75label,jdbcType=VARCHAR}, #{value76label,jdbcType=VARCHAR}, 
+      #{value77label,jdbcType=VARCHAR}, #{value78label,jdbcType=VARCHAR}, #{value79label,jdbcType=VARCHAR}, 
+      #{value80label,jdbcType=VARCHAR}, #{value81label,jdbcType=VARCHAR}, #{value82label,jdbcType=VARCHAR}, 
+      #{value83label,jdbcType=VARCHAR}, #{value84label,jdbcType=VARCHAR}, #{value85label,jdbcType=VARCHAR}, 
+      #{value86label,jdbcType=VARCHAR}, #{value87label,jdbcType=VARCHAR}, #{value88label,jdbcType=VARCHAR}, 
+      #{value89label,jdbcType=VARCHAR}, #{value90label,jdbcType=VARCHAR}, #{value91label,jdbcType=VARCHAR}, 
+      #{value92label,jdbcType=VARCHAR}, #{value93label,jdbcType=VARCHAR}, #{value94label,jdbcType=VARCHAR}, 
+      #{value95label,jdbcType=VARCHAR}, #{value96label,jdbcType=VARCHAR}, #{value97label,jdbcType=VARCHAR}, 
+      #{value98label,jdbcType=VARCHAR}, #{value99label,jdbcType=VARCHAR}, #{value100label,jdbcType=VARCHAR}, 
+      #{value101label,jdbcType=VARCHAR}, #{value102label,jdbcType=VARCHAR}, #{value103label,jdbcType=VARCHAR}, 
+      #{value104label,jdbcType=VARCHAR}, #{value105label,jdbcType=VARCHAR}, #{value106label,jdbcType=VARCHAR}, 
+      #{value107label,jdbcType=VARCHAR}, #{value108label,jdbcType=VARCHAR}, #{value109label,jdbcType=VARCHAR}, 
+      #{value110label,jdbcType=VARCHAR}, #{value111label,jdbcType=VARCHAR}, #{value112label,jdbcType=VARCHAR}, 
+      #{value113label,jdbcType=VARCHAR}, #{value114label,jdbcType=VARCHAR}, #{value115label,jdbcType=VARCHAR}, 
+      #{value116label,jdbcType=VARCHAR}, #{value117label,jdbcType=VARCHAR}, #{value118label,jdbcType=VARCHAR}, 
+      #{value119label,jdbcType=VARCHAR}, #{value120label,jdbcType=VARCHAR}, #{value121label,jdbcType=VARCHAR}, 
+      #{value122label,jdbcType=VARCHAR}, #{value123label,jdbcType=VARCHAR}, #{value124label,jdbcType=VARCHAR}, 
+      #{value125label,jdbcType=VARCHAR}, #{value126label,jdbcType=VARCHAR}, #{value127label,jdbcType=VARCHAR}, 
+      #{value128label,jdbcType=VARCHAR}, #{value129label,jdbcType=VARCHAR}, #{value130label,jdbcType=VARCHAR}, 
+      #{value131label,jdbcType=VARCHAR}, #{value132label,jdbcType=VARCHAR}, #{value133label,jdbcType=VARCHAR}, 
+      #{value134label,jdbcType=VARCHAR}, #{value135label,jdbcType=VARCHAR}, #{value136label,jdbcType=VARCHAR}, 
+      #{value137label,jdbcType=VARCHAR}, #{value138label,jdbcType=VARCHAR}, #{value139label,jdbcType=VARCHAR}, 
+      #{value140label,jdbcType=VARCHAR}, #{value141label,jdbcType=VARCHAR}, #{value142label,jdbcType=VARCHAR}, 
+      #{value143label,jdbcType=VARCHAR}, #{value144label,jdbcType=VARCHAR}, #{value145label,jdbcType=VARCHAR}, 
+      #{value146label,jdbcType=VARCHAR}, #{value147label,jdbcType=VARCHAR}, #{value148label,jdbcType=VARCHAR}, 
+      #{value149label,jdbcType=VARCHAR}, #{value150label,jdbcType=VARCHAR}, #{value151label,jdbcType=VARCHAR}, 
+      #{value152label,jdbcType=VARCHAR}, #{value153label,jdbcType=VARCHAR}, #{value154label,jdbcType=VARCHAR}, 
+      #{value155label,jdbcType=VARCHAR}, #{value156label,jdbcType=VARCHAR}, #{value157label,jdbcType=VARCHAR}, 
+      #{value158label,jdbcType=VARCHAR}, #{value159label,jdbcType=VARCHAR}, #{value160label,jdbcType=VARCHAR}, 
+      #{value161label,jdbcType=VARCHAR}, #{value162label,jdbcType=VARCHAR}, #{value163label,jdbcType=VARCHAR}, 
+      #{value164label,jdbcType=VARCHAR}, #{value165label,jdbcType=VARCHAR}, #{value166label,jdbcType=VARCHAR}, 
+      #{value167label,jdbcType=VARCHAR}, #{value168label,jdbcType=VARCHAR}, #{value169label,jdbcType=VARCHAR}, 
+      #{value170label,jdbcType=VARCHAR}, #{value171label,jdbcType=VARCHAR}, #{value172label,jdbcType=VARCHAR}, 
+      #{value173label,jdbcType=VARCHAR}, #{value174label,jdbcType=VARCHAR}, #{value175label,jdbcType=VARCHAR}, 
+      #{value176label,jdbcType=VARCHAR}, #{value177label,jdbcType=VARCHAR}, #{value178label,jdbcType=VARCHAR}, 
+      #{value179label,jdbcType=VARCHAR}, #{value180label,jdbcType=VARCHAR}, #{value181label,jdbcType=VARCHAR}, 
+      #{value182label,jdbcType=VARCHAR}, #{value183label,jdbcType=VARCHAR}, #{value184label,jdbcType=VARCHAR}, 
+      #{value185label,jdbcType=VARCHAR}, #{value186label,jdbcType=VARCHAR}, #{value187label,jdbcType=VARCHAR}, 
+      #{value188label,jdbcType=VARCHAR}, #{value189label,jdbcType=VARCHAR}, #{value190label,jdbcType=VARCHAR}, 
+      #{value191label,jdbcType=VARCHAR}, #{value192label,jdbcType=VARCHAR}, #{value193label,jdbcType=VARCHAR}, 
+      #{value194label,jdbcType=VARCHAR}, #{value195label,jdbcType=VARCHAR}, #{value196label,jdbcType=VARCHAR}, 
+      #{value197label,jdbcType=VARCHAR}, #{value198label,jdbcType=VARCHAR}, #{value199label,jdbcType=VARCHAR}, 
+      #{value200label,jdbcType=VARCHAR}, #{authdept,jdbcType=VARCHAR}, #{searchind,jdbcType=VARCHAR}, 
+      #{displayind,jdbcType=VARCHAR}, #{branchind,jdbcType=VARCHAR}, #{mandatoryind,jdbcType=VARCHAR}, 
+      #{dupliacteind,jdbcType=VARCHAR}, #{fieldseq,jdbcType=INTEGER}, #{barcodeind,jdbcType=VARCHAR}, 
+      #{barcodestart,jdbcType=VARCHAR}, #{barcodelength,jdbcType=VARCHAR}, #{value1value,jdbcType=LONGVARCHAR}, 
+      #{value2value,jdbcType=LONGVARCHAR}, #{value3value,jdbcType=LONGVARCHAR}, #{value4value,jdbcType=LONGVARCHAR}, 
+      #{value5value,jdbcType=LONGVARCHAR}, #{value6value,jdbcType=LONGVARCHAR}, #{value7value,jdbcType=LONGVARCHAR}, 
+      #{value8value,jdbcType=LONGVARCHAR}, #{value9value,jdbcType=LONGVARCHAR}, #{value10value,jdbcType=LONGVARCHAR}, 
+      #{value11value,jdbcType=LONGVARCHAR}, #{value12value,jdbcType=LONGVARCHAR}, #{value13value,jdbcType=LONGVARCHAR}, 
+      #{value14value,jdbcType=LONGVARCHAR}, #{value15value,jdbcType=LONGVARCHAR}, #{value16value,jdbcType=LONGVARCHAR}, 
+      #{value17value,jdbcType=LONGVARCHAR}, #{value18value,jdbcType=LONGVARCHAR}, #{value19value,jdbcType=LONGVARCHAR}, 
+      #{value20value,jdbcType=LONGVARCHAR}, #{value21value,jdbcType=LONGVARCHAR}, #{value22value,jdbcType=LONGVARCHAR}, 
+      #{value23value,jdbcType=LONGVARCHAR}, #{value24value,jdbcType=LONGVARCHAR}, #{value25value,jdbcType=LONGVARCHAR}, 
+      #{value26value,jdbcType=LONGVARCHAR}, #{value27value,jdbcType=LONGVARCHAR}, #{value28value,jdbcType=LONGVARCHAR}, 
+      #{value29value,jdbcType=LONGVARCHAR}, #{value30value,jdbcType=LONGVARCHAR}, #{value31value,jdbcType=LONGVARCHAR}, 
+      #{value32value,jdbcType=LONGVARCHAR}, #{value33value,jdbcType=LONGVARCHAR}, #{value34value,jdbcType=LONGVARCHAR}, 
+      #{value35value,jdbcType=LONGVARCHAR}, #{value36value,jdbcType=LONGVARCHAR}, #{value37value,jdbcType=LONGVARCHAR}, 
+      #{value38value,jdbcType=LONGVARCHAR}, #{value39value,jdbcType=LONGVARCHAR}, #{value40value,jdbcType=LONGVARCHAR}, 
+      #{value41value,jdbcType=LONGVARCHAR}, #{value42value,jdbcType=LONGVARCHAR}, #{value43value,jdbcType=LONGVARCHAR}, 
+      #{value44value,jdbcType=LONGVARCHAR}, #{value45value,jdbcType=LONGVARCHAR}, #{value46value,jdbcType=LONGVARCHAR}, 
+      #{value47value,jdbcType=LONGVARCHAR}, #{value48value,jdbcType=LONGVARCHAR}, #{value49value,jdbcType=LONGVARCHAR}, 
+      #{value50value,jdbcType=LONGVARCHAR}, #{value51value,jdbcType=LONGVARCHAR}, #{value52value,jdbcType=LONGVARCHAR}, 
+      #{value53value,jdbcType=LONGVARCHAR}, #{value54value,jdbcType=LONGVARCHAR}, #{value55value,jdbcType=LONGVARCHAR}, 
+      #{value56value,jdbcType=LONGVARCHAR}, #{value57value,jdbcType=LONGVARCHAR}, #{value58value,jdbcType=LONGVARCHAR}, 
+      #{value59value,jdbcType=LONGVARCHAR}, #{value60value,jdbcType=LONGVARCHAR}, #{value61value,jdbcType=LONGVARCHAR}, 
+      #{value62value,jdbcType=LONGVARCHAR}, #{value63value,jdbcType=LONGVARCHAR}, #{value64value,jdbcType=LONGVARCHAR}, 
+      #{value65value,jdbcType=LONGVARCHAR}, #{value66value,jdbcType=LONGVARCHAR}, #{value67value,jdbcType=LONGVARCHAR}, 
+      #{value68value,jdbcType=LONGVARCHAR}, #{value69value,jdbcType=LONGVARCHAR}, #{value70value,jdbcType=LONGVARCHAR}, 
+      #{value71value,jdbcType=LONGVARCHAR}, #{value72value,jdbcType=LONGVARCHAR}, #{value73value,jdbcType=LONGVARCHAR}, 
+      #{value74value,jdbcType=LONGVARCHAR}, #{value75value,jdbcType=LONGVARCHAR}, #{value76value,jdbcType=LONGVARCHAR}, 
+      #{value77value,jdbcType=LONGVARCHAR}, #{value78value,jdbcType=LONGVARCHAR}, #{value79value,jdbcType=LONGVARCHAR}, 
+      #{value80value,jdbcType=LONGVARCHAR}, #{value81value,jdbcType=LONGVARCHAR}, #{value82value,jdbcType=LONGVARCHAR}, 
+      #{value83value,jdbcType=LONGVARCHAR}, #{value84value,jdbcType=LONGVARCHAR}, #{value85value,jdbcType=LONGVARCHAR}, 
+      #{value86value,jdbcType=LONGVARCHAR}, #{value87value,jdbcType=LONGVARCHAR}, #{value88value,jdbcType=LONGVARCHAR}, 
+      #{value89value,jdbcType=LONGVARCHAR}, #{value90value,jdbcType=LONGVARCHAR}, #{value91value,jdbcType=LONGVARCHAR}, 
+      #{value92value,jdbcType=LONGVARCHAR}, #{value93value,jdbcType=LONGVARCHAR}, #{value94value,jdbcType=LONGVARCHAR}, 
+      #{value95value,jdbcType=LONGVARCHAR}, #{value96value,jdbcType=LONGVARCHAR}, #{value97value,jdbcType=LONGVARCHAR}, 
+      #{value98value,jdbcType=LONGVARCHAR}, #{value99value,jdbcType=LONGVARCHAR}, #{value100value,jdbcType=LONGVARCHAR}, 
+      #{value101value,jdbcType=LONGVARCHAR}, #{value102value,jdbcType=LONGVARCHAR}, #{value103value,jdbcType=LONGVARCHAR}, 
+      #{value104value,jdbcType=LONGVARCHAR}, #{value105value,jdbcType=LONGVARCHAR}, #{value106value,jdbcType=LONGVARCHAR}, 
+      #{value107value,jdbcType=LONGVARCHAR}, #{value108value,jdbcType=LONGVARCHAR}, #{value109value,jdbcType=LONGVARCHAR}, 
+      #{value110value,jdbcType=LONGVARCHAR}, #{value111value,jdbcType=LONGVARCHAR}, #{value112value,jdbcType=LONGVARCHAR}, 
+      #{value113value,jdbcType=LONGVARCHAR}, #{value114value,jdbcType=LONGVARCHAR}, #{value115value,jdbcType=LONGVARCHAR}, 
+      #{value116value,jdbcType=LONGVARCHAR}, #{value117value,jdbcType=LONGVARCHAR}, #{value118value,jdbcType=LONGVARCHAR}, 
+      #{value119value,jdbcType=LONGVARCHAR}, #{value120value,jdbcType=LONGVARCHAR}, #{value121value,jdbcType=LONGVARCHAR}, 
+      #{value122value,jdbcType=LONGVARCHAR}, #{value123value,jdbcType=LONGVARCHAR}, #{value124value,jdbcType=LONGVARCHAR}, 
+      #{value125value,jdbcType=LONGVARCHAR}, #{value126value,jdbcType=LONGVARCHAR}, #{value127value,jdbcType=LONGVARCHAR}, 
+      #{value128value,jdbcType=LONGVARCHAR}, #{value129value,jdbcType=LONGVARCHAR}, #{value130value,jdbcType=LONGVARCHAR}, 
+      #{value131value,jdbcType=LONGVARCHAR}, #{value132value,jdbcType=LONGVARCHAR}, #{value133value,jdbcType=LONGVARCHAR}, 
+      #{value134value,jdbcType=LONGVARCHAR}, #{value135value,jdbcType=LONGVARCHAR}, #{value136value,jdbcType=LONGVARCHAR}, 
+      #{value137value,jdbcType=LONGVARCHAR}, #{value138value,jdbcType=LONGVARCHAR}, #{value139value,jdbcType=LONGVARCHAR}, 
+      #{value140value,jdbcType=LONGVARCHAR}, #{value141value,jdbcType=LONGVARCHAR}, #{value142value,jdbcType=LONGVARCHAR}, 
+      #{value143value,jdbcType=LONGVARCHAR}, #{value144value,jdbcType=LONGVARCHAR}, #{value145value,jdbcType=LONGVARCHAR}, 
+      #{value146value,jdbcType=LONGVARCHAR}, #{value147value,jdbcType=LONGVARCHAR}, #{value148value,jdbcType=LONGVARCHAR}, 
+      #{value149value,jdbcType=LONGVARCHAR}, #{value150value,jdbcType=LONGVARCHAR}, #{value151value,jdbcType=LONGVARCHAR}, 
+      #{value152value,jdbcType=LONGVARCHAR}, #{value153value,jdbcType=LONGVARCHAR}, #{value154value,jdbcType=LONGVARCHAR}, 
+      #{value155value,jdbcType=LONGVARCHAR}, #{value156value,jdbcType=LONGVARCHAR}, #{value157value,jdbcType=LONGVARCHAR}, 
+      #{value158value,jdbcType=LONGVARCHAR}, #{value159value,jdbcType=LONGVARCHAR}, #{value160value,jdbcType=LONGVARCHAR}, 
+      #{value161value,jdbcType=LONGVARCHAR}, #{value162value,jdbcType=LONGVARCHAR}, #{value163value,jdbcType=LONGVARCHAR}, 
+      #{value164value,jdbcType=LONGVARCHAR}, #{value165value,jdbcType=LONGVARCHAR}, #{value166value,jdbcType=LONGVARCHAR}, 
+      #{value167value,jdbcType=LONGVARCHAR}, #{value168value,jdbcType=LONGVARCHAR}, #{value169value,jdbcType=LONGVARCHAR}, 
+      #{value170value,jdbcType=LONGVARCHAR}, #{value171value,jdbcType=LONGVARCHAR}, #{value172value,jdbcType=LONGVARCHAR}, 
+      #{value173value,jdbcType=LONGVARCHAR}, #{value174value,jdbcType=LONGVARCHAR}, #{value175value,jdbcType=LONGVARCHAR}, 
+      #{value176value,jdbcType=LONGVARCHAR}, #{value177value,jdbcType=LONGVARCHAR}, #{value178value,jdbcType=LONGVARCHAR}, 
+      #{value179value,jdbcType=LONGVARCHAR}, #{value180value,jdbcType=LONGVARCHAR}, #{value181value,jdbcType=LONGVARCHAR}, 
+      #{value182value,jdbcType=LONGVARCHAR}, #{value183value,jdbcType=LONGVARCHAR}, #{value184value,jdbcType=LONGVARCHAR}, 
+      #{value185value,jdbcType=LONGVARCHAR}, #{value186value,jdbcType=LONGVARCHAR}, #{value187value,jdbcType=LONGVARCHAR}, 
+      #{value188value,jdbcType=LONGVARCHAR}, #{value189value,jdbcType=LONGVARCHAR}, #{value190value,jdbcType=LONGVARCHAR}, 
+      #{value191value,jdbcType=LONGVARCHAR}, #{value192value,jdbcType=LONGVARCHAR}, #{value193value,jdbcType=LONGVARCHAR}, 
+      #{value194value,jdbcType=LONGVARCHAR}, #{value195value,jdbcType=LONGVARCHAR}, #{value196value,jdbcType=LONGVARCHAR}, 
+      #{value197value,jdbcType=LONGVARCHAR}, #{value198value,jdbcType=LONGVARCHAR}, #{value199value,jdbcType=LONGVARCHAR}, 
+      #{value200value,jdbcType=LONGVARCHAR}, #{controlscript,jdbcType=LONGVARCHAR}, #{defaultvalue,jdbcType=LONGVARCHAR}, 
+      #{stepcontrol,jdbcType=LONGVARCHAR}, #{stepshow,jdbcType=LONGVARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select FIELDID, FIELDLABEL, FIELDTYPE, FIELDLENGTH, FIELDSTATUS, VALUE1LABEL, VALUE2LABEL, 
+    VALUE3LABEL, VALUE4LABEL, VALUE5LABEL, VALUE6LABEL, VALUE7LABEL, VALUE8LABEL, VALUE9LABEL, 
+    VALUE10LABEL, VALUE11LABEL, VALUE12LABEL, VALUE13LABEL, VALUE14LABEL, VALUE15LABEL, 
+    VALUE16LABEL, VALUE17LABEL, VALUE18LABEL, VALUE19LABEL, VALUE20LABEL, VALUE21LABEL, 
+    VALUE22LABEL, VALUE23LABEL, VALUE24LABEL, VALUE25LABEL, VALUE26LABEL, VALUE27LABEL, 
+    VALUE28LABEL, VALUE29LABEL, VALUE30LABEL, VALUE31LABEL, VALUE32LABEL, VALUE33LABEL, 
+    VALUE34LABEL, VALUE35LABEL, VALUE36LABEL, VALUE37LABEL, VALUE38LABEL, VALUE39LABEL, 
+    VALUE40LABEL, VALUE41LABEL, VALUE42LABEL, VALUE43LABEL, VALUE44LABEL, VALUE45LABEL, 
+    VALUE46LABEL, VALUE47LABEL, VALUE48LABEL, VALUE49LABEL, VALUE50LABEL, VALUE51LABEL, 
+    VALUE52LABEL, VALUE53LABEL, VALUE54LABEL, VALUE55LABEL, VALUE56LABEL, VALUE57LABEL, 
+    VALUE58LABEL, VALUE59LABEL, VALUE60LABEL, VALUE61LABEL, VALUE62LABEL, VALUE63LABEL, 
+    VALUE64LABEL, VALUE65LABEL, VALUE66LABEL, VALUE67LABEL, VALUE68LABEL, VALUE69LABEL, 
+    VALUE70LABEL, VALUE71LABEL, VALUE72LABEL, VALUE73LABEL, VALUE74LABEL, VALUE75LABEL, 
+    VALUE76LABEL, VALUE77LABEL, VALUE78LABEL, VALUE79LABEL, VALUE80LABEL, VALUE81LABEL, 
+    VALUE82LABEL, VALUE83LABEL, VALUE84LABEL, VALUE85LABEL, VALUE86LABEL, VALUE87LABEL, 
+    VALUE88LABEL, VALUE89LABEL, VALUE90LABEL, VALUE91LABEL, VALUE92LABEL, VALUE93LABEL, 
+    VALUE94LABEL, VALUE95LABEL, VALUE96LABEL, VALUE97LABEL, VALUE98LABEL, VALUE99LABEL, 
+    VALUE100LABEL, VALUE101LABEL, VALUE102LABEL, VALUE103LABEL, VALUE104LABEL, VALUE105LABEL, 
+    VALUE106LABEL, VALUE107LABEL, VALUE108LABEL, VALUE109LABEL, VALUE110LABEL, VALUE111LABEL, 
+    VALUE112LABEL, VALUE113LABEL, VALUE114LABEL, VALUE115LABEL, VALUE116LABEL, VALUE117LABEL, 
+    VALUE118LABEL, VALUE119LABEL, VALUE120LABEL, VALUE121LABEL, VALUE122LABEL, VALUE123LABEL, 
+    VALUE124LABEL, VALUE125LABEL, VALUE126LABEL, VALUE127LABEL, VALUE128LABEL, VALUE129LABEL, 
+    VALUE130LABEL, VALUE131LABEL, VALUE132LABEL, VALUE133LABEL, VALUE134LABEL, VALUE135LABEL, 
+    VALUE136LABEL, VALUE137LABEL, VALUE138LABEL, VALUE139LABEL, VALUE140LABEL, VALUE141LABEL, 
+    VALUE142LABEL, VALUE143LABEL, VALUE144LABEL, VALUE145LABEL, VALUE146LABEL, VALUE147LABEL, 
+    VALUE148LABEL, VALUE149LABEL, VALUE150LABEL, VALUE151LABEL, VALUE152LABEL, VALUE153LABEL, 
+    VALUE154LABEL, VALUE155LABEL, VALUE156LABEL, VALUE157LABEL, VALUE158LABEL, VALUE159LABEL, 
+    VALUE160LABEL, VALUE161LABEL, VALUE162LABEL, VALUE163LABEL, VALUE164LABEL, VALUE165LABEL, 
+    VALUE166LABEL, VALUE167LABEL, VALUE168LABEL, VALUE169LABEL, VALUE170LABEL, VALUE171LABEL, 
+    VALUE172LABEL, VALUE173LABEL, VALUE174LABEL, VALUE175LABEL, VALUE176LABEL, VALUE177LABEL, 
+    VALUE178LABEL, VALUE179LABEL, VALUE180LABEL, VALUE181LABEL, VALUE182LABEL, VALUE183LABEL, 
+    VALUE184LABEL, VALUE185LABEL, VALUE186LABEL, VALUE187LABEL, VALUE188LABEL, VALUE189LABEL, 
+    VALUE190LABEL, VALUE191LABEL, VALUE192LABEL, VALUE193LABEL, VALUE194LABEL, VALUE195LABEL, 
+    VALUE196LABEL, VALUE197LABEL, VALUE198LABEL, VALUE199LABEL, VALUE200LABEL, AUTHDEPT, 
+    SEARCHIND, DISPLAYIND, BRANCHIND, MANDATORYIND, DUPLIACTEIND, FIELDSEQ, BARCODEIND, 
+    BARCODESTART, BARCODELENGTH, VALUE1VALUE, VALUE2VALUE, VALUE3VALUE, VALUE4VALUE, 
+    VALUE5VALUE, VALUE6VALUE, VALUE7VALUE, VALUE8VALUE, VALUE9VALUE, VALUE10VALUE, VALUE11VALUE, 
+    VALUE12VALUE, VALUE13VALUE, VALUE14VALUE, VALUE15VALUE, VALUE16VALUE, VALUE17VALUE, 
+    VALUE18VALUE, VALUE19VALUE, VALUE20VALUE, VALUE21VALUE, VALUE22VALUE, VALUE23VALUE, 
+    VALUE24VALUE, VALUE25VALUE, VALUE26VALUE, VALUE27VALUE, VALUE28VALUE, VALUE29VALUE, 
+    VALUE30VALUE, VALUE31VALUE, VALUE32VALUE, VALUE33VALUE, VALUE34VALUE, VALUE35VALUE, 
+    VALUE36VALUE, VALUE37VALUE, VALUE38VALUE, VALUE39VALUE, VALUE40VALUE, VALUE41VALUE, 
+    VALUE42VALUE, VALUE43VALUE, VALUE44VALUE, VALUE45VALUE, VALUE46VALUE, VALUE47VALUE, 
+    VALUE48VALUE, VALUE49VALUE, VALUE50VALUE, VALUE51VALUE, VALUE52VALUE, VALUE53VALUE, 
+    VALUE54VALUE, VALUE55VALUE, VALUE56VALUE, VALUE57VALUE, VALUE58VALUE, VALUE59VALUE, 
+    VALUE60VALUE, VALUE61VALUE, VALUE62VALUE, VALUE63VALUE, VALUE64VALUE, VALUE65VALUE, 
+    VALUE66VALUE, VALUE67VALUE, VALUE68VALUE, VALUE69VALUE, VALUE70VALUE, VALUE71VALUE, 
+    VALUE72VALUE, VALUE73VALUE, VALUE74VALUE, VALUE75VALUE, VALUE76VALUE, VALUE77VALUE, 
+    VALUE78VALUE, VALUE79VALUE, VALUE80VALUE, VALUE81VALUE, VALUE82VALUE, VALUE83VALUE, 
+    VALUE84VALUE, VALUE85VALUE, VALUE86VALUE, VALUE87VALUE, VALUE88VALUE, VALUE89VALUE, 
+    VALUE90VALUE, VALUE91VALUE, VALUE92VALUE, VALUE93VALUE, VALUE94VALUE, VALUE95VALUE, 
+    VALUE96VALUE, VALUE97VALUE, VALUE98VALUE, VALUE99VALUE, VALUE100VALUE, VALUE101VALUE, 
+    VALUE102VALUE, VALUE103VALUE, VALUE104VALUE, VALUE105VALUE, VALUE106VALUE, VALUE107VALUE, 
+    VALUE108VALUE, VALUE109VALUE, VALUE110VALUE, VALUE111VALUE, VALUE112VALUE, VALUE113VALUE, 
+    VALUE114VALUE, VALUE115VALUE, VALUE116VALUE, VALUE117VALUE, VALUE118VALUE, VALUE119VALUE, 
+    VALUE120VALUE, VALUE121VALUE, VALUE122VALUE, VALUE123VALUE, VALUE124VALUE, VALUE125VALUE, 
+    VALUE126VALUE, VALUE127VALUE, VALUE128VALUE, VALUE129VALUE, VALUE130VALUE, VALUE131VALUE, 
+    VALUE132VALUE, VALUE133VALUE, VALUE134VALUE, VALUE135VALUE, VALUE136VALUE, VALUE137VALUE, 
+    VALUE138VALUE, VALUE139VALUE, VALUE140VALUE, VALUE141VALUE, VALUE142VALUE, VALUE143VALUE, 
+    VALUE144VALUE, VALUE145VALUE, VALUE146VALUE, VALUE147VALUE, VALUE148VALUE, VALUE149VALUE, 
+    VALUE150VALUE, VALUE151VALUE, VALUE152VALUE, VALUE153VALUE, VALUE154VALUE, VALUE155VALUE, 
+    VALUE156VALUE, VALUE157VALUE, VALUE158VALUE, VALUE159VALUE, VALUE160VALUE, VALUE161VALUE, 
+    VALUE162VALUE, VALUE163VALUE, VALUE164VALUE, VALUE165VALUE, VALUE166VALUE, VALUE167VALUE, 
+    VALUE168VALUE, VALUE169VALUE, VALUE170VALUE, VALUE171VALUE, VALUE172VALUE, VALUE173VALUE, 
+    VALUE174VALUE, VALUE175VALUE, VALUE176VALUE, VALUE177VALUE, VALUE178VALUE, VALUE179VALUE, 
+    VALUE180VALUE, VALUE181VALUE, VALUE182VALUE, VALUE183VALUE, VALUE184VALUE, VALUE185VALUE, 
+    VALUE186VALUE, VALUE187VALUE, VALUE188VALUE, VALUE189VALUE, VALUE190VALUE, VALUE191VALUE, 
+    VALUE192VALUE, VALUE193VALUE, VALUE194VALUE, VALUE195VALUE, VALUE196VALUE, VALUE197VALUE, 
+    VALUE198VALUE, VALUE199VALUE, VALUE200VALUE, CONTROLSCRIPT, DEFAULTVALUE, STEPCONTROL, 
+    STEPSHOW
+    from bo_attribute
+  </select>
+  <resultMap id="BaseResultMap" type="com.vnf.flow.model.BO_ATTRIBUTE">
+    <id column="FIELDID" jdbcType="INTEGER" property="fieldid" />
+    <result column="FIELDLABEL" jdbcType="VARCHAR" property="fieldlabel" />
+    <result column="FIELDTYPE" jdbcType="VARCHAR" property="fieldtype" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from bo_attribute
+    where FIELDID = #{fieldid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.vnf.flow.model.BO_ATTRIBUTE">
+    insert into bo_attribute (FIELDID, FIELDLABEL, FIELDTYPE
+      )
+    values (#{fieldid,jdbcType=INTEGER}, #{fieldlabel,jdbcType=VARCHAR}, #{fieldtype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.vnf.flow.model.BO_ATTRIBUTE">
+    update bo_attribute
+    set FIELDLABEL = #{fieldlabel,jdbcType=VARCHAR},
+      FIELDTYPE = #{fieldtype,jdbcType=VARCHAR}
+    where FIELDID = #{fieldid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select FIELDID, FIELDLABEL, FIELDTYPE
+    from bo_attribute
+    where FIELDID = #{fieldid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select FIELDID, FIELDLABEL, FIELDTYPE
+    from bo_attribute
+  </select>
+</mapper>
