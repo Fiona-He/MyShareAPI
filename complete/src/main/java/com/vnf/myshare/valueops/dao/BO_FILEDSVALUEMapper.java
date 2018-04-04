@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface BO_FILEDSVALUEMapper {
-    int deleteByPrimaryKey(Integer projectid,Integer sequence);
+    int deleteByPrimaryKey( @Param("projectid") Integer projectid, @Param("sequence") Integer sequence);
 
     int insert(BO_FILEDSVALUE record);
 

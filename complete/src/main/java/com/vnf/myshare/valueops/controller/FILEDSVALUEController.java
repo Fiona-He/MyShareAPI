@@ -26,10 +26,8 @@ public class FILEDSVALUEController {
     }
 
     //这里体现了restful风格的请求，按照请求的类型，来进行增删查改。
-    //设计restful api（其实也就是URL），不要有冗余，例如不要写成getUsers，URL中
-    //最好不要有动词。
+    //设计restful api（其实也就是URL），不要有冗余，例如不要写成getUsers，URL中最好不要有动词。
     // 这里用的是路径变量，就是{}括起来的，会当做变量读进来
-
     @RequestMapping(method = RequestMethod.GET, value = "/project/{projectid}")
     public List<BO_FILEDSVALUE> selectAll(@PathVariable int projectid) {
         List<BO_FILEDSVALUE> bo_filedsvalues;
@@ -44,6 +42,47 @@ public class FILEDSVALUEController {
 
         return bo_filedsvalues;
 
+    }
+
+    //RequestBody这个注解可以接收json数据
+    @RequestMapping(method = RequestMethod.POST,value = "/record")
+    public boolean insert(@RequestBody BO_FILEDSVALUE record){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEMapper.class);
+            userOperation.insert(record);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
+
+    //RequestBody这个注解可以接收json数据
+    @RequestMapping(method = RequestMethod.PUT,value = "/record")
+    public boolean updateByPrimaryKey(@RequestBody BO_FILEDSVALUE record){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEMapper.class);
+            userOperation.updateByPrimaryKey(record);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/project/{projectid}/{sequence}")
+    public boolean deleteByPrimaryKey(@PathVariable int projectid,@PathVariable int sequence){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEMapper.class);
+            userOperation.deleteByPrimaryKey(projectid,sequence);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
     }
 
 }
