@@ -24,14 +24,7 @@ public class BO_PROJECTController {
 
     //add one project
     @PostMapping(value = "/newproject")
-    public BO_PROJECT addProject(@RequestParam("projectname") String projectname, @RequestParam("priority") String priority, @RequestParam("enddate") String enddate, @RequestParam("headcount") String headcount, @RequestParam("description") String description) throws ParseException {
-        BO_PROJECT project = new BO_PROJECT();
-        project.setProjectname(projectname);
-        project.setPriority(priority);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd");
-        project.setEnddate(new Date(simpleDateFormat.parse(enddate).getTime()));
-        project.setHeadcount(headcount);
-        project.setDescription(description);
-        return bo_projectRepository.save(project);
+    public BO_PROJECT addProject(@RequestBody BO_PROJECT record) throws ParseException {
+        return bo_projectRepository.save(record);
     }
 }
