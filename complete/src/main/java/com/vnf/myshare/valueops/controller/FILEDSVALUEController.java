@@ -10,8 +10,9 @@ import com.vnf.myshare.valueops.dao.*;
 import com.vnf.myshare.valueops.model.*;
 import com.vnf.myshare.valueops.singleton.SingletonMybatis;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/index") //在类上使用RequestMapping，里面设置的value就是方法的父路径
+/*@RequestMapping("/fieldsvalue") //在类上使用RequestMapping，里面设置的value就是方法的父路径*/
 public class FILEDSVALUEController {
 
     private static SqlSessionFactory sqlSessionFactory;
