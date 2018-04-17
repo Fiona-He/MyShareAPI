@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 public class UserController {
 
@@ -33,9 +33,10 @@ public class UserController {
     //update one user
     //PutMapping,至少一个PathVariable才可获取到参数
     @PutMapping(value = "/updateuser/{id}")
-    public User updateUser(@PathVariable("id") long id,@RequestParam("name") String name){
-        User user = userRepository.getOne(id);
-        user.setName(name);
+    //public User updateUser(@PathVariable("id") long id,@RequestParam("name") String name){
+    public User updateUser(@RequestBody User myuser){
+        User user = userRepository.getOne(myuser.getId());
+        user.setName(myuser.getName());
         return userRepository.save(user);
     }
 
