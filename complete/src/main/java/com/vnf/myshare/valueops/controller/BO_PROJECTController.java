@@ -27,4 +27,10 @@ public class BO_PROJECTController {
     public BO_PROJECT addProject(@RequestBody BO_PROJECT record) throws ParseException {
         return bo_projectRepository.save(record);
     }
+
+    //RequestBody这个注解可以接收json数据
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateproject")
+    public BO_PROJECT updateProject(@RequestBody BO_PROJECT record){
+        return bo_projectRepository.save(record);
+    }
 }
