@@ -35,6 +35,5 @@ public class GetShareList {
 
         }
         return shareList;
-        //log.info(project.toString());
     }
 }
