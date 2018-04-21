@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.*;
 import org.springframework.http.ResponseEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @CrossOrigin
 @RestController
 public class GetShareList {
@@ -15,9 +18,9 @@ public class GetShareList {
 
     //search all project
     @GetMapping(value = "/getsharelist")
-    public ShareDetail[] getShareList() {
+    public ArrayList<ShareDetail> getShareList() {
 
-        ShareDetail[] shareDetails = new ShareDetail[10];
+        ArrayList<ShareDetail> shareDetails=new ArrayList<>();
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<BO_PROJECT[]> responseEntity = restTemplate.getForEntity("http://localhost:8182/getallproject", BO_PROJECT[].class);
@@ -31,8 +34,7 @@ public class GetShareList {
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+project[i].getProjectid(), Integer.class);
             shareDetail.projectusers = responseEntityFieldsValue.getBody();
 
-            shareDetails[i] = shareDetail;
-
+            shareDetails.add(shareDetail);
         }
 
         return shareDetails;
