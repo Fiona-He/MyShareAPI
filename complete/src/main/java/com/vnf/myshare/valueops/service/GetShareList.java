@@ -29,9 +29,10 @@ public class GetShareList {
         for(int i =0; i < project.length; i++)
         {
             ShareDetail shareDetail = new ShareDetail();
-            shareDetail.project = project[i];
-            System.out.println(i);
+
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+project[i].getProjectid(), Integer.class);
+
+            shareDetail.project = project[i];
             shareDetail.projectusers = responseEntityFieldsValue.getBody();
 
             shareDetails.add(shareDetail);
