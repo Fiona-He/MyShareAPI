@@ -13,4 +13,6 @@ public interface BO_FILEDSVALUEMapper {
     List<BO_FILEDSVALUE> selectAll( @Param("projectid") Integer projectid );
 
     int updateByPrimaryKey(BO_FILEDSVALUE record);
+
+    int selectCount(@Param("projectid") Integer projectid);
 }

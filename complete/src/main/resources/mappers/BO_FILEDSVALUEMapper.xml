@@ -629,4 +629,9 @@
     FIELD199, FIELD200, CURRPEOPLE
     from bo_filedsvalue${projectid}
   </select>
+
+  <select id="selectCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select count(*)
+    from bo_filedsvalue where PROJECTID = #{projectid,jdbcType=INTEGER}
+  </select>
 </mapper>

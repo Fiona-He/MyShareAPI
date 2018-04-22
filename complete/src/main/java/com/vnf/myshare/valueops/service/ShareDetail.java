@@ -7,6 +7,7 @@ import com.vnf.myshare.valueops.model.BO_PROJECT;
 public class ShareDetail {
 
     public BO_PROJECT project;
+    public int valuecount;
     public int projectusers;
 
 

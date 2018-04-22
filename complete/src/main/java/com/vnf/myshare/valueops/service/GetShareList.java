@@ -19,25 +19,29 @@ public class GetShareList {
     //search all project
     @GetMapping(value = "/getsharelist")
     public ArrayList<ShareDetail> getShareList() {
-
+        //新建一個ArrayList，不能用數組因為初始化的時候要指定大小，不能用List因為不能轉換為json
         ArrayList<ShareDetail> shareDetails=new ArrayList<>();
-
+        //獲取所有的拼單信息
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<BO_PROJECT[]> responseEntity = restTemplate.getForEntity("http://localhost:8182/getallproject", BO_PROJECT[].class);
         BO_PROJECT[] project = responseEntity.getBody();
-
+        //循環每個拼單
         for(int i =0; i < project.length; i++)
         {
             ShareDetail shareDetail = new ShareDetail();
-
+            //獲取每個拼單裡面的參與的用戶數量
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+project[i].getProjectid(), Integer.class);
 
             shareDetail.project = project[i];
             shareDetail.projectusers = responseEntityFieldsValue.getBody();
 
+            ResponseEntity<Integer> responseEntityValueCount = restTemplate.getForEntity("http://localhost:8182/valuecount/"+project[i].getProjectid(), Integer.class);
+
+            shareDetail.valuecount = responseEntityValueCount.getBody();
+            //把信息拼如返回結果
             shareDetails.add(shareDetail);
         }
-
+        //返回完整拼單數據
         return shareDetails;
     }
 }

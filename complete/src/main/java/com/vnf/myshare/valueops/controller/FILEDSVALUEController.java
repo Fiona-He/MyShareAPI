@@ -85,5 +85,21 @@ public class FILEDSVALUEController {
         }
         return true;
     }
+    //根據Porjectid獲取舉手數量
+    @RequestMapping(method = RequestMethod.GET, value = "/valuecount/{projectid}")
+    public Integer selectCount(@PathVariable int projectid) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        int count =0;
+        try {
+            System.out.println(projectid);
+            BO_FILEDSVALUEMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEMapper.class);
+            count = userOperation.selectCount(projectid);
+        } finally {
+            sqlSession.close();
+        }
+
+        return count;
+
+    }
 
 }
