@@ -634,4 +634,9 @@
     select count(*)
     from bo_filedsvalue where PROJECTID = #{projectid,jdbcType=INTEGER}
   </select>
+
+  <select id="getStatus" resultType="java.lang.String">
+    select (case when STATUS is NULL then  0 else STATUS end) as status
+    from bo_filedsvalue where PROJECTID = #{projectid,jdbcType=INTEGER} and CREATEBY =   #{username,jdbcType=CHAR}
+  </select>
 </mapper>

@@ -29,15 +29,19 @@ public class GetShareList {
         for(int i =0; i < project.length; i++)
         {
             ShareDetail shareDetail = new ShareDetail();
-            //獲取每個拼單裡面的參與的用戶數量
+
+            shareDetail.Project = project[i];
+            //獲取每個拼單的關注用戶數量
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+project[i].getProjectid(), Integer.class);
+            shareDetail.JoinUsers = responseEntityFieldsValue.getBody();
 
-            shareDetail.project = project[i];
-            shareDetail.projectusers = responseEntityFieldsValue.getBody();
-
+            //獲取每個拼單的舉手用戶數量
             ResponseEntity<Integer> responseEntityValueCount = restTemplate.getForEntity("http://localhost:8182/valuecount/"+project[i].getProjectid(), Integer.class);
+            shareDetail.RaiseHandCount = responseEntityValueCount.getBody();
 
-            shareDetail.valuecount = responseEntityValueCount.getBody();
+            //獲取當前用戶的拼單狀態
+            ResponseEntity<String> responseEntityUserStatus = restTemplate.getForEntity("http://localhost:8182/getstatus/"+project[i].getProjectid()+"/1", String.class);
+            shareDetail.UserStatus = responseEntityUserStatus.getBody();
             //把信息拼如返回結果
             shareDetails.add(shareDetail);
         }

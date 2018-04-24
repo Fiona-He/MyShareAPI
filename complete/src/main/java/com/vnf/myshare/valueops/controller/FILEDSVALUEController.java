@@ -101,5 +101,20 @@ public class FILEDSVALUEController {
         return count;
 
     }
+    //根據Porjectid獲取舉手數量
+    @RequestMapping(method = RequestMethod.GET, value = "/getstatus/{projectid}/{username}")
+    public String getStatus(@PathVariable int projectid,@PathVariable String username) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        String status ="0";
+        try {
+            BO_FILEDSVALUEMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEMapper.class);
+            status = userOperation.getStatus(projectid, username);
+        } finally {
+            sqlSession.close();
+        }
+
+        return status;
+
+    }
 
 }

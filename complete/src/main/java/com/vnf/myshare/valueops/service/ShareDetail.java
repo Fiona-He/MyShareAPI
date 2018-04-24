@@ -6,9 +6,10 @@ import com.vnf.myshare.valueops.model.BO_PROJECT;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ShareDetail {
 
-    public BO_PROJECT project;
-    public int valuecount;
-    public int projectusers;
+    public BO_PROJECT Project;
+    public int RaiseHandCount;
+    public int JoinUsers;
+    public String UserStatus;
 
 
 }
