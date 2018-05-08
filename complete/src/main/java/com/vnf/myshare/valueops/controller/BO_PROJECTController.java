@@ -17,9 +17,9 @@ public class BO_PROJECTController {
     BO_PROJECTRepository bo_projectRepository;
 
     //search all project
-    @GetMapping(value = "/getallproject")
-    public List<BO_PROJECT> findProject() {
-        return bo_projectRepository.findAll();
+    @GetMapping(value = "/getallproject/{uid}")
+    public List<BO_PROJECT> findProject(@PathVariable String uid) {
+        return bo_projectRepository.findByCreateby(uid);
     }
 
     //add one project

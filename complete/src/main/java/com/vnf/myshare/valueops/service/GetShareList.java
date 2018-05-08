@@ -17,13 +17,13 @@ public class GetShareList {
     private static final Logger log = LoggerFactory.getLogger(GetShareList.class);
 
     //search all project
-    @GetMapping(value = "/getsharelist")
-    public ArrayList<ShareDetail> getShareList() {
+    @GetMapping(value = "/getsharelist/{uid}")
+    public ArrayList<ShareDetail> getShareList(@PathVariable String uid) {
         //新建一個ArrayList，不能用數組因為初始化的時候要指定大小，不能用List因為不能轉換為json
         ArrayList<ShareDetail> shareDetails=new ArrayList<>();
         //獲取所有的拼單信息
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<BO_PROJECT[]> responseEntity = restTemplate.getForEntity("http://localhost:8182/getallproject", BO_PROJECT[].class);
+        ResponseEntity<BO_PROJECT[]> responseEntity = restTemplate.getForEntity("http://localhost:8182/getallproject/"+uid, BO_PROJECT[].class);
         BO_PROJECT[] project = responseEntity.getBody();
         //循環每個拼單
         for(int i =0; i < project.length; i++)

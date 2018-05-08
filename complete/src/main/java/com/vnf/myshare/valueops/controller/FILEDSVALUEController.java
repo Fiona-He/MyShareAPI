@@ -29,6 +29,7 @@ public class FILEDSVALUEController {
     //这里体现了restful风格的请求，按照请求的类型，来进行增删查改。
     //设计restful api（其实也就是URL），不要有冗余，例如不要写成getUsers，URL中最好不要有动词。
     // 这里用的是路径变量，就是{}括起来的，会当做变量读进来
+    //獲取所有的舉手數據
     @RequestMapping(method = RequestMethod.GET, value = "/fieldvalue/{projectid}")
     public List<BO_FILEDSVALUE> selectAll(@PathVariable int projectid) {
         List<BO_FILEDSVALUE> bo_filedsvalues;
@@ -45,7 +46,7 @@ public class FILEDSVALUEController {
 
     }
 
-    //RequestBody这个注解可以接收json数据
+    //新增舉手數據
     @RequestMapping(method = RequestMethod.POST,value = "/fieldvalue")
     public boolean insert(@RequestBody BO_FILEDSVALUE record){
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -59,7 +60,7 @@ public class FILEDSVALUEController {
         return true;
     }
 
-    //RequestBody这个注解可以接收json数据
+    //更新舉手數據
     @RequestMapping(method = RequestMethod.PUT,value = "/fieldvalue")
     public boolean updateByPrimaryKey(@RequestBody BO_FILEDSVALUE record){
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -73,6 +74,7 @@ public class FILEDSVALUEController {
         return true;
     }
 
+    //刪除舉手數據
     @RequestMapping(method = RequestMethod.DELETE, value = "/fieldvalue/{projectid}/{sequence}")
     public boolean deleteByPrimaryKey(@PathVariable int projectid,@PathVariable int sequence){
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -85,7 +87,8 @@ public class FILEDSVALUEController {
         }
         return true;
     }
-    //根據Porjectid獲取舉手數量
+
+    //根據拼單號獲取舉手數量
     @RequestMapping(method = RequestMethod.GET, value = "/valuecount/{projectid}")
     public Integer selectCount(@PathVariable int projectid) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -101,7 +104,8 @@ public class FILEDSVALUEController {
         return count;
 
     }
-    //根據Porjectid獲取舉手數量
+
+    //獲取當前用戶的拼單狀態
     @RequestMapping(method = RequestMethod.GET, value = "/getstatus/{projectid}/{username}")
     public String getStatus(@PathVariable int projectid,@PathVariable String username) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
