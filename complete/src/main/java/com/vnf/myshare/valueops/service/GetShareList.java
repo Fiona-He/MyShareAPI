@@ -40,7 +40,7 @@ public class GetShareList {
             shareDetail.RaiseHandCount = responseEntityValueCount.getBody();
 
             //獲取當前用戶的拼單狀態
-            ResponseEntity<String> responseEntityUserStatus = restTemplate.getForEntity("http://localhost:8182/getstatus/"+project[i].getProjectid()+"/1", String.class);
+            ResponseEntity<String> responseEntityUserStatus = restTemplate.getForEntity("http://localhost:8182/getstatus/"+project[i].getProjectid()+"/"+uid, String.class);
             shareDetail.UserStatus = responseEntityUserStatus.getBody();
             //把信息拼如返回結果
             shareDetails.add(shareDetail);
