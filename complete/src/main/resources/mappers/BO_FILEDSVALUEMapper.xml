@@ -630,9 +630,9 @@
     from bo_filedsvalue
   </select>
 
-  <select id="selectCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+  <select id="selectCount" resultType="java.lang.Integer">
     select count(*)
-    from bo_filedsvalue where PROJECTID = #{projectid,jdbcType=INTEGER}
+    from bo_filedsvalue where PROJECTID = #{projectid,jdbcType=INTEGER} and STATUS= #{status,jdbcType=CHAR}
   </select>
 
   <select id="getStatus" resultType="java.lang.String">

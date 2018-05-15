@@ -35,9 +35,17 @@ public class GetShareList {
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+project[i].getProjectid(), Integer.class);
             shareDetail.JoinUsers = responseEntityFieldsValue.getBody();
 
-            //獲取每個拼單的舉手用戶數量
-            ResponseEntity<Integer> responseEntityValueCount = restTemplate.getForEntity("http://localhost:8182/valuecount/"+project[i].getProjectid(), Integer.class);
-            shareDetail.RaiseHandCount = responseEntityValueCount.getBody();
+            //獲取每個拼單的落單用戶數量
+            ResponseEntity<Integer> responseEntityValueCount1 = restTemplate.getForEntity("http://localhost:8182/valuecount/"+project[i].getProjectid()+"/1", Integer.class);
+            shareDetail.RaiseHandCount1 = responseEntityValueCount1.getBody();
+
+            //獲取每個拼單的拼團用戶數量
+            ResponseEntity<Integer> responseEntityValueCount2 = restTemplate.getForEntity("http://localhost:8182/valuecount/"+project[i].getProjectid()+"/2", Integer.class);
+            shareDetail.RaiseHandCount2 = responseEntityValueCount2.getBody();
+
+            //獲取每個拼單的拼團用戶數量
+            ResponseEntity<Integer> responseEntityValueCount3 = restTemplate.getForEntity("http://localhost:8182/valuecount/"+project[i].getProjectid()+"/3", Integer.class);
+            shareDetail.RaiseHandCount3 = responseEntityValueCount3.getBody();
 
             //獲取當前用戶的拼單狀態
             ResponseEntity<String> responseEntityUserStatus = restTemplate.getForEntity("http://localhost:8182/getstatus/"+project[i].getProjectid()+"/"+uid, String.class);

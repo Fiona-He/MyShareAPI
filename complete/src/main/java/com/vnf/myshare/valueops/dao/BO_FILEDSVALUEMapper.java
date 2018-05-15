@@ -14,7 +14,7 @@ public interface BO_FILEDSVALUEMapper {
 
     int updateByPrimaryKey(BO_FILEDSVALUE record);
 
-    int selectCount(@Param("projectid") Integer projectid);
+    int selectCount(@Param("projectid") Integer projectid, @Param("status") String status);
 
     String getStatus(@Param("projectid") Integer projectid, @Param("username") String username);
 }

@@ -89,14 +89,14 @@ public class FILEDSVALUEController {
     }
 
     //根據拼單號獲取舉手數量
-    @RequestMapping(method = RequestMethod.GET, value = "/valuecount/{projectid}")
-    public Integer selectCount(@PathVariable int projectid) {
+    @RequestMapping(method = RequestMethod.GET, value = "/valuecount/{projectid}/{status}")
+    public Integer selectCount(@PathVariable int projectid, @PathVariable String status) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         int count =0;
         try {
             System.out.println(projectid);
             BO_FILEDSVALUEMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEMapper.class);
-            count = userOperation.selectCount(projectid);
+            count = userOperation.selectCount(projectid,status);
         } finally {
             sqlSession.close();
         }

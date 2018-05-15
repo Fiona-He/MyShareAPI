@@ -7,7 +7,9 @@ import com.vnf.myshare.valueops.model.BO_PROJECT;
 public class ShareDetail {
 
     public BO_PROJECT Project;
-    public int RaiseHandCount;
+    public int RaiseHandCount1;
+    public int RaiseHandCount2;
+    public int RaiseHandCount3;
     public int JoinUsers;
     public String UserStatus;
 
