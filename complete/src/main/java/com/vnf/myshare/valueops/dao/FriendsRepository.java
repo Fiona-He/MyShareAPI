@@ -16,6 +16,11 @@ public interface FriendsRepository extends JpaRepository<Friends,Long>{
     @Query("select u from Friends u where u.myuid = ?1")
     List<Friends> findByUid(String uid);
 
+    Integer countByMyuidAndBfuid(String uid, String bfuid);
+
+
+
+
 }
 
 
