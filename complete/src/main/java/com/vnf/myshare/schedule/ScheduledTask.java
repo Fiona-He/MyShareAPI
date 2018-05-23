@@ -17,17 +17,17 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() {
-        log.info("The time is now {}", dateFormat.format(new Date()));
+        //log.info("The time is now {}", dateFormat.format(new Date()));
     }
 
     @Scheduled(fixedDelay=ONE_Minute)
     public void fixedDelayJob(){
-        System.out.println(dateFormat.format(new Date())+" >>fixedDelay执行....");
+        //System.out.println(dateFormat.format(new Date())+" >>fixedDelay执行....");
     }
 
     @Scheduled(fixedRate=ONE_Minute)
     public void fixedRateJob(){
-        System.out.println(dateFormat.format(new Date())+" >>fixedRate执行....");
+        //System.out.println(dateFormat.format(new Date())+" >>fixedRate执行....");
     }
 
 
