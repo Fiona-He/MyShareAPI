@@ -49,7 +49,7 @@ public class AliyunFileService {
     }
 
     @PostMapping(value = "/aliyunfile")
-    public String  aliYunFile(@RequestParam("image") String base64Data) {
+    public String  aliYunFile(@RequestParam("base64Data") String base64Data) {
         /*
          * Constructs a client instance with your account for accessing OSS
          */

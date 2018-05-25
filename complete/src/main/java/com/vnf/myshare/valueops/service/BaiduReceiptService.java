@@ -35,7 +35,7 @@ public class BaiduReceiptService {
     HttpHeaders headers = new HttpHeaders();
 
     @PostMapping(value = "/baidureceiptocr")
-    public String  baiduOcr(@RequestParam("base64Data") String base64Data, HttpServletRequest request, HttpServletResponse response) {
+    public String  baiduReceiptOcr(@RequestParam("base64Data") String base64Data, HttpServletRequest request, HttpServletResponse response) {
 
         JSONObject res = new JSONObject();
 
@@ -52,7 +52,7 @@ public class BaiduReceiptService {
             options.put("accuracy", "normal");
             options.put("detect_direction", "false");
 
-            String dataPrix = "";
+            /*String dataPrix = "";
             String data = "";
             if (base64Data == null || "".equals(base64Data)) {
                 throw new Exception("上传失败，上传图片数据为空");
@@ -77,21 +77,21 @@ public class BaiduReceiptService {
             } else {
                 throw new Exception("上传图片格式不合法");
             }
-            String tempFileName = UUID.randomUUID().toString() + suffix;
+            String tempFileName = UUID.randomUUID().toString() + suffix;*/
 
             //因为BASE64Decoder的jar问题，此处使用spring框架提供的工具包
-            byte[] bs = Base64Utils.decodeFromString(data);
+            byte[] bs = Base64Utils.decodeFromString(base64Data.replace("data:image/jpeg;base64,",""));
 
-            FileUtils.writeByteArrayToFile(new File(request.getServletContext().getRealPath("/upload"), tempFileName), bs);
+//            FileUtils.writeByteArrayToFile(new File(request.getServletContext().getRealPath("/upload"), tempFileName), bs);
 
-            System.out.print(request.getServletContext().getRealPath("/upload"));
+//            System.out.print(request.getServletContext().getRealPath("/upload"));
 
             // 通用文字识别, 图片参数为远程url图片
-            res = client.receipt(request.getServletContext().getRealPath("/upload")+'/'+tempFileName, options);
+            res = client.receipt(bs, options);
             System.out.println(res.toString(2));
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        /*} catch (IOException e) {
+            e.printStackTrace();*/
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
