@@ -1,7 +1,6 @@
 package com.vnf.myshare.valueops.service;
 
 import com.baidu.aip.ocr.AipOcr;
-import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
 import org.springframework.http.HttpHeaders;
 import org.springframework.util.Base64Utils;
@@ -10,13 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
-import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+import java.util.UUID;
 
 
 @CrossOrigin
