@@ -63,21 +63,21 @@ public class AliyunFileService {
             /*
              * Determine whether the bucket exists
              */
-            if (!ossClient.doesBucketExist(bucketName)) {
-                /*
+            /*if (!ossClient.doesBucketExist(bucketName)) {
+                *//*
                  * Create a new OSS bucket
-                 */
+                 *//*
                 System.out.println("Creating bucket " + bucketName + "\n");
                 ossClient.createBucket(bucketName);
                 CreateBucketRequest createBucketRequest= new CreateBucketRequest(bucketName);
                 createBucketRequest.setCannedACL(CannedAccessControlList.PublicRead);
                 ossClient.createBucket(createBucketRequest);
-            }
+            }*/
 
             /*
              * List the buckets in your account
              */
-            System.out.println("Listing buckets");
+            /*System.out.println("Listing buckets");
 
             ListBucketsRequest listBucketsRequest = new ListBucketsRequest();
             listBucketsRequest.setMaxKeys(500);
@@ -85,7 +85,7 @@ public class AliyunFileService {
             for (Bucket bucket : ossClient.listBuckets()) {
                 System.out.println(" - " + bucket.getName());
             }
-            System.out.println();
+            System.out.println();*/
 
             /*
              * Upload an object to your bucket

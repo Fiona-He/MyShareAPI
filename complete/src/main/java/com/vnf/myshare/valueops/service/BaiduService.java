@@ -39,7 +39,7 @@ public class BaiduService {
         options.put("language_type", "CHN_ENG");
         options.put("detect_direction", "true");
         options.put("detect_language", "true");
-        options.put("probability", "true");
+        options.put("probability", "false");
         // 参数为本地图片路径
         /*String image2 = "http://pic92.huitu.com/res/20161226/582898_20161226213354506017_1.jpg";
         JSONObject res = client.basicGeneral(image2, options);
