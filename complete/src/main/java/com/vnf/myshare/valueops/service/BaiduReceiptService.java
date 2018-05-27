@@ -49,7 +49,7 @@ public class BaiduReceiptService {
             options.put("recognize_granularity", "big");
             options.put("probability", "false");
             options.put("accuracy", "normal");
-            options.put("detect_direction", "false");
+            options.put("detect_direction", "true");
 
             /*String dataPrix = "";
             String data = "";

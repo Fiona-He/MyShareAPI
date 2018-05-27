@@ -22,6 +22,7 @@ public class OcrService {
         System.out.println(picURL);
 
         ResponseEntity<String> responseEntityBaiduOcr = restTemplate.postForEntity("http://localhost:8182/baidureceiptocr",bodyMap,String.class);
+//        ResponseEntity<String> responseEntityBaiduOcr = restTemplate.postForEntity("http://localhost:8182/baiduaccurateocr",bodyMap,String.class);
         RsultJson = responseEntityBaiduOcr.getBody();
         System.out.println(RsultJson);
 
