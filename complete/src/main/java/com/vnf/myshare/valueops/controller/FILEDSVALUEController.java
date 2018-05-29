@@ -21,11 +21,6 @@ public class FILEDSVALUEController {
         sqlSessionFactory = SingletonMybatis.getSqlSessionFactory();
     }
 
-    @RequestMapping  //如果方法上的RequestMapping没有value，则此方法默认被父路径调用
-    public String index() {
-        return "hello spring boot";
-    }
-
     //这里体现了restful风格的请求，按照请求的类型，来进行增删查改。
     //设计restful api（其实也就是URL），不要有冗余，例如不要写成getUsers，URL中最好不要有动词。
     // 这里用的是路径变量，就是{}括起来的，会当做变量读进来
