@@ -574,6 +574,11 @@
       CURRPEOPLE = #{currpeople,jdbcType=LONGVARCHAR}
     where SEQUENCE = #{sequence,jdbcType=INTEGER}
   </update>
+    <update id="updateByField">
+        update bo_filedsvalue${projectid}
+        set FIELD${fieldid1} = #{fieldvalue1,jdbcType=LONGVARCHAR}
+        where FIELD${fieldid2} = #{fieldvalue2,jdbcType=LONGVARCHAR}
+    </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap" statementType="CALLABLE">
     select SEQUENCE, PROJECTID, CREATEBY, BRANCH, DATETIME, STATUS, CURRDEPT, LASTDATE,
     QUEUENUM, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9,

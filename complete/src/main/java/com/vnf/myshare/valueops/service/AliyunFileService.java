@@ -7,10 +7,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URI;
 import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Base64Utils;
 
@@ -125,9 +127,14 @@ public class AliyunFileService {
 
             String filename = UUID.randomUUID().toString()+suffix;
 
+            System.out.println(filename);
+            System.out.println(file.getAbsolutePath());
+
             ossClient.putObject(new PutObjectRequest(bucketName, filename, file));
 
             fileurl = "http://"+bucketName+'.'+endpoint+'/'+filename;
+
+            System.out.println(fileurl);
 
             /*
              * Determine whether an object residents in your bucket
@@ -189,7 +196,10 @@ public class AliyunFileService {
             ossClient.shutdown();
         }
 
-        return fileurl;
+        JSONObject picurl = new JSONObject();
+        picurl.put("picurl", fileurl);
+
+        return picurl.toString();
     }
 
 }

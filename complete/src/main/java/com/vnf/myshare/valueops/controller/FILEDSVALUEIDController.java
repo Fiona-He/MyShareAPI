@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
+import com.vnf.myshare.valueops.model.VALUEBYFIELD;
 
 import java.util.Date;
 import java.util.List;
@@ -77,13 +78,13 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    //更新舉手數據
-    @RequestMapping(method = RequestMethod.PUT,value = "/fieldvalueid")
-    public boolean updateByPrimaryKey(@RequestBody BO_FILEDSVALUEID record){
+    //根據任意字段更新任意字段
+    @RequestMapping(method = RequestMethod.PUT,value = "/valuebyfieldid")
+    public boolean updateByPrimaryKey(@RequestBody VALUEBYFIELD valuebyfield){
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            userOperation.updateByPrimaryKey(record);
+            userOperation.updateByField(valuebyfield.getProjectid(),valuebyfield.getFieldid1(),valuebyfield.getFieldvalue1(),valuebyfield.getFieldid2(),valuebyfield.getFieldvalue2());
             sqlSession.commit();
         }finally {
             sqlSession.close();

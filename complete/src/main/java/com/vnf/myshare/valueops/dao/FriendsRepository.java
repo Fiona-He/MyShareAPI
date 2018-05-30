@@ -10,16 +10,16 @@ import java.util.List;
 
 public interface FriendsRepository extends JpaRepository<Friends,Long>{
 
-    @Modifying
     @Transactional
-
     @Query("select u from Friends u where u.myuid = ?1")
     List<Friends> findByUid(String uid);
 
     Integer countByMyuidAndBfuid(String uid, String bfuid);
 
-
-
+    @Transactional
+    @Modifying
+    @Query("update Friends u set u.bfphotourl = ?1 where u.bfuid =?2")
+    Integer setBfphotourl(String bfphotourl, String bfuid);
 
 }
 

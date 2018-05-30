@@ -16,6 +16,8 @@ public interface BO_FILEDSVALUEIDMapper {
 
     int updateByPrimaryKey(BO_FILEDSVALUEID record);
 
+    int updateByField(@Param("projectid") Integer projectid,@Param("fieldid1") Integer fieldid1,@Param("fieldvalue1") String fieldvalue1,@Param("fieldid2") Integer fieldid2,@Param("fieldvalue2") String fieldvalue2);
+
     int selectCount(@Param("projectid") Integer projectid, @Param("status") String status);
 
     String getStatus(@Param("projectid") Integer projectid, @Param("username") String username);
