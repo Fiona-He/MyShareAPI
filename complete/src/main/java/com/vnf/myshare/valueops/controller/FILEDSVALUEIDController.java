@@ -47,6 +47,26 @@ public class FILEDSVALUEIDController {
 
     }
 
+    //獲取所有的類型的數據
+    @RequestMapping(method = RequestMethod.GET, value = "/fieldvalueall/{projectid}/{field}/{value}")
+    public List<BO_FILEDSVALUEID> selectAllData(
+            @PathVariable Integer projectid,
+            @PathVariable String field,
+            @PathVariable String value) {
+        List<BO_FILEDSVALUEID> BO_FILEDSVALUEIDs;
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            BO_FILEDSVALUEIDs = userOperation.selectByFieldValue(projectid,field,value);
+            sqlSession.commit();
+        } finally {
+            sqlSession.close();
+        }
+
+        return BO_FILEDSVALUEIDs;
+
+    }
+
     //新增活動人數據
 //    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid/{shareid}/{createby}/{grouppeople}/{status}")
 //    public boolean insert(@PathVariable String shareid,@PathVariable String createby,@PathVariable String grouppeople,@PathVariable String status){
