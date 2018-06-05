@@ -15,6 +15,14 @@ public interface BO_PROJECTRepository extends JpaRepository<BO_PROJECT,Long>{
     @Query("select u from BO_PROJECT u where u.createby = ?1")
     List<BO_PROJECT> findByCreateby(String uid);
 
+    @Transactional
+    @Query("select u from BO_PROJECT u where u.projectid = ?1")
+    List<BO_PROJECT> findProjectById(Integer projectid);
+
+    @Transactional
+    @Query(value = "select * from BO_PROJECT u where u.createby = ?1 union select * from BO_PROJECT t where t.projectid in (select field1 from bo_filedsvalue1 where field2 = ?1)", nativeQuery = true)
+    List<BO_PROJECT> findProjects(String uid);
+
 }
 
 

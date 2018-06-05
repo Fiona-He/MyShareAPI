@@ -22,6 +22,16 @@ public class BO_PROJECTController {
         return bo_projectRepository.findByCreateby(uid);
     }
 
+    @GetMapping(value = "/findByProjectid/{projectid}")
+    public List<BO_PROJECT> findProjectById(@PathVariable int projectid) {
+        return bo_projectRepository.findProjectById(projectid);
+    }
+
+    @GetMapping(value = "/findProjects/{uid}")
+    public List<BO_PROJECT> findProjects(@PathVariable String uid) {
+        return bo_projectRepository.findProjects(uid);
+    }
+
     //add one project
     @PostMapping(value = "/newproject")
     public BO_PROJECT addProject(@RequestBody BO_PROJECT record) throws ParseException {
