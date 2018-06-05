@@ -8,6 +8,8 @@ import java.util.List;
 public interface BO_FILEDSVALUEIDMapper {
     int deleteByPrimaryKey(@Param("projectid") Integer projectid, @Param("sequence") Integer sequence);
 
+    int deleteByField(BO_FILEDSVALUEID record);
+
     int insert(BO_FILEDSVALUEID record);
 
     List<BO_FILEDSVALUEID> selectAll(@Param("projectid") Integer projectid);

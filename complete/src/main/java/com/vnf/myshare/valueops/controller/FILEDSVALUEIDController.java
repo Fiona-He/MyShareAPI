@@ -136,6 +136,43 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
+    @RequestMapping(method = RequestMethod.DELETE,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
+    public boolean deleteByField(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
+
+//        System.out.println(grouppeople[0].toString());
+//        JSONArray peoplejsonarray = new JSONArray(grouppeople);
+//        System.out.println(peoplejsonarray.getJSONObject(0).get("uid"));
+//        System.out.println(peoplejsonarray.getJSONObject(0).get("phtoturl"));
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            BO_FILEDSVALUEID record = new BO_FILEDSVALUEID();
+
+            JSONArray peoplejsonarray = new JSONArray(grouppeople);
+
+            System.out.println(peoplejsonarray.toString());
+
+            for(int i=0; i< peoplejsonarray.length(); i++) {
+                record.setProjectid(1);
+                record.setField1(shareid);
+                record.setField2(peoplejsonarray.getJSONObject(i).get("uid").toString());
+                record.setField3(peoplejsonarray.getJSONObject(i).get("photourl").toString());
+                System.out.println(peoplejsonarray.get(i).toString());
+                record.setField4(createby);
+                record.setStatus(status);
+                record.setDatetime(sdf.format(currentTime));
+                userOperation.deleteByField(record);
+                sqlSession.commit();
+            }
+
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
+
     //根據任意字段更新任意字段
     @RequestMapping(method = RequestMethod.PUT,value = "/valuebyfieldid")
     public boolean updateByPrimaryKey(@RequestBody VALUEBYFIELD valuebyfield){

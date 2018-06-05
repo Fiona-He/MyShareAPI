@@ -1,4 +1,6 @@
 package com.vnf.myshare.valueops.service;
+import com.vnf.myshare.valueops.controller.FILEDSVALUEController;
+import com.vnf.myshare.valueops.controller.UserProjectController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.vnf.myshare.valueops.model.BO_PROJECT;
@@ -17,6 +19,10 @@ public class GetShareList {
     @Autowired
     private static final Logger log = LoggerFactory.getLogger(GetShareList.class);
 
+    @Autowired
+    FILEDSVALUEController filedsvalueController;
+    @Autowired
+    UserProjectController userProjectController;
     //search all project
     @GetMapping(value = "/getsharelist/{uid}")
     public ArrayList<ShareDetail> getShareList(@PathVariable String uid) {
@@ -54,7 +60,18 @@ public class GetShareList {
             ShareDetail shareDetail = new ShareDetail();
 
             shareDetail.Project = fin_projects[i];
-            //獲取每個拼單的關注用戶數量
+
+            shareDetail.JoinUsers = userProjectController.findUserProjects(fin_projects[i].getProjectid());
+
+            shareDetail.RaiseHandCount1 = filedsvalueController.selectCount(fin_projects[i].getProjectid(),"1");
+
+            shareDetail.RaiseHandCount2 = filedsvalueController.selectCount(fin_projects[i].getProjectid(),"2");
+
+            shareDetail.RaiseHandCount3 = filedsvalueController.selectCount(fin_projects[i].getProjectid(),"3");
+
+            shareDetail.UserStatus = filedsvalueController.getStatus(fin_projects[i].getProjectid(),uid);
+
+            /*//獲取每個拼單的關注用戶數量
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+fin_projects[i].getProjectid(), Integer.class);
             shareDetail.JoinUsers = responseEntityFieldsValue.getBody();
 
@@ -72,7 +89,8 @@ public class GetShareList {
 
             //獲取當前用戶的拼單狀態
             ResponseEntity<String> responseEntityUserStatus = restTemplate.getForEntity("http://localhost:8182/getstatus/"+fin_projects[i].getProjectid()+"/"+uid, String.class);
-            shareDetail.UserStatus = responseEntityUserStatus.getBody();
+            shareDetail.UserStatus = responseEntityUserStatus.getBody();*/
+
             //把信息拼如返回結果
             shareDetails.add(shareDetail);
         }

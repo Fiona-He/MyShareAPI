@@ -217,6 +217,10 @@
     delete from bo_filedsvalue${projectid}
     where SEQUENCE = #{sequence,jdbcType=INTEGER}
   </delete>
+  <delete id="deleteByField" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
+    delete from bo_filedsvalue${projectid}
+    where FIELD1=#{field1,jdbcType=LONGVARCHAR} and FIELD2= #{field2,jdbcType=LONGVARCHAR} and FIELD3= #{field3,jdbcType=LONGVARCHAR} and FIELD4= #{field4,jdbcType=LONGVARCHAR}
+  </delete>
   <insert id="insert" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
     insert into bo_filedsvalue${projectid} (SEQUENCE, PROJECTID, CREATEBY,
       BRANCH, DATETIME, STATUS,
