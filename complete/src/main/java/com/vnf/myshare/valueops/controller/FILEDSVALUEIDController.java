@@ -129,6 +129,7 @@ public class FILEDSVALUEIDController {
                 record.setField6(peoplejsonarray.getJSONObject(i).get("displayname").toString());
                 record.setStatus(peoplejsonarray.getJSONObject(i).get("peoplestatus").toString());
                 record.setDatetime(sdf.format(currentTime));
+                System.out.println("Friends count:"+userOperation.selectCountByField(record));
                 if(userOperation.selectCountByField(record) < 1)
                     userOperation.insert(record);
                 sqlSession.commit();

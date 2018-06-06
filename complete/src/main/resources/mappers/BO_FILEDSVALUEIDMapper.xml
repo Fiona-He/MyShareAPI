@@ -219,17 +219,17 @@
     </delete>
     <delete id="deleteByField" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
         delete from bo_filedsvalue${projectid}
-        where FIELD1=#{field1,jdbcType=LONGVARCHAR}
-        <if test="field1 != null or field1 != 'undfined' or field1 ！= ''">
+        where PROJECTID = #{projectid, jdbcType=DECIMAL}
+        <if test="field1 != null and field1 != 'undfined'">
             and FIELD1= #{field1,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field2 != null or field2 != 'undfined' or field2 ！= ''">
+        <if test="field2 != null and field2 != 'undfined'">
             and FIELD2= #{field2,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field3 != null or field3 != 'undfined' or field3 ！= ''">
+        <if test="field3 != null and field3 != 'undfined'">
             and FIELD3= #{field3,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field4 != null or field4 != 'undfined' or field4 ！= ''">
+        <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
     </delete>
@@ -678,16 +678,16 @@
     FIELD199, FIELD200, CURRPEOPLE
     from bo_filedsvalue${projectid}
     where PROJECTID = #{projectid, jdbcType=DECIMAL}
-        <if test="field1 != null or field1 != 'undfined' or field1 ！= ''">
-            and FIELD1= #{field2,jdbcType=LONGVARCHAR}
+        <if test="field1 != null and field1 != 'undfined'">
+            and FIELD1= #{field1,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field2 != null or field2 != 'undfined' or field2 ！= ''">
+        <if test="field2 != null and field2 != 'undfined'">
             and FIELD2= #{field2,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field3 != null or field3 != 'undfined' or field3 ！= ''">
+        <if test="field3 != null and field3 != 'undfined'">
             and FIELD3= #{field3,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field4 != null or field4 != 'undfined' or field4 ！= ''">
+        <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
   </select>
@@ -731,16 +731,16 @@
         select count(*)
         from bo_filedsvalue${projectid}
         where PROJECTID = #{projectid, jdbcType=DECIMAL}
-        <if test="field1 != null or field1 != 'undfined' or field1 ！= ''">
-            and FIELD1= #{field2,jdbcType=LONGVARCHAR}
+        <if test="field1 != null and field1 != 'undfined'">
+            and FIELD1= #{field1,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field2 != null or field2 != 'undfined' or field2 ！= ''">
+        <if test="field2 != null and field2 != 'undfined'">
             and FIELD2= #{field2,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field3 != null or field3 != 'undfined' or field3 ！= ''">
+        <if test="field3 != null and field3 != 'undfined'">
             and FIELD3= #{field3,jdbcType=LONGVARCHAR}
         </if>
-        <if test="field4 != null or field4 != 'undfined' or field4 ！= ''">
+        <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
     </select>
