@@ -67,6 +67,20 @@ public class FILEDSVALUEIDController {
 
     }
 
+    //新增舉手數據
+    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid")
+    public boolean insert(@RequestBody BO_FILEDSVALUEID record){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            userOperation.insert(record);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
+
     //新增活動人數據
 //    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid/{shareid}/{createby}/{grouppeople}/{status}")
 //    public boolean insert(@PathVariable String shareid,@PathVariable String createby,@PathVariable String grouppeople,@PathVariable String status){
