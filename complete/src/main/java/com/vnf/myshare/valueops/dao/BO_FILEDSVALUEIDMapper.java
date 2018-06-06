@@ -22,5 +22,7 @@ public interface BO_FILEDSVALUEIDMapper {
 
     int selectCount(@Param("projectid") Integer projectid, @Param("status") String status);
 
+    int selectCountByField(BO_FILEDSVALUEID record);
+
     String getStatus(@Param("projectid") Integer projectid, @Param("username") String username);
 }

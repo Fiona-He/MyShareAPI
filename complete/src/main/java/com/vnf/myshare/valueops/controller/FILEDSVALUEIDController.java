@@ -122,11 +122,15 @@ public class FILEDSVALUEIDController {
                 record.setField1(shareid);
                 record.setField2(peoplejsonarray.getJSONObject(i).get("uid").toString());
                 record.setField3(peoplejsonarray.getJSONObject(i).get("photourl").toString());
+
                 System.out.println(peoplejsonarray.get(i).toString());
                 record.setField4(createby);
-                record.setStatus(status);
+                record.setField5(peoplejsonarray.getJSONObject(i).get("email").toString());
+                record.setField6(peoplejsonarray.getJSONObject(i).get("displayname").toString());
+                record.setStatus(peoplejsonarray.getJSONObject(i).get("peoplestatus").toString());
                 record.setDatetime(sdf.format(currentTime));
-                userOperation.insert(record);
+                if(userOperation.selectCountByField(record) < 1)
+                    userOperation.insert(record);
                 sqlSession.commit();
             }
 
@@ -158,9 +162,6 @@ public class FILEDSVALUEIDController {
                 record.setProjectid(1);
                 record.setField1(shareid);
                 record.setField2(peoplejsonarray.getJSONObject(i).get("uid").toString());
-                record.setField3(peoplejsonarray.getJSONObject(i).get("photourl").toString());
-                System.out.println(peoplejsonarray.get(i).toString());
-                record.setField4(createby);
                 record.setStatus(status);
                 record.setDatetime(sdf.format(currentTime));
                 userOperation.deleteByField(record);
