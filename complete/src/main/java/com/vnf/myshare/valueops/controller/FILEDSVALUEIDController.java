@@ -81,37 +81,6 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    //新增活動人數據
-//    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid/{shareid}/{createby}/{grouppeople}/{status}")
-//    public boolean insert(@PathVariable String shareid,@PathVariable String createby,@PathVariable String grouppeople,@PathVariable String status){
-//        SqlSession sqlSession = sqlSessionFactory.openSession();
-//
-//        try {
-//            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-//            BO_FILEDSVALUEID record = new BO_FILEDSVALUEID();
-//
-//            JSONObject peoplejson = new JSONObject(grouppeople);
-//
-//            System.out.println(peoplejson);
-//
-//            for(int i=0; i< peoplejson.getJSONArray("grouppeople").length(); i++) {
-//                record.setProjectid(1);
-//                record.setField1(shareid);
-//                record.setField2(peoplejson.getJSONArray("grouppeople").getJSONObject(i).get("uid").toString());
-//                record.setField3(peoplejson.getJSONArray("grouppeople").getJSONObject(i).get("photourl").toString());
-//                System.out.println(peoplejson.getJSONArray("grouppeople").get(i).toString());
-//                record.setField4(createby);
-//                record.setStatus(status);
-//                record.setDatetime(sdf.format(currentTime));
-//                userOperation.insert(record);
-//                sqlSession.commit();
-//            }
-//
-//        }finally {
-//            sqlSession.close();
-//        }
-//        return true;
-//    }
 
     @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid/{shareid}/{createby}/{status}")
     public boolean insert(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
@@ -187,6 +156,22 @@ public class FILEDSVALUEIDController {
             sqlSession.close();
         }
         return true;
+    }
+
+    //根據活動號獲取關注人數量
+    @RequestMapping(method = RequestMethod.GET, value = "/valuecountbyid")
+    public Integer selectCountByField(@RequestBody BO_FILEDSVALUEID record) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        int count =0;
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            count = userOperation.selectCountByField(record);
+        } finally {
+            sqlSession.close();
+        }
+
+        return count;
+
     }
 
     //根據任意字段更新任意字段

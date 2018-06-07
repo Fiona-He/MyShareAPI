@@ -62,8 +62,12 @@ public class GetShareList {
 
             shareDetail.Project = fin_projects[i];
 
-            shareDetail.JoinUsers = userProjectController.findUserProjects(fin_projects[i].getProjectid());
-
+            BO_FILEDSVALUEID record = new BO_FILEDSVALUEID();
+            record.setProjectid(1);
+            record.setField1(fin_projects[i].getProjectid().toString());
+            //關注人數
+            shareDetail.JoinUsers = filedsvalueidController.selectCountByField(record);
+            //已經舉手，狀態是1的人數目
             shareDetail.RaiseHandCount1 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"1");
 
             shareDetail.RaiseHandCount2 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"2");

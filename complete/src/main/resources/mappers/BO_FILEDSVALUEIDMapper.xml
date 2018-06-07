@@ -747,7 +747,7 @@
 
     <select id="getStatus" resultType="java.lang.String">
     select (ifnull(sum(status),0)) as status
-    from bo_filedsvalue${projectid} where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and CREATEBY = #{username,jdbcType=CHAR} and SEQUENCE = (select max(sequence) from bo_filedsvalue  where PROJECTID = #{projectid,jdbcType=INTEGER} and CREATEBY = #{username,jdbcType=CHAR})
+    from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and FIELD2 = #{username,jdbcType=CHAR})
 
   </select>
 </mapper>
