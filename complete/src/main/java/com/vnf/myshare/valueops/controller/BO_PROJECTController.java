@@ -23,7 +23,7 @@ public class BO_PROJECTController {
     }
 
     @GetMapping(value = "/findByProjectid/{projectid}")
-    public List<BO_PROJECT> findProjectById(@PathVariable int projectid) {
+    public BO_PROJECT findProjectById(@PathVariable int projectid) {
         return bo_projectRepository.findProjectById(projectid);
     }
 
