@@ -43,4 +43,24 @@ public class BO_PROJECTController {
     public int updateProjectDesc(@PathVariable String projectdesc,@PathVariable int projectid){
         return bo_projectRepository.setProjectDesc(projectdesc,projectid);
     }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateprojectfront1")
+    public int updateProjectFront1(@RequestBody BO_PROJECT project){
+        return bo_projectRepository.setFont1(project.getFront1(),project.getProjectid());
+    }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateprojectfront2")
+    public int updateProjectFront2(@RequestBody BO_PROJECT project){
+        return bo_projectRepository.setFont2(project.getFront2(),project.getProjectid());
+    }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateprojectfront3")
+    public int updateProjectFront3(@RequestBody BO_PROJECT project){
+        return bo_projectRepository.setFont3(project.getFront3(),project.getProjectid());
+    }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateprojectfront4")
+    public int updateProjectFront4(@RequestBody BO_PROJECT project){
+        return bo_projectRepository.setFont4(project.getFront4(),project.getProjectid());
+    }
 }
