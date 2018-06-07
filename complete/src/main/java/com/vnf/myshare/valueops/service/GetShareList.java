@@ -1,5 +1,6 @@
 package com.vnf.myshare.valueops.service;
 import com.vnf.myshare.valueops.controller.FILEDSVALUEController;
+import com.vnf.myshare.valueops.controller.FILEDSVALUEIDController;
 import com.vnf.myshare.valueops.controller.UserProjectController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ public class GetShareList {
     private static final Logger log = LoggerFactory.getLogger(GetShareList.class);
 
     @Autowired
-    FILEDSVALUEController filedsvalueController;
+    FILEDSVALUEIDController filedsvalueidController;
     @Autowired
     UserProjectController userProjectController;
     //search all project
@@ -63,13 +64,13 @@ public class GetShareList {
 
             shareDetail.JoinUsers = userProjectController.findUserProjects(fin_projects[i].getProjectid());
 
-            shareDetail.RaiseHandCount1 = filedsvalueController.selectCount(fin_projects[i].getProjectid(),"1");
+            shareDetail.RaiseHandCount1 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"1");
 
-            shareDetail.RaiseHandCount2 = filedsvalueController.selectCount(fin_projects[i].getProjectid(),"2");
+            shareDetail.RaiseHandCount2 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"2");
 
-            shareDetail.RaiseHandCount3 = filedsvalueController.selectCount(fin_projects[i].getProjectid(),"3");
+            shareDetail.RaiseHandCount3 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"3");
 
-            shareDetail.UserStatus = filedsvalueController.getStatus(fin_projects[i].getProjectid(),uid);
+            shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects[i].getProjectid(),uid);
 
             /*//獲取每個拼單的關注用戶數量
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+fin_projects[i].getProjectid(), Integer.class);

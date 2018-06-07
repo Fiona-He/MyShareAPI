@@ -724,7 +724,7 @@
 
     <select id="selectCount" resultType="java.lang.Integer">
     select count(*)
-    from bo_filedsvalue${projectid} where PROJECTID = #{projectid,jdbcType=INTEGER} and STATUS= #{status,jdbcType=CHAR}
+    from bo_filedsvalue${projectid} where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and STATUS= #{status,jdbcType=CHAR}
   </select>
 
     <select id="selectCountByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE" resultType="java.lang.Integer" statementType="CALLABLE">
@@ -747,7 +747,7 @@
 
     <select id="getStatus" resultType="java.lang.String">
     select (ifnull(sum(status),0)) as status
-    from bo_filedsvalue${projectid} where PROJECTID = #{projectid,jdbcType=INTEGER} and CREATEBY = #{username,jdbcType=CHAR} and SEQUENCE = (select max(sequence) from bo_filedsvalue  where PROJECTID = #{projectid,jdbcType=INTEGER} and CREATEBY = #{username,jdbcType=CHAR})
+    from bo_filedsvalue${projectid} where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and CREATEBY = #{username,jdbcType=CHAR} and SEQUENCE = (select max(sequence) from bo_filedsvalue  where PROJECTID = #{projectid,jdbcType=INTEGER} and CREATEBY = #{username,jdbcType=CHAR})
 
   </select>
 </mapper>

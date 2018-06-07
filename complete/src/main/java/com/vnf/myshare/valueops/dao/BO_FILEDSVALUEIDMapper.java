@@ -20,9 +20,9 @@ public interface BO_FILEDSVALUEIDMapper {
 
     int updateByField(@Param("projectid") Integer projectid,@Param("fieldid1") Integer fieldid1,@Param("fieldvalue1") String fieldvalue1,@Param("fieldid2") Integer fieldid2,@Param("fieldvalue2") String fieldvalue2);
 
-    int selectCount(@Param("projectid") Integer projectid, @Param("status") String status);
+    int selectCount(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("status") String status);
 
     int selectCountByField(BO_FILEDSVALUEID record);
 
-    String getStatus(@Param("projectid") Integer projectid, @Param("username") String username);
+    String getStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 }

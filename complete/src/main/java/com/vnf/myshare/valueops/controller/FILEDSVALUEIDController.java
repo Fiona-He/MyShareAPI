@@ -218,14 +218,14 @@ public class FILEDSVALUEIDController {
     }
 
     //根據拼單號獲取舉手數量
-    @RequestMapping(method = RequestMethod.GET, value = "/valuecountid/{projectid}/{status}")
-    public Integer selectCount(@PathVariable int projectid, @PathVariable String status) {
+    @RequestMapping(method = RequestMethod.GET, value = "/valuecountid/{projectid}/{shareid}/{status}")
+    public Integer selectCount(@PathVariable int projectid, @PathVariable int shareid, @PathVariable String status) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         int count =0;
         try {
             System.out.println(projectid);
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            count = userOperation.selectCount(projectid,status);
+            count = userOperation.selectCount(projectid,shareid,status);
         } finally {
             sqlSession.close();
         }
@@ -235,13 +235,13 @@ public class FILEDSVALUEIDController {
     }
 
     //獲取當前用戶的拼單狀態
-    @RequestMapping(method = RequestMethod.GET, value = "/getstatusid/{projectid}/{username}")
-    public String getStatus(@PathVariable int projectid,@PathVariable String username) {
+    @RequestMapping(method = RequestMethod.GET, value = "/getstatusid/{projectid}/{shareid}/{username}")
+    public String getStatus(@PathVariable int projectid,@PathVariable int shareid,@PathVariable String username) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         String status ="0";
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            status = userOperation.getStatus(projectid, username);
+            status = userOperation.getStatus(projectid,shareid, username);
         } finally {
             sqlSession.close();
         }
