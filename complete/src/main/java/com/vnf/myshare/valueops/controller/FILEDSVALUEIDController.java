@@ -1,6 +1,7 @@
 package com.vnf.myshare.valueops.controller;
 
 import com.vnf.myshare.valueops.dao.BO_FILEDSVALUEIDMapper;
+import com.vnf.myshare.valueops.model.BO_FILEDSVALUE;
 import com.vnf.myshare.valueops.model.BO_FILEDSVALUEID;
 import com.vnf.myshare.valueops.singleton.SingletonMybatis;
 import org.apache.ibatis.session.SqlSession;
@@ -74,6 +75,29 @@ public class FILEDSVALUEIDController {
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             userOperation.insert(record);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
+
+    //新增舉手數據
+    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueids")
+    public boolean insert(@RequestBody Object[] record){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            BO_FILEDSVALUEID records = new BO_FILEDSVALUEID();
+
+            JSONArray filedavalues = new JSONArray(record);
+            System.out.println(filedavalues.toString());
+
+            for(int i=0; i< filedavalues.length(); i++) {
+                records = (BO_FILEDSVALUEID)filedavalues.get(i);
+                userOperation.insert(records);
+                sqlSession.commit();
+            }
             sqlSession.commit();
         }finally {
             sqlSession.close();
