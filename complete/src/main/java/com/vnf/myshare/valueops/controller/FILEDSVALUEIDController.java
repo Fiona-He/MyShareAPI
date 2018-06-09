@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import com.vnf.myshare.valueops.model.SubOrder;
+import org.json.*;
 import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import com.vnf.myshare.valueops.model.VALUEBYFIELD;
@@ -103,23 +105,15 @@ public class FILEDSVALUEIDController {
 
     //新增子單數據
     @RequestMapping(method = RequestMethod.POST,value = "/suborder")
-    public boolean insertsuborder(@RequestBody Object record){
+    public boolean insertsuborder(@RequestBody SubOrder record){
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            BO_FILEDSVALUEID records = new BO_FILEDSVALUEID();
 
-            System.out.println(record);
-            JSONObject suborder = new JSONObject(record);
-            System.out.println(suborder);
-            userOperation.insert((BO_FILEDSVALUEID)suborder.get("order"));
+            userOperation.insert(record.getOrder());
 
-            JSONArray list = new JSONArray(suborder.getJSONArray("list"));
-            System.out.println(list.toString());
-
-            for(int i=0; i< list.length(); i++) {
-                records = (BO_FILEDSVALUEID)list.get(i);
-                userOperation.insert(records);
+            for(int i=0; i< record.getList().length; i++) {
+                userOperation.insert(record.getList()[i]);
                 sqlSession.commit();
             }
             sqlSession.commit();
