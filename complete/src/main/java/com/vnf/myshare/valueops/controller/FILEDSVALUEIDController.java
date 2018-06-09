@@ -82,19 +82,43 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    //新增舉手數據
+    //新增多條舉手數據
     @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueids")
-    public boolean insert(@RequestBody Object[] record){
+    public boolean inserts(@RequestBody BO_FILEDSVALUEID[] record){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        try {
+            System.out.println(record);
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            for(int i=0; i< record.length; i++) {
+                userOperation.insert(record[i]);
+                sqlSession.commit();
+            }
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
+
+    //新增子單數據
+    @RequestMapping(method = RequestMethod.POST,value = "/suborder")
+    public boolean insertsuborder(@RequestBody Object record){
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             BO_FILEDSVALUEID records = new BO_FILEDSVALUEID();
 
-            JSONArray filedavalues = new JSONArray(record);
-            System.out.println(filedavalues.toString());
+            System.out.println(record);
+            JSONObject suborder = new JSONObject(record);
+            System.out.println(suborder);
+            userOperation.insert((BO_FILEDSVALUEID)suborder.get("order"));
 
-            for(int i=0; i< filedavalues.length(); i++) {
-                records = (BO_FILEDSVALUEID)filedavalues.get(i);
+            JSONArray list = new JSONArray(suborder.getJSONArray("list"));
+            System.out.println(list.toString());
+
+            for(int i=0; i< list.length(); i++) {
+                records = (BO_FILEDSVALUEID)list.get(i);
                 userOperation.insert(records);
                 sqlSession.commit();
             }
