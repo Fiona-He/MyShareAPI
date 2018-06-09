@@ -111,10 +111,8 @@ public class FILEDSVALUEIDController {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
 
             userOperation.insert(record.getOrder());
-
             for(int i=0; i< record.getList().length; i++) {
                 userOperation.insert(record.getList()[i]);
-                sqlSession.commit();
             }
             sqlSession.commit();
         }finally {
