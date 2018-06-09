@@ -306,7 +306,7 @@
       FIELD199, FIELD200, CURRPEOPLE
       )
     values (#{sequence,jdbcType=INTEGER}, #{projectid,jdbcType=INTEGER}, #{createby,jdbcType=VARCHAR},
-      #{branch,jdbcType=VARCHAR}, #{datetime,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+      #{branch,jdbcType=VARCHAR}, sysdate(), #{status,jdbcType=VARCHAR},
       #{currdept,jdbcType=VARCHAR}, #{lastdate,jdbcType=VARCHAR}, #{queuenum,jdbcType=VARCHAR},
       #{field1,jdbcType=LONGVARCHAR}, #{field2,jdbcType=LONGVARCHAR}, #{field3,jdbcType=LONGVARCHAR},
       #{field4,jdbcType=LONGVARCHAR}, #{field5,jdbcType=LONGVARCHAR}, #{field6,jdbcType=LONGVARCHAR},
@@ -385,7 +385,7 @@
       DATETIME = #{datetime,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       CURRDEPT = #{currdept,jdbcType=VARCHAR},
-      LASTDATE = #{lastdate,jdbcType=VARCHAR},
+      LASTDATE = sysdate(),
       QUEUENUM = #{queuenum,jdbcType=VARCHAR},
       FIELD1 = #{field1,jdbcType=LONGVARCHAR},
       FIELD2 = #{field2,jdbcType=LONGVARCHAR},
