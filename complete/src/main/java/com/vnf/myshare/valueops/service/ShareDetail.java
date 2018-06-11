@@ -12,6 +12,7 @@ public class ShareDetail {
     public int RaiseHandCount3;
     public int JoinUsers;
     public String UserStatus;
+    public String DateTime;
 
 
 }

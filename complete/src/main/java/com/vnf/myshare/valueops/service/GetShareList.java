@@ -76,6 +76,8 @@ public class GetShareList {
 
             shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects[i].getProjectid(),uid);
 
+            shareDetail.DateTime = filedsvalueidController.getDatetime(0,fin_projects[i].getProjectid(),uid);
+
             /*//獲取每個拼單的關注用戶數量
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+fin_projects[i].getProjectid(), Integer.class);
             shareDetail.JoinUsers = responseEntityFieldsValue.getBody();

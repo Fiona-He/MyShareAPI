@@ -595,6 +595,26 @@
         set FIELD${fieldid1} = #{fieldvalue1,jdbcType=LONGVARCHAR}
         where FIELD${fieldid2} = #{fieldvalue2,jdbcType=LONGVARCHAR}
     </update>
+    <update id="updateStatusByField">
+        update bo_filedsvalue${projectid}
+        set status = #{NewStatus, jdbcType=LONGVARCHAR}
+        where PROJECTID = #{projectid,jdbcType=LONGVARCHAR}
+        <if test="field1 != null and field1 != 'undfined'">
+            and FIELD1= #{field1,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="field2 != null and field2 != 'undfined'">
+            and FIELD2= #{field2,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="field3 != null and field3 != 'undfined'">
+            and FIELD3= #{field3,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="field4 != null and field4 != 'undfined'">
+            and FIELD4= #{field4,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="status != null and status != 'undfined'">
+            and STATUS= #{status,jdbcType=LONGVARCHAR}
+        </if>
+    </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap"
             statementType="CALLABLE">
     select SEQUENCE, PROJECTID, CREATEBY, BRANCH, DATETIME, STATUS, CURRDEPT, LASTDATE,
@@ -748,6 +768,9 @@
     <select id="getStatus" resultType="java.lang.String">
     select (ifnull(sum(status),0)) as status
     from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and FIELD2 = #{username,jdbcType=CHAR})
-
   </select>
+    <select id="getDatetime" resultType="java.lang.String">
+        select datetime
+        from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and FIELD2 = #{username,jdbcType=CHAR})
+    </select>
 </mapper>

@@ -24,5 +24,9 @@ public interface BO_FILEDSVALUEIDMapper {
 
     int selectCountByField(BO_FILEDSVALUEID record);
 
+    int updateStatusByField(BO_FILEDSVALUEID record, String NewStatus);
+
     String getStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
+
+    String getDatetime(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 }
