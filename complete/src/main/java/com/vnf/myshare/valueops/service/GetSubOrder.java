@@ -56,7 +56,7 @@ public class GetSubOrder {
             BO_FILEDSVALUEID cond2 = new BO_FILEDSVALUEID();
             cond2.setProjectid(3);
             cond2.setField1(orderid);
-            cond2.setField2(subOrder.order.getSequence().toString());
+            cond2.setField6(subOrder.order.getField6().toString());
             List<BO_FILEDSVALUEID> templist = userOperation.selectByField(cond2);
 
             BO_FILEDSVALUEID[] subOrderDetail = new BO_FILEDSVALUEID[templist.size()];
