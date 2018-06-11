@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vnf.myshare.valueops.dao.BO_FILEDSVALUEIDMapper">
-    <resultMap id="BaseResultMap" type="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
+    <resultMap id="BaseResultMap" type="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
         <id column="SEQUENCE" jdbcType="INTEGER" property="sequence"/>
         <result column="PROJECTID" jdbcType="INTEGER" property="projectid"/>
         <result column="CREATEBY" jdbcType="VARCHAR" property="createby"/>
@@ -217,7 +217,7 @@
     delete from bo_filedsvalue${projectid}
     where SEQUENCE = #{sequence,jdbcType=INTEGER}
     </delete>
-    <delete id="deleteByField" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
+    <delete id="deleteByField" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
         delete from bo_filedsvalue${projectid}
         where PROJECTID = #{projectid, jdbcType=DECIMAL}
         <if test="field1 != null and field1 != 'undfined'">
@@ -233,7 +233,7 @@
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
     </delete>
-    <insert id="insert" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
+    <insert id="insert" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
     insert into bo_filedsvalue${projectid} (SEQUENCE, PROJECTID, CREATEBY,
       BRANCH, DATETIME, STATUS,
       CURRDEPT, LASTDATE, QUEUENUM,
@@ -377,7 +377,7 @@
       #{field199,jdbcType=LONGVARCHAR}, #{field200,jdbcType=LONGVARCHAR}, #{currpeople,jdbcType=LONGVARCHAR}
       )
   </insert>
-    <update id="updateByPrimaryKey" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE">
+    <update id="updateByPrimaryKey" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
     update bo_filedsvalue${projectid}
     set PROJECTID = #{projectid,jdbcType=INTEGER},
       CREATEBY = #{createby,jdbcType=VARCHAR},
@@ -671,7 +671,7 @@
     FIELD199, FIELD200, CURRPEOPLE
     from bo_filedsvalue${projectid}
   </select>
-    <select id="selectByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE" resultMap="BaseResultMap" statementType="CALLABLE">
+    <select id="selectByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID" resultMap="BaseResultMap" statementType="CALLABLE">
     select SEQUENCE, PROJECTID, CREATEBY, BRANCH, DATETIME, STATUS, CURRDEPT, LASTDATE,
     QUEUENUM, FIELD1, FIELD2, FIELD3, FIELD4, FIELD5, FIELD6, FIELD7, FIELD8, FIELD9,
     FIELD10, FIELD11, FIELD12, FIELD13, FIELD14, FIELD15, FIELD16, FIELD17, FIELD18,
@@ -747,7 +747,7 @@
     from bo_filedsvalue${projectid} where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and STATUS= #{status,jdbcType=CHAR}
   </select>
 
-    <select id="selectCountByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUE" resultType="java.lang.Integer" statementType="CALLABLE">
+    <select id="selectCountByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID" resultType="java.lang.Integer" statementType="CALLABLE">
         select count(*)
         from bo_filedsvalue${projectid}
         where PROJECTID = #{projectid, jdbcType=DECIMAL}

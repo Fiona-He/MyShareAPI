@@ -4190,4 +4190,8 @@ public class BO_ATTRIBUTE {
     public void setStepshow(String stepshow) {
         this.stepshow = stepshow == null ? null : stepshow.trim();
     }
+
+    public static class SubOrder {
+
+    }
 }

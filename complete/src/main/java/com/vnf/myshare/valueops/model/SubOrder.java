@@ -9,7 +9,7 @@ public class SubOrder {
     @GeneratedValue
     public BO_FILEDSVALUEID order;
 
-    private BO_FILEDSVALUEID[] list;
+    public BO_FILEDSVALUEID[] list;
 
     public BO_FILEDSVALUEID[] getList() {
         return list;
