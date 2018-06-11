@@ -595,9 +595,9 @@
         set FIELD${fieldid1} = #{fieldvalue1,jdbcType=LONGVARCHAR}
         where FIELD${fieldid2} = #{fieldvalue2,jdbcType=LONGVARCHAR}
     </update>
-    <update id="updateStatusByField">
+    <update id="updateStatusByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
         update bo_filedsvalue${projectid}
-        set status = #{NewStatus, jdbcType=LONGVARCHAR}
+        set status = #{status,jdbcType=LONGVARCHAR}
         where PROJECTID = #{projectid,jdbcType=LONGVARCHAR}
         <if test="field1 != null and field1 != 'undfined'">
             and FIELD1= #{field1,jdbcType=LONGVARCHAR}
@@ -611,8 +611,11 @@
         <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
-        <if test="status != null and status != 'undfined'">
-            and STATUS= #{status,jdbcType=LONGVARCHAR}
+        <if test="field5 != null and field5 != 'undfined'">
+            and FIELD5= #{field5,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="field6 != null and field6 != 'undfined'">
+            and FIELD6= #{field6,jdbcType=LONGVARCHAR}
         </if>
     </update>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap"

@@ -26,7 +26,7 @@ public interface BO_FILEDSVALUEIDMapper {
 
     List<BO_FILEDSVALUEID> selectByField(BO_FILEDSVALUEID record);
 
-    int updateStatusByField(BO_FILEDSVALUEID record, String NewStatus);
+    int updateStatusByField(BO_FILEDSVALUEID record);
 
     String getStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 

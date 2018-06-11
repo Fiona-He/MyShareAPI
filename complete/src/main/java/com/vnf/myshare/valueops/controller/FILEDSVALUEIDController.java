@@ -84,49 +84,9 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    //新增多條舉手數據
-    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueids")
-    public boolean inserts(@RequestBody BO_FILEDSVALUEID[] record){
-        SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        try {
-            System.out.println(record);
-            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            for(int i=0; i< record.length; i++) {
-                userOperation.insert(record[i]);
-                sqlSession.commit();
-            }
-            sqlSession.commit();
-        }finally {
-            sqlSession.close();
-        }
-        return true;
-    }
 
-    //新增子單數據
-    @RequestMapping(method = RequestMethod.POST,value = "/suborder")
-    public boolean insertsuborder(@RequestBody SubOrder record){
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        try {
-            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
 
-            userOperation.insert(record.getOrder());
-            for(int i=0; i< record.getList().length; i++) {
-                userOperation.insert(record.getList()[i]);
-                BO_FILEDSVALUEID NewStatusCond = new BO_FILEDSVALUEID();
-                //更新舉手BO_FIELDVALUE0表，根據projectid必為0；Field1活動ID；Field2舉手uid；Status必為1（還沒被拉入其他小單）
-                NewStatusCond.setProjectid(0);
-                NewStatusCond.setField1(record.getList()[i].getField1());
-                NewStatusCond.setField2(record.getList()[i].getField2());
-                NewStatusCond.setStatus("1");
-                userOperation.updateStatusByField(NewStatusCond,"2");
-            }
-            sqlSession.commit();
-        }finally {
-            sqlSession.close();
-        }
-        return true;
-    }
 
 
     @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid/{shareid}/{createby}/{status}")
@@ -282,6 +242,7 @@ public class FILEDSVALUEIDController {
 
     }
 
+    //獲取子單成團時間
     public String getDatetime(@PathVariable int projectid,@PathVariable int shareid,@PathVariable String username) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         String status ="0";
