@@ -3,6 +3,7 @@ package com.vnf.myshare.valueops.service;
 import com.vnf.myshare.valueops.controller.FILEDSVALUEIDController;
 import com.vnf.myshare.valueops.controller.UserProjectController;
 import com.vnf.myshare.valueops.dao.BO_FILEDSVALUEIDMapper;
+import com.vnf.myshare.valueops.model.BO_FILEDSVALUE;
 import com.vnf.myshare.valueops.model.BO_FILEDSVALUEID;
 import com.vnf.myshare.valueops.model.BO_PROJECT;
 import com.vnf.myshare.valueops.model.SubOrder;
@@ -58,10 +59,9 @@ public class GetSubOrder {
             cond2.setField2(subOrder.order.getSequence().toString());
             List<BO_FILEDSVALUEID> templist = userOperation.selectByField(cond2);
 
-            for(int i=0; i<templist.size(); i++) {
-                subOrderList.add(templist.get(i));
-            }
+            BO_FILEDSVALUEID[] subOrderDetail = new BO_FILEDSVALUEID[templist.size()];
 
+            subOrder.list = templist.toArray(subOrderDetail);
 
         }finally {
             sqlSession.close();
