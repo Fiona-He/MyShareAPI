@@ -16,7 +16,7 @@ public interface BO_FILEDSVALUEIDMapper {
 
     List<BO_FILEDSVALUEID> selectByFieldValue(@Param("projectid") Integer projectid, @Param("fieldname") String fieldname, @Param("fieldvalue") String fieldvalue);
 
-    List<BO_FILEDSVALUEID> selectByMultiFieldValue(Integer projectid, String fieldname1, String fieldvalue1, String fieldname2, String fieldvalue2);
+    List<BO_FILEDSVALUEID> selectByMultiFieldValue(Integer projectid, String fieldname1, String fieldvalue1, String fieldname2, String fieldvalue2, String fieldname3, String fieldvalue3);
 
     int updateByPrimaryKey(BO_FILEDSVALUEID record);
 

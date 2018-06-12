@@ -72,18 +72,20 @@ public class FILEDSVALUEIDController {
 
 
     //獲取所有的類型的數據
-    @RequestMapping(method = RequestMethod.GET, value = "/fieldvaluemulticond/{projectid}/{field1}/{value1}/{field2}/{value2}")
+    @RequestMapping(method = RequestMethod.GET, value = "/fieldvaluemulticond/{projectid}/{field1}/{value1}/{field2}/{value2}/{field3}/{value3}")
     public List<BO_FILEDSVALUEID> selectByMultiFieldValue(
             @PathVariable Integer projectid,
             @PathVariable String field1,
             @PathVariable String value1,
             @PathVariable String field2,
-            @PathVariable String value2) {
+            @PathVariable String value2,
+            @PathVariable String field3,
+            @PathVariable String value3) {
         List<BO_FILEDSVALUEID> BO_FILEDSVALUEIDs;
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            BO_FILEDSVALUEIDs = userOperation.selectByMultiFieldValue(projectid,field1,value1,field2,value2);
+            BO_FILEDSVALUEIDs = userOperation.selectByMultiFieldValue(projectid,field1,value1,field2,value2,field3,value3);
             sqlSession.commit();
         } finally {
             sqlSession.close();

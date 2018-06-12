@@ -778,6 +778,9 @@
         <if test="fieldvalue2 != null and fieldvalue2 != 'undfined'">
             and ${fieldname2} = #{fieldvalue2, jdbcType=VARCHAR}
         </if>
+        <if test="fieldvalue3 != null and fieldvalue3 != 'undfined'">
+            and ${fieldname3} = #{fieldvalue3, jdbcType=VARCHAR}
+        </if>
     </select>
 
     <select id="selectCount" resultType="java.lang.Integer">
