@@ -115,4 +115,20 @@ public class SubOrderOps {
         }
         return true;
     }
+
+    //更新子單金額和狀態
+    @RequestMapping(method = RequestMethod.PUT,value = "/suborderconfirm")
+    public boolean confirmSubOrder(@RequestBody BO_FILEDSVALUEID record){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        try {
+            System.out.println(record);
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            userOperation.updateByPrimaryKey(record);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
 }
