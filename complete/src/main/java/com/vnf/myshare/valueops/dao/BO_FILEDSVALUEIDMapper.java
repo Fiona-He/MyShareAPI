@@ -1,7 +1,9 @@
 package com.vnf.myshare.valueops.dao;
 
 import com.vnf.myshare.valueops.model.BO_FILEDSVALUEID;
+import com.vnf.myshare.valueops.service.RaiseHandStatus;
 import org.apache.ibatis.annotations.Param;
+
 
 import java.util.List;
 
@@ -31,6 +33,8 @@ public interface BO_FILEDSVALUEIDMapper {
     int updateStatusByField(BO_FILEDSVALUEID record);
 
     String getStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
+
+    List<RaiseHandStatus> getRaiseHandStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
 
     String getDatetime(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 }

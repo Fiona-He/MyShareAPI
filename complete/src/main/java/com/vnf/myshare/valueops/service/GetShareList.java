@@ -76,6 +76,8 @@ public class GetShareList {
 
             shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects[i].getProjectid(),uid);
 
+            shareDetail.RaiseHandStatus = filedsvalueidController.getRaiseHandStatus(0,fin_projects[i].getProjectid());
+
             shareDetail.DateTime = filedsvalueidController.getDatetime(0,fin_projects[i].getProjectid(),uid);
 
             /*//獲取每個拼單的關注用戶數量

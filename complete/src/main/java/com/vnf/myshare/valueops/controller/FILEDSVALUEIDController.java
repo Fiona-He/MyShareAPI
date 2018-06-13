@@ -3,6 +3,7 @@ package com.vnf.myshare.valueops.controller;
 import com.vnf.myshare.valueops.dao.BO_FILEDSVALUEIDMapper;
 import com.vnf.myshare.valueops.model.BO_FILEDSVALUE;
 import com.vnf.myshare.valueops.model.BO_FILEDSVALUEID;
+import com.vnf.myshare.valueops.service.RaiseHandStatus;
 import com.vnf.myshare.valueops.singleton.SingletonMybatis;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -274,6 +275,20 @@ public class FILEDSVALUEIDController {
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             status = userOperation.getDatetime(projectid,shareid, username);
+        } finally {
+            sqlSession.close();
+        }
+
+        return status;
+
+    }
+
+    public List<RaiseHandStatus> getRaiseHandStatus(@PathVariable int projectid,@PathVariable int shareid) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<RaiseHandStatus> status;
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            status = userOperation.getRaiseHandStatus(projectid,shareid);
         } finally {
             sqlSession.close();
         }
