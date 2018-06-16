@@ -31,6 +31,11 @@ public interface BO_PROJECTRepository extends JpaRepository<BO_PROJECT,Long>{
     @Query("update BO_PROJECT u set u.front4 = ?1 where u.projectid = ?2")
     int setFont4(String front4, Integer projectid);
 
+    @Modifying
+    @Transactional
+    @Query("update BO_PROJECT u set u.specialind = ?1 where u.projectid = ?2")
+    int setSpecialInd(String specialind, Integer projectid);
+
     @Transactional
     @Query("select u from BO_PROJECT u where u.createby = ?1")
     List<BO_PROJECT> findByCreateby(String uid);

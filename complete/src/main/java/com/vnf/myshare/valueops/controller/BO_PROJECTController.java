@@ -63,4 +63,9 @@ public class BO_PROJECTController {
     public int updateProjectFront4(@RequestBody BO_PROJECT project){
         return bo_projectRepository.setFont4(project.getFront4(),project.getProjectid());
     }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateprojectspecialind")
+    public int updateProjectSpecialInd(@RequestBody BO_PROJECT project){
+        return bo_projectRepository.setSpecialInd(project.getSpecialind(),project.getProjectid());
+    }
 }
