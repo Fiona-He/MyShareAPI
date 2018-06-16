@@ -216,6 +216,7 @@
     <resultMap id="RaiseHandStatus" type="com.vnf.myshare.valueops.service.RaiseHandStatus">
         <result column="uid" jdbcType="VARCHAR" property="uid"/>
         <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="sequence" jdbcType="VARCHAR" property="sequence"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from bo_filedsvalue${projectid}
@@ -815,7 +816,7 @@
     from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and FIELD2 = #{username,jdbcType=CHAR})
   </select>
     <select id="getRaiseHandStatus" resultMap="RaiseHandStatus">
-        select field2 as uid, (ifnull(sum(status),0)) as status
+        select field2 as uid, (ifnull(sum(status),0)) as status, sequence
         from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER})
     </select>
     <select id="getDatetime" resultType="java.lang.String">

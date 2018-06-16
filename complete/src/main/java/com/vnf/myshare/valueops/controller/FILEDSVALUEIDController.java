@@ -110,10 +110,19 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-
-
-
-
+    //刪除舉手數據
+    @RequestMapping(method = RequestMethod.DELETE, value = "/fieldvalueid/{projectid}/{sequence}")
+    public boolean deleteByPrimaryKey(@PathVariable int projectid,@PathVariable int sequence){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            userOperation.deleteByPrimaryKey(projectid,sequence);
+            sqlSession.commit();
+        }finally {
+            sqlSession.close();
+        }
+        return true;
+    }
 
     @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueid/{shareid}/{createby}/{status}")
     public boolean insert(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
@@ -214,20 +223,6 @@ public class FILEDSVALUEIDController {
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             userOperation.updateByField(valuebyfield.getProjectid(),valuebyfield.getFieldid1(),valuebyfield.getFieldvalue1(),valuebyfield.getFieldid2(),valuebyfield.getFieldvalue2());
-            sqlSession.commit();
-        }finally {
-            sqlSession.close();
-        }
-        return true;
-    }
-
-    //刪除舉手數據
-    @RequestMapping(method = RequestMethod.DELETE, value = "/fieldvalueid/{projectid}/{sequence}")
-    public boolean deleteByPrimaryKey(@PathVariable int projectid,@PathVariable int sequence){
-        SqlSession sqlSession = sqlSessionFactory.openSession();
-        try {
-            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
-            userOperation.deleteByPrimaryKey(projectid,sequence);
             sqlSession.commit();
         }finally {
             sqlSession.close();
