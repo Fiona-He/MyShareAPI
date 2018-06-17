@@ -38,10 +38,14 @@ public class BO_PROJECTController {
         return bo_projectRepository.save(record);
     }
 
-    //RequestBody这个注解可以接收json数据
     @RequestMapping(method = RequestMethod.PUT,value = "/updateproject/{projectid}/{projectdesc}")
     public int updateProjectDesc(@PathVariable String projectdesc,@PathVariable int projectid){
         return bo_projectRepository.setProjectDesc(projectdesc,projectid);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT,value = "/projectname/{projectid}/{projectname}")
+    public int updateProjectName(@PathVariable String projectname,@PathVariable int projectid){
+        return bo_projectRepository.setProjectName(projectname,projectid);
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "/updateprojectfront1")

@@ -13,6 +13,11 @@ public interface BO_PROJECTRepository extends JpaRepository<BO_PROJECT,Long>{
 
     @Modifying
     @Transactional
+    @Query("update BO_PROJECT u set u.projectname = ?1 where u.projectid = ?2")
+    int setProjectName(String projectname, Integer projectid);
+
+    @Modifying
+    @Transactional
     @Query("update BO_PROJECT u set u.front1 = ?1 where u.projectid = ?2")
     int setFont1(String front1, Integer projectid);
 
