@@ -135,6 +135,7 @@ public class AliyunFileService {
             fileurl = "http://"+bucketName+'.'+endpoint+'/'+filename;
 
             System.out.println(fileurl);
+            file.delete();
 
             /*
              * Determine whether an object residents in your bucket
