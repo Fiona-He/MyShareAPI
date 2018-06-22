@@ -4,7 +4,7 @@ import com.vnf.myshare.valueops.dao.UserRepository;
 import com.vnf.myshare.valueops.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 @CrossOrigin
 @RestController
@@ -12,6 +12,8 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     //search all user
     @GetMapping(value = "/findusers")
@@ -44,6 +46,27 @@ public class UserController {
     @DeleteMapping(value = "deleteuserbyid/{id}")
     public void deleteUserbyid(@PathVariable("id") long id) {
         userRepository.deleteById(id);
+    }
+
+
+    //money of user
+    @GetMapping(value = "income/{id}")
+    public float getIncome(@PathVariable("id") String id) {
+        String sql = "select ifnull(sum(field4),0.00) as income from bo_filedsvalue4 " +
+                "where field1 = '" + id + "'" +
+                "and field3 = '5'";
+        System.out.println("sql:"+sql);
+        Float income = jdbcTemplate.queryForObject(sql,Float.class);
+        return income;
+    }
+    @GetMapping(value = "expanse/{id}")
+    public float getExpanse(@PathVariable("id") String id) {
+        String sql = "select ifnull(sum(field4),0.00) as expanse from bo_filedsvalue4 " +
+                "where field1 = '" + id + "'" +
+                "and field3 = '6'";
+        System.out.println("sql:"+sql);
+        Float expanse = jdbcTemplate.queryForObject(sql,Float.class);
+        return expanse;
     }
 
     //delete one user
