@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import com.vnf.myshare.valueops.model.SubOrder;
 import org.json.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.text.SimpleDateFormat;
 import com.vnf.myshare.valueops.model.VALUEBYFIELD;
@@ -22,6 +24,9 @@ import java.util.List;
 @RestController
 /*@RequestMapping("/fieldsvalue") //在类上使用RequestMapping，里面设置的value就是方法的父路径*/
 public class FILEDSVALUEIDController {
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     private static SqlSessionFactory sqlSessionFactory;
     Date currentTime = new java.util.Date();
@@ -292,4 +297,17 @@ public class FILEDSVALUEIDController {
 
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/getprojectdetail/{projectid}")
+    public List getProjectDetail(@PathVariable String projectid) {
+        String sql = "select t1.field2 as createTime, t3.field4 des, t1.field4 money,t1.field5 cnt " +
+                "from bo_filedsvalue4 t1 " +
+                "inner join bo_filedsvalue2 t2 on t1.field7 = t2.field6 " +
+                "inner join bo_filedsvalue5 t3 on t1.field3 = t3.field3 " +
+                "where t1.field3 in (4,5,9) and t2.field1 = " + projectid +
+                " order by t1.field2";
+        System.out.println("sql:"+sql);
+        List result = jdbcTemplate.queryForList(sql);
+        return result;
+
+    }
 }
