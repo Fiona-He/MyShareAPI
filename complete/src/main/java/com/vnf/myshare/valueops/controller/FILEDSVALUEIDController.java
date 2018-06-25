@@ -307,9 +307,10 @@ public class FILEDSVALUEIDController {
                 "inner join bo_filedsvalue5 t3 on t1.field3 = t3.field3 " +
                 "where t1.field3 in (4,5,9) and t2.field1 = " + projectid +
                 "  union all " +
-                "select t1.field2 as createTime, t2.PLANDESC des, t1.field4 money,t1.field5 cnt " +
+                "select t1.field2 as createTime,  t3.field4 des, t1.field4 money,t1.field5 cnt " +
                 "from bo_filedsvalue4 t1 " +
                 "inner join bo_project t2 on t1.field7 = t2.PROJECTID " +
+                "inner join bo_filedsvalue5 t3 on t1.field3 = t3.field3 " +
                 "where t1.field3 = 1  and t2.PROJECTID =" + projectid +
                 " ) a  order by a.createTime";
 
