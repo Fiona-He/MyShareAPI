@@ -137,6 +137,7 @@ public class SubOrderOps {
                 NewStatusCond.setField3(record.list[i].getField3());
                 NewStatusCond.setStatus("3");
                 userOperation.updateStatusByField(NewStatusCond);
+                userOperation.updateFieldByField(NewStatusCond,7,record.order.getField7());
             }
             sqlSession.commit();
         }finally {

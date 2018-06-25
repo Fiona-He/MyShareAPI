@@ -26,6 +26,6 @@ public class OcrService {
         RsultJson = responseEntityBaiduOcr.getBody();
         System.out.println(RsultJson);
 
-        return RsultJson;
+        return "{\"picurl\":"+picURL+",\"menuJson\":"+RsultJson+"}";
     }
 }

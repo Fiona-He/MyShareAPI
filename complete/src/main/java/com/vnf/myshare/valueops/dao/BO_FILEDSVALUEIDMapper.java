@@ -32,6 +32,8 @@ public interface BO_FILEDSVALUEIDMapper {
 
     int updateStatusByField(BO_FILEDSVALUEID record);
 
+    int updateFieldByField(BO_FILEDSVALUEID record,@Param("fieldid1") Integer fieldid1,@Param("fieldvalue1") String fieldvalue1);
+
     String getStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 
     List<RaiseHandStatus> getRaiseHandStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
