@@ -137,7 +137,10 @@ public class SubOrderOps {
                 NewStatusCond.setField3(record.list[i].getField3());
                 NewStatusCond.setStatus("3");
                 userOperation.updateStatusByField(NewStatusCond);
-                userOperation.updateFieldByField(NewStatusCond,7,record.order.getField7());
+                //保存收據圖片信息
+                userOperation.updateByField(3,9,record.order.getField7(), 6,record.list[i].getField6());
+                //保存消費項目信息
+                userOperation.updateByField(3,10,record.list[i].getField10(), 6,record.list[i].getField6());
             }
             sqlSession.commit();
         }finally {

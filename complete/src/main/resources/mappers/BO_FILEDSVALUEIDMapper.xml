@@ -600,29 +600,6 @@
         set FIELD${fieldid1} = #{fieldvalue1,jdbcType=LONGVARCHAR}
         where FIELD${fieldid2} = #{fieldvalue2,jdbcType=LONGVARCHAR}
     </update>
-    <update id="updateFieldByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
-        update bo_filedsvalue${projectid}
-        set FIELD${fieldid1} = #{fieldvalue1,jdbcType=LONGVARCHAR}
-        where PROJECTID = #{projectid,jdbcType=LONGVARCHAR}
-        <if test="field1 != null and field1 != 'undfined'">
-            and FIELD1= #{field1,jdbcType=LONGVARCHAR}
-        </if>
-        <if test="field2 != null and field2 != 'undfined'">
-            and FIELD2= #{field2,jdbcType=LONGVARCHAR}
-        </if>
-        <if test="field3 != null and field3 != 'undfined'">
-            and FIELD3= #{field3,jdbcType=LONGVARCHAR}
-        </if>
-        <if test="field4 != null and field4 != 'undfined'">
-            and FIELD4= #{field4,jdbcType=LONGVARCHAR}
-        </if>
-        <if test="field5 != null and field5 != 'undfined'">
-            and FIELD5= #{field5,jdbcType=LONGVARCHAR}
-        </if>
-        <if test="field6 != null and field6 != 'undfined'">
-            and FIELD6= #{field6,jdbcType=LONGVARCHAR}
-        </if>
-    </update>
     <update id="updateStatusByField"  parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
         update bo_filedsvalue${projectid}
         set status = #{status,jdbcType=LONGVARCHAR}
