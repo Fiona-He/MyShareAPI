@@ -62,12 +62,26 @@ public class SubOrderOps {
 
     //新增子單數據，包括新增子訂單主信息，新增子訂單人員清單，更新舉手狀態
     @RequestMapping(method = RequestMethod.POST,value = "/suborder")
-    public boolean newSubOrder(@RequestBody SubOrder record){
+    public int newSubOrder(@RequestBody SubOrder record){
         SqlSession sqlSession = sqlSessionFactory.openSession();
 
         try {
             System.out.println(record);
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            for(int i=0; i< record.list.length; i++) {
+                //新增子訂單人員清單
+                userOperation.insert(record.list[i]);
+                BO_FILEDSVALUEID NewStatusCond = new BO_FILEDSVALUEID();
+                //更新舉手狀態，更新BO_FIELDVALUE0表，根據projectid必為0；Field1活動ID；Field2舉手uid；Status必為1（還沒被拉入其他小單）
+                NewStatusCond.setProjectid(0);
+                NewStatusCond.setField1(record.list[i].getField1());
+                NewStatusCond.setField2(record.list[i].getField2());
+                NewStatusCond.setField3(record.list[i].getField3());
+                NewStatusCond.setStatus("1");
+                int checkind = userOperation.selectCountByField(NewStatusCond);
+                if(checkind != 1)
+                    return 1;
+            }
             userOperation.insert(record.order);
             for(int i=0; i< record.list.length; i++) {
                 //新增子訂單人員清單
@@ -85,7 +99,7 @@ public class SubOrderOps {
         }finally {
             sqlSession.close();
         }
-        return true;
+        return 0;
     }
 
 

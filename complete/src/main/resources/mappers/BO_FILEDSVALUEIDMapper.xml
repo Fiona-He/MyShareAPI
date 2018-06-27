@@ -809,6 +809,9 @@
         <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
+        <if test="status != null and status != 'undfined'">
+            and status= #{status,jdbcType=LONGVARCHAR}
+        </if>
     </select>
 
     <select id="getStatus" resultType="java.lang.String">
