@@ -199,14 +199,14 @@ public class FILEDSVALUEIDController {
                 int checkind1 = userOperation.selectCountByField(NewStatusCond);
                 if(checkind1 > 0) {
                     System.out.println(peoplejsonarray.getJSONObject(i).get("uid").toString());
-                    return peoplejsonarray.getJSONObject(i).get("uid").toString();
+                    return "{\"res\":\""+peoplejsonarray.getJSONObject(i).get("uid").toString()+"\"}";
 
                 }
 
                 NewStatusCond.setStatus("3");
                 int checkind2 = userOperation.selectCountByField(NewStatusCond);
                 if(checkind2 > 0)
-                    return peoplejsonarray.getJSONObject(i).get("uid").toString();
+                    return "{\"res\":\""+peoplejsonarray.getJSONObject(i).get("uid").toString()+"\"}";
             }
 
             for(int i=0; i< peoplejsonarray.length(); i++) {
