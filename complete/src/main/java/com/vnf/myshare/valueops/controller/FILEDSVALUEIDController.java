@@ -171,7 +171,7 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
+    @RequestMapping(method = RequestMethod.DELETE,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
     public String deleteByField(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
 
 //        System.out.println(grouppeople[0].toString());
@@ -219,7 +219,7 @@ public class FILEDSVALUEIDController {
                 sqlSession.commit();
             }
             System.out.println("Success");
-            return "0";
+            return "{\"res\":0}";
 
         }finally {
             sqlSession.close();
