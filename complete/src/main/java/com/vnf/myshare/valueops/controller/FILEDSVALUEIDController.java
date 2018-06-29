@@ -171,8 +171,8 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
-    public boolean deleteByField(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
+    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
+    public String deleteByField(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
 
 //        System.out.println(grouppeople[0].toString());
 //        JSONArray peoplejsonarray = new JSONArray(grouppeople);
@@ -190,6 +190,26 @@ public class FILEDSVALUEIDController {
             System.out.println(peoplejsonarray.toString());
 
             for(int i=0; i< peoplejsonarray.length(); i++) {
+                BO_FILEDSVALUEID NewStatusCond = new BO_FILEDSVALUEID();
+                NewStatusCond.setProjectid(0);
+                NewStatusCond.setField1(shareid);
+                NewStatusCond.setField2(peoplejsonarray.getJSONObject(i).get("uid").toString());
+                NewStatusCond.setStatus("2");
+                System.out.println("xxxxxxxxx");
+                int checkind1 = userOperation.selectCountByField(NewStatusCond);
+                if(checkind1 > 0) {
+                    System.out.println(peoplejsonarray.getJSONObject(i).get("uid").toString());
+                    return peoplejsonarray.getJSONObject(i).get("uid").toString();
+
+                }
+
+                NewStatusCond.setStatus("3");
+                int checkind2 = userOperation.selectCountByField(NewStatusCond);
+                if(checkind2 > 0)
+                    return peoplejsonarray.getJSONObject(i).get("uid").toString();
+            }
+
+            for(int i=0; i< peoplejsonarray.length(); i++) {
                 record.setProjectid(1);
                 record.setField1(shareid);
                 record.setField2(peoplejsonarray.getJSONObject(i).get("uid").toString());
@@ -198,11 +218,12 @@ public class FILEDSVALUEIDController {
                 userOperation.deleteByField(record);
                 sqlSession.commit();
             }
+            System.out.println("Success");
+            return "0";
 
         }finally {
             sqlSession.close();
         }
-        return true;
     }
 
     //根據活動號獲取關注人數量
