@@ -51,9 +51,8 @@ public interface BO_PROJECTRepository extends JpaRepository<BO_PROJECT,Long>{
 
     //拼單創建人是本人，或者關注該拼單的人，並且拼單沒有過期，或者已經過期但存在沒有完結的操作
     @Transactional
-    @Query(value = "select * from BO_PROJECT u where u.createby = ?1 and projectid in (select projectid from bo_project where TO_DAYS(enddate)  - TO_DAYS(NOW()) >= 0 OR projectid in (select field1 from bo_filedsvalue0 where field2 = ?1 and (status =2 or status=3)))" +
-            "union" +
-            "select * from BO_PROJECT t where t.projectid in (select field1 from bo_filedsvalue1 where field2 = ?1) and projectid in (select projectid from bo_project where TO_DAYS(enddate)  - TO_DAYS(NOW()) >= 0 OR projectid in (select field1 from bo_filedsvalue0 where field2 = ?1 and (status =2 or status=3)))", nativeQuery = true)
+//    @Query(value = "select * from BO_PROJECT u where u.createby = ?1 ", nativeQuery = true)
+    @Query(value = "select * from BO_PROJECT u where u.createby = ?1 and projectid in (select projectid from bo_project where TO_DAYS(enddate)  - TO_DAYS(NOW()) >= 0 OR projectid in (select field1 from bo_filedsvalue0 where field2 = ?1 and (status =2 or status=3))) union select * from BO_PROJECT t where t.projectid in (select field1 from bo_filedsvalue1 where field2 = ?1) and projectid in (select projectid from bo_project where TO_DAYS(enddate)  - TO_DAYS(NOW()) >= 0 OR projectid in (select field1 from bo_filedsvalue0 where field2 = ?1 and (status =2 or status=3)))", nativeQuery = true)
     List<BO_PROJECT> findProjects(String uid);
 
 }

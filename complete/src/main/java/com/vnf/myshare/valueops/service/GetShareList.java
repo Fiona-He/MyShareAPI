@@ -3,6 +3,7 @@ import com.vnf.myshare.valueops.controller.BO_PROJECTController;
 import com.vnf.myshare.valueops.controller.FILEDSVALUEController;
 import com.vnf.myshare.valueops.controller.FILEDSVALUEIDController;
 import com.vnf.myshare.valueops.controller.UserProjectController;
+import com.vnf.myshare.valueops.dao.BO_PROJECTRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.vnf.myshare.valueops.model.BO_PROJECT;
@@ -24,7 +25,7 @@ public class GetShareList {
     @Autowired
     FILEDSVALUEIDController filedsvalueidController;
     @Autowired
-    BO_PROJECTController    bo_projectController;
+    BO_PROJECTRepository bo_projectRepository;
     @Autowired
     UserProjectController userProjectController;
     //search all project
@@ -56,7 +57,10 @@ public class GetShareList {
             fin_projects.add(project[m]);
         };*/
         //循環每個拼單
-        List<BO_PROJECT> fin_projects = bo_projectController.findProject(uid);
+        List<BO_PROJECT> fin_projects = bo_projectRepository.findProjects(uid);
+        System.out.println(uid);
+
+        System.out.println(fin_projects.size());
                 //restTemplate.getForEntity("http://localhost:8182/findProjects/"+uid, BO_PROJECT[].class);
         //BO_PROJECT[] fin_projects = responseEntity.getBody();
 
@@ -66,19 +70,27 @@ public class GetShareList {
 
             shareDetail.Project = fin_projects.get(i);
 
-            BO_FILEDSVALUEID record = new BO_FILEDSVALUEID();
-            record.setProjectid(1);
-            record.setField1(fin_projects.get(i).getProjectid().toString());
+            BO_FILEDSVALUEID record1 = new BO_FILEDSVALUEID();
+            record1.setProjectid(1);
+            record1.setField1(fin_projects.get(i).getProjectid().toString());
             //關注人數
-            shareDetail.JoinUsers = filedsvalueidController.selectCountByField(record);
+            shareDetail.JoinUsers = filedsvalueidController.selectCountByField(record1);
             //已經舉手，狀態是1的人數目
             shareDetail.RaiseHandCount1 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"1");
 
-            shareDetail.RaiseHandCount2 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"2");
+            shareDetail.RaiseHandCount2 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"1");
 
-            shareDetail.RaiseHandCount3 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"3");
+            shareDetail.RaiseHandCount3 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"2");
 
             shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects.get(i).getProjectid(),uid);
+
+            BO_FILEDSVALUEID record2 = new BO_FILEDSVALUEID();
+            record2.setProjectid(2);
+            record2.setField1(fin_projects.get(i).getProjectid().toString());
+            record2.setField2(uid);
+            record2.setStatus("1");
+
+            shareDetail.SubOrderKing = filedsvalueidController.selectCountByField(record2);
 
             shareDetail.RaiseHandStatus = filedsvalueidController.getRaiseHandStatus(0,fin_projects.get(i).getProjectid());
 
