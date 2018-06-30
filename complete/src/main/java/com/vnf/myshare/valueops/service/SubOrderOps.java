@@ -45,6 +45,7 @@ public class SubOrderOps {
             BO_FILEDSVALUEID cond2 = new BO_FILEDSVALUEID();
             cond2.setProjectid(3);
             cond2.setField1(orderid);
+            cond2.setStatus("1");
             cond2.setField6(subOrder.order.getField6().toString());
             List<BO_FILEDSVALUEID> templist = userOperation.selectByField(cond2);
 

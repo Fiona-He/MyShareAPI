@@ -237,6 +237,9 @@
         <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
+        <if test="status != null and status != 'undfined'">
+            and STATUS= #{status,jdbcType=LONGVARCHAR}
+        </if>
     </delete>
     <insert id="insert" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
     insert into bo_filedsvalue${projectid} (SEQUENCE, PROJECTID, CREATEBY,
@@ -717,6 +720,9 @@
         </if>
         <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
+        </if>
+        <if test="status != null and status != 'undfined'">
+            and STATUS= #{status,jdbcType=LONGVARCHAR}
         </if>
   </select>
 
