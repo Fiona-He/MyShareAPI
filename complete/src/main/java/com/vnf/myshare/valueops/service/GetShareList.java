@@ -1,4 +1,5 @@
 package com.vnf.myshare.valueops.service;
+import com.vnf.myshare.valueops.controller.BO_PROJECTController;
 import com.vnf.myshare.valueops.controller.FILEDSVALUEController;
 import com.vnf.myshare.valueops.controller.FILEDSVALUEIDController;
 import com.vnf.myshare.valueops.controller.UserProjectController;
@@ -22,6 +23,8 @@ public class GetShareList {
 
     @Autowired
     FILEDSVALUEIDController filedsvalueidController;
+    @Autowired
+    BO_PROJECTController    bo_projectController;
     @Autowired
     UserProjectController userProjectController;
     //search all project
@@ -53,32 +56,33 @@ public class GetShareList {
             fin_projects.add(project[m]);
         };*/
         //循環每個拼單
-        ResponseEntity<BO_PROJECT[]> responseEntity = restTemplate.getForEntity("http://localhost:8182/findProjects/"+uid, BO_PROJECT[].class);
-        BO_PROJECT[] fin_projects = responseEntity.getBody();
+        List<BO_PROJECT> fin_projects = bo_projectController.findProject(uid);
+                //restTemplate.getForEntity("http://localhost:8182/findProjects/"+uid, BO_PROJECT[].class);
+        //BO_PROJECT[] fin_projects = responseEntity.getBody();
 
-        for(int i =0; i < fin_projects.length; i++)
+        for(int i =0; i < fin_projects.size(); i++)
         {
             ShareDetail shareDetail = new ShareDetail();
 
-            shareDetail.Project = fin_projects[i];
+            shareDetail.Project = fin_projects.get(i);
 
             BO_FILEDSVALUEID record = new BO_FILEDSVALUEID();
             record.setProjectid(1);
-            record.setField1(fin_projects[i].getProjectid().toString());
+            record.setField1(fin_projects.get(i).getProjectid().toString());
             //關注人數
             shareDetail.JoinUsers = filedsvalueidController.selectCountByField(record);
             //已經舉手，狀態是1的人數目
-            shareDetail.RaiseHandCount1 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"1");
+            shareDetail.RaiseHandCount1 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"1");
 
-            shareDetail.RaiseHandCount2 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"2");
+            shareDetail.RaiseHandCount2 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"2");
 
-            shareDetail.RaiseHandCount3 = filedsvalueidController.selectCount(0,fin_projects[i].getProjectid(),"3");
+            shareDetail.RaiseHandCount3 = filedsvalueidController.selectCount(0,fin_projects.get(i).getProjectid(),"3");
 
-            shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects[i].getProjectid(),uid);
+            shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects.get(i).getProjectid(),uid);
 
-            shareDetail.RaiseHandStatus = filedsvalueidController.getRaiseHandStatus(0,fin_projects[i].getProjectid());
+            shareDetail.RaiseHandStatus = filedsvalueidController.getRaiseHandStatus(0,fin_projects.get(i).getProjectid());
 
-            shareDetail.DateTime = filedsvalueidController.getDatetime(0,fin_projects[i].getProjectid(),uid);
+            shareDetail.DateTime = filedsvalueidController.getDatetime(0,fin_projects.get(i).getProjectid(),uid);
 
             /*//獲取每個拼單的關注用戶數量
             ResponseEntity<Integer> responseEntityFieldsValue = restTemplate.getForEntity("http://localhost:8182/projectusers?projectid="+fin_projects[i].getProjectid(), Integer.class);
