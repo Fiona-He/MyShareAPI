@@ -36,7 +36,7 @@ public interface BO_FILEDSVALUEIDMapper {
 
     List<RaiseHandStatus> getRaiseHandStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
 
-    List<RaiseHandStatus> getSubOrderKing(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
+    List<String> getSubOrderKing(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
 
     String getDatetime(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 }

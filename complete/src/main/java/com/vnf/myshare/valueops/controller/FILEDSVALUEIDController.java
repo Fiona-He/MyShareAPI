@@ -304,9 +304,9 @@ public class FILEDSVALUEIDController {
 
     }
 
-    public List<RaiseHandStatus> getSubOrderKing(@PathVariable int projectid,@PathVariable int shareid) {
+    public List<String> getSubOrderKing(@PathVariable int projectid,@PathVariable int shareid) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        List<RaiseHandStatus> status;
+        List<String> status;
         try {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             status = userOperation.getSubOrderKing(projectid,shareid);

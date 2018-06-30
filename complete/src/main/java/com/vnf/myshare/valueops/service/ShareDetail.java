@@ -14,7 +14,7 @@ public class ShareDetail {
     public int RaiseHandCount3;
     public int JoinUsers;
     public String UserStatus;
-    public List<RaiseHandStatus> SubOrderKing;
+    public List<String> SubOrderKing;
     public List<RaiseHandStatus> RaiseHandStatus;
     public String DateTime;
 

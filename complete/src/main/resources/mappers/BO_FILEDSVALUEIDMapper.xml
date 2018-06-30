@@ -818,8 +818,8 @@
     select (ifnull(sum(status),0)) as status
     from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and FIELD2 = #{username,jdbcType=CHAR})
   </select>
-    <select id="getSubOrderKing" resultMap="RaiseHandStatus">
-        select field2 as uid, (ifnull(sum(status),0)) as status, field6 as sequence
+    <select id="getSubOrderKing" resultType="java.lang.String">
+        select field2 as uid
         from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER})
     </select>
     <select id="getRaiseHandStatus" resultMap="RaiseHandStatus">
