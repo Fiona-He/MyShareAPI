@@ -304,6 +304,20 @@ public class FILEDSVALUEIDController {
 
     }
 
+    public List<RaiseHandStatus> getSubOrderKing(@PathVariable int projectid,@PathVariable int shareid) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<RaiseHandStatus> status;
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            status = userOperation.getSubOrderKing(projectid,shareid);
+        } finally {
+            sqlSession.close();
+        }
+
+        return status;
+
+    }
+
     public List<RaiseHandStatus> getRaiseHandStatus(@PathVariable int projectid,@PathVariable int shareid) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         List<RaiseHandStatus> status;

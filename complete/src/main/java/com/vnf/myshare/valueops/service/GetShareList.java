@@ -84,13 +84,7 @@ public class GetShareList {
 
             shareDetail.UserStatus = filedsvalueidController.getStatus(0,fin_projects.get(i).getProjectid(),uid);
 
-            BO_FILEDSVALUEID record2 = new BO_FILEDSVALUEID();
-            record2.setProjectid(2);
-            record2.setField1(fin_projects.get(i).getProjectid().toString());
-            record2.setField2(uid);
-            record2.setStatus("1");
-
-            shareDetail.SubOrderKing = filedsvalueidController.selectCountByField(record2);
+            shareDetail.SubOrderKing = filedsvalueidController.getSubOrderKing(2,fin_projects.get(i).getProjectid());
 
             shareDetail.RaiseHandStatus = filedsvalueidController.getRaiseHandStatus(0,fin_projects.get(i).getProjectid());
 
