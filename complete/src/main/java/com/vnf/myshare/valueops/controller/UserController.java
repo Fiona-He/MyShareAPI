@@ -3,9 +3,17 @@ package com.vnf.myshare.valueops.controller;
 import com.vnf.myshare.valueops.dao.UserRepository;
 import com.vnf.myshare.valueops.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
+
 @CrossOrigin
 @RestController
 public class UserController {
@@ -15,10 +23,126 @@ public class UserController {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    //search all user
+    private final List<SseEmitter> emitters = new ArrayList<>();
+
+
+    @RequestMapping(path = "/stream", method = RequestMethod.GET)
+    public SseEmitter stream() throws IOException {
+
+        SseEmitter emitter = new SseEmitter();
+        emitters.add(emitter);
+        emitter.onCompletion(() -> emitters.remove(emitter));
+        return emitter;
+    }
+
+
+    @RequestMapping(path = "/createuser", method = RequestMethod.POST)
+    public User sendMessage(@RequestBody User user) {
+        System.out.println(user.getName());
+        System.out.println(emitters.size());
+
+        emitters.forEach((SseEmitter emitter) -> {
+            try {
+                System.out.println(emitter.toString());
+                System.out.println(user.getName());
+                emitter.send(user, MediaType.APPLICATION_JSON);
+            } catch (IOException e) {
+                emitter.complete();
+                emitters.remove(emitter);
+                e.printStackTrace();
+            }
+        });
+        return user;
+    }
+//-------------------------------------------------------------------------------------------------
+    private static Map<Long,SseEmitter> sseEmitters = new Hashtable<>();
+
+    public void addSseEmitters(Long payRecordId, SseEmitter sseEmitter) {
+        sseEmitters.put(payRecordId, sseEmitter);
+    }
+
+    @RequestMapping(path = "/stream2/{payRecordId}", method = RequestMethod.GET)
+    public SseEmitter stream2(@PathVariable Long payRecordId){
+        final SseEmitter emitter = new SseEmitter();
+        try {
+            this.addSseEmitters(payRecordId,emitter);
+        }catch (Exception e){
+            emitter.completeWithError(e);
+        }
+
+        return emitter;
+    }
+
+    @RequestMapping(path = "/createuser2", method = RequestMethod.POST)
+    public User sendMessage2(@RequestBody User user) {
+        System.out.println(user.getName());
+        System.out.println(emitters.size());
+
+        Long payRecordId = user.getId();
+        SseEmitter sseEmitter = sseEmitters.get(payRecordId);
+
+        System.out.println(sseEmitter);
+
+        try{
+            if(sseEmitter!=null)
+            {
+                System.out.println(sseEmitter);
+                sseEmitter.send(user,MediaType.APPLICATION_JSON);
+            }
+            else{
+                System.out.println("sseEmitter is null ");
+            }
+
+
+        }catch (IOException e) {}
+
+        return user;
+    }
+
+    @RequestMapping(path = "/createuser3", method = RequestMethod.POST)
+    public int sendMessage3(@RequestBody User[] users) {
+        int cnt=0;
+        for(int i=0; i<users.length; i++) {
+            Long payRecordId = users[i].getId();
+            SseEmitter sseEmitter = sseEmitters.get(payRecordId);
+            try{
+                if(sseEmitter!=null)
+                {
+                    System.out.println(sseEmitter);
+                    sseEmitter.send(users[i],MediaType.APPLICATION_JSON);
+                    cnt++;
+                }
+                else{
+                    System.out.println("sseEmitter is null ");
+                }
+
+            }catch (IOException e) {}
+        }
+        return cnt;
+    }
+//-------------------------------------------------------------------------------------------------
+
+
+
+    //search one user
     @GetMapping(value = "/findusers")
     public List<User> findUsers() {
         return userRepository.findAll();
+    }
+
+    //add one asset
+    @GetMapping(value = "/finduser/{id}")
+    public double findUser(@PathVariable("id") long id) {
+        User user = userRepository.getOne(id);
+        return user.getAsset();
+    }
+    //add 1 money
+    @PostMapping(value = "/add1money/{id}")
+    public double add1Money(@PathVariable("id") long id) {
+        User user = userRepository.getOne(id);
+        user.setAsset(user.getAsset()+1);
+        userRepository.save(user);
+        return user.getAsset();
     }
 
     //add one user
@@ -39,6 +163,7 @@ public class UserController {
     public User updateUser(@RequestBody User myuser){
         User user = userRepository.getOne(myuser.getId());
         user.setName(myuser.getName());
+        user.setAsset(myuser.getAsset());
         return userRepository.save(user);
     }
 
