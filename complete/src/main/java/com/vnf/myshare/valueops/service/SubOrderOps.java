@@ -45,6 +45,7 @@ public class SubOrderOps {
             BO_FILEDSVALUEID cond2 = new BO_FILEDSVALUEID();
             cond2.setProjectid(3);
             cond2.setField1(orderid);
+            cond2.setStatus("1");
             cond2.setField6(subOrder.order.getField6().toString());
             List<BO_FILEDSVALUEID> templist = userOperation.selectByField(cond2);
 
@@ -70,7 +71,6 @@ public class SubOrderOps {
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             for(int i=0; i< record.list.length; i++) {
                 //新增子訂單人員清單
-                userOperation.insert(record.list[i]);
                 BO_FILEDSVALUEID NewStatusCond = new BO_FILEDSVALUEID();
                 //更新舉手狀態，更新BO_FIELDVALUE0表，根據projectid必為0；Field1活動ID；Field2舉手uid；Status必為1（還沒被拉入其他小單）
                 NewStatusCond.setProjectid(0);
@@ -84,6 +84,9 @@ public class SubOrderOps {
             }
             userOperation.insert(record.order);
             for(int i=0; i< record.list.length; i++) {
+                System.out.println("@@@@@@@@");
+                System.out.println(record.list.length);
+
                 //新增子訂單人員清單
                 userOperation.insert(record.list[i]);
                 BO_FILEDSVALUEID NewStatusCond = new BO_FILEDSVALUEID();
@@ -170,8 +173,17 @@ public class SubOrderOps {
 
         try {
             System.out.println(record);
+            //把賬單狀態更新為4
             BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
             userOperation.updateByPrimaryKey(record);
+            //把舉手狀態從3更新為4
+            BO_FILEDSVALUEID NewStatusCond = new BO_FILEDSVALUEID();
+            NewStatusCond.setProjectid(0);
+            NewStatusCond.setField1(record.getField1());
+            NewStatusCond.setField2(record.getField2());
+            NewStatusCond.setField3(record.getField3());
+            NewStatusCond.setStatus("4");
+            userOperation.updateStatusByField(NewStatusCond);
             sqlSession.commit();
         }finally {
             sqlSession.close();

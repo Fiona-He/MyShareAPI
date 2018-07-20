@@ -11,7 +11,7 @@ import java.util.List;
 public interface FriendsRepository extends JpaRepository<Friends,Long>{
 
     @Transactional
-    @Query("select u from Friends u where u.myuid = ?1")
+    @Query(value = "select * from firends  where myuid = ?1 union select sequence, bfuid as myuid, myuid as bfuid, bfdisplayname, bfemail, bfphotourl,bfdate from firends  where bfuid = ?1", nativeQuery = true)
     List<Friends> findByUid(String uid);
 
     Integer countByMyuidAndBfuid(String uid, String bfuid);

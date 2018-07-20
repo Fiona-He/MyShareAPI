@@ -237,6 +237,9 @@
         <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
+        <if test="status != null and status != 'undfined'">
+            and STATUS= #{status,jdbcType=LONGVARCHAR}
+        </if>
     </delete>
     <insert id="insert" parameterType="com.vnf.myshare.valueops.model.BO_FILEDSVALUEID">
     insert into bo_filedsvalue${projectid} (SEQUENCE, PROJECTID, CREATEBY,
@@ -718,6 +721,9 @@
         <if test="field4 != null and field4 != 'undfined'">
             and FIELD4= #{field4,jdbcType=LONGVARCHAR}
         </if>
+        <if test="status != null and status != 'undfined'">
+            and STATUS= #{status,jdbcType=LONGVARCHAR}
+        </if>
   </select>
 
     <select id="selectByFieldValue" parameterType="map" resultMap="BaseResultMap" statementType="CALLABLE">
@@ -818,6 +824,10 @@
     select (ifnull(sum(status),0)) as status
     from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER} and FIELD2 = #{username,jdbcType=CHAR})
   </select>
+    <select id="getSubOrderKing" resultType="java.lang.String">
+        select field2 as uid
+        from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER})
+    </select>
     <select id="getRaiseHandStatus" resultMap="RaiseHandStatus">
         select field2 as uid, (ifnull(sum(status),0)) as status, sequence
         from bo_filedsvalue${projectid} where SEQUENCE = (select max(sequence) from bo_filedsvalue${projectid}  where PROJECTID = #{projectid,jdbcType=INTEGER} and FIELD1 = #{shareid,jdbcType=INTEGER})

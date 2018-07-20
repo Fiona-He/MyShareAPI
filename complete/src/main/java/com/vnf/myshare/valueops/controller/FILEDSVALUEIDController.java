@@ -171,7 +171,7 @@ public class FILEDSVALUEIDController {
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.POST,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
+    @RequestMapping(method = RequestMethod.DELETE,value = "/fieldvalueiddelete/{shareid}/{createby}/{status}")
     public String deleteByField(@PathVariable String shareid,@PathVariable String createby,@RequestBody Object[] grouppeople,@PathVariable String status){
 
 //        System.out.println(grouppeople[0].toString());
@@ -199,14 +199,14 @@ public class FILEDSVALUEIDController {
                 int checkind1 = userOperation.selectCountByField(NewStatusCond);
                 if(checkind1 > 0) {
                     System.out.println(peoplejsonarray.getJSONObject(i).get("uid").toString());
-                    return peoplejsonarray.getJSONObject(i).get("uid").toString();
+                    return "{\"res\":\""+peoplejsonarray.getJSONObject(i).get("uid").toString()+"\"}";
 
                 }
 
                 NewStatusCond.setStatus("3");
                 int checkind2 = userOperation.selectCountByField(NewStatusCond);
                 if(checkind2 > 0)
-                    return peoplejsonarray.getJSONObject(i).get("uid").toString();
+                    return "{\"res\":\""+peoplejsonarray.getJSONObject(i).get("uid").toString()+"\"}";
             }
 
             for(int i=0; i< peoplejsonarray.length(); i++) {
@@ -219,7 +219,7 @@ public class FILEDSVALUEIDController {
                 sqlSession.commit();
             }
             System.out.println("Success");
-            return "0";
+            return "{\"res\":0}";
 
         }finally {
             sqlSession.close();
@@ -304,6 +304,20 @@ public class FILEDSVALUEIDController {
 
     }
 
+    public List<String> getSubOrderKing(@PathVariable int projectid,@PathVariable int shareid) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<String> status;
+        try {
+            BO_FILEDSVALUEIDMapper userOperation = sqlSession.getMapper(BO_FILEDSVALUEIDMapper.class);
+            status = userOperation.getSubOrderKing(projectid,shareid);
+        } finally {
+            sqlSession.close();
+        }
+
+        return status;
+
+    }
+
     public List<RaiseHandStatus> getRaiseHandStatus(@PathVariable int projectid,@PathVariable int shareid) {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         List<RaiseHandStatus> status;
@@ -333,7 +347,7 @@ public class FILEDSVALUEIDController {
                 "inner join bo_project t2 on t1.field7 = t2.PROJECTID " +
                 "inner join bo_filedsvalue5 t3 on t1.field3 = t3.field3 " +
                 "where t1.field3 = 1  and t2.PROJECTID =" + projectid +
-                " ) a  order by a.createTime";
+                " ) a  order by a.createTime desc";
 
         System.out.println("sql:"+sql);
         List result = jdbcTemplate.queryForList(sql);

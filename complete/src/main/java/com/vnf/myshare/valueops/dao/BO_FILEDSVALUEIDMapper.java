@@ -10,7 +10,7 @@ import java.util.List;
 public interface BO_FILEDSVALUEIDMapper {
     int deleteByPrimaryKey(@Param("projectid") Integer projectid, @Param("sequence") Integer sequence);
 
-    String deleteByField(BO_FILEDSVALUEID record);
+    void deleteByField(BO_FILEDSVALUEID record);
 
     int insert(BO_FILEDSVALUEID record);
 
@@ -35,6 +35,8 @@ public interface BO_FILEDSVALUEIDMapper {
     String getStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 
     List<RaiseHandStatus> getRaiseHandStatus(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
+
+    List<String> getSubOrderKing(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid);
 
     String getDatetime(@Param("projectid") Integer projectid, @Param("shareid") Integer shareid, @Param("username") String username);
 }
